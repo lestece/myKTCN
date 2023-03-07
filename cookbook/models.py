@@ -38,7 +38,6 @@ class Recipe(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     is_public = models.BooleanField(default=False)
 
-
     class Meta:
         ordering = ['created_on']
 
