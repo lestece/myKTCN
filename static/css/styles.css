@@ -1,2 +1,60 @@
 /* font-family: 'Josefin Sans', sans-serif;
 font-family: 'Playfair Display', serif; */
+
+
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3rem;
+}
+
+/* -------------------------------------------------------Navbar styles */
+
+nav {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.logo-container{
+    max-height: 30vh;
+    margin-bottom: 3rem;
+}
+
+#logo{
+    margin-top: 2rem;
+}
+
+.navbar-toggler{
+    margin-left: 2rem;
+}
+
+.navbar-collapse{
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+.navbar-expand-md{
+    flex-wrap: wrap;
+}
+
+.navbar-nav{
+    width: 100%;
+    justify-content: space-around;
+}
+
+/* -------------------------------------------------------Footer styles */
+
+.social-container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+footer  i {
+    color: #C68C4F;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
