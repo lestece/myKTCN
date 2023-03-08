@@ -49,6 +49,36 @@ nav {
 
 /* -------------------------------------------------------Browse recipes styles */
 
+.card-img-top{
+    height: 20vh;
+    object-fit: cover;
+}
+
+.card-body{
+    background-color: #ECEBEB;
+}
+
+.category{
+    font-size: 1.3rem;
+    border: 1px solid black;
+}
+
+.card-title{
+    font-family: 'Playfair Display', serif;
+    font-weight: bold !important;
+}
+
+.card-info{
+}
+
+.gio{
+    height: 40vh;
+}
+
+.card-text-brown{
+    color: #C68C4F;
+    border-top: 1px solid #C68C4F;
+}
 /* -------------------------------------------------------Footer styles */
 
 .social-container{
@@ -60,6 +90,6 @@ nav {
 
 footer  i {
     color: #C68C4F;
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
 }

@@ -9,7 +9,7 @@ STATUS = (
 
 DIFFICULTY = (
     (0, "Easy"),
-    (1, "Intermediate"),
+    (1, "Moderate"),
     (2, "Expert"),
 )
 
