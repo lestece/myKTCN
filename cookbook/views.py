@@ -10,7 +10,7 @@ class RecipeList(generic.ListView):
     paginate_by = 6
 
 
-class RecipeDetail(View):
+class RecipeDetails(View):
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)

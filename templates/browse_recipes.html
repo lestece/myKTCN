@@ -32,7 +32,7 @@
                             {% endif %}
                         </div>
                         <div class="card-info d-flex justify-content-center align-items-center mb-3">
-                            <a href="#" class="recipe-link text-decoration-none text-dark">
+                            <a href="{% url 'recipe_details' recipe.slug %}" class="recipe-link text-decoration-none text-dark">
                                 <h2 class="card-title font-weight-bold my-3 ">{{ recipe.title }}</h2>
                                 <p class="card-text">
                                     {{ recipe.description | capfirst | truncatechars:50 | add:"..." }}
