@@ -3,7 +3,16 @@
 {% block content %}
 
 <div class="container">
+    <!-- search bar -->
+    <div class="mt-3 inputs">
+        <i class="fa fa-search"></i>
+        <input type="text" class="form-control" placeholder="Search recipe...">
+    </div>
 
+    <!-- Category buttons -->
+    {% for cat in category(choices) %}
+    {{ cat.1 }}<br />
+    {% endfor %}
     <!-- Recipe cards Column -->
     <div class="col-12">
         <div class="row mx-2">
@@ -32,7 +41,8 @@
                             {% endif %}
                         </div>
                         <div class="card-info d-flex justify-content-center align-items-center mb-3">
-                            <a href="{% url 'recipe_details' recipe.slug %}" class="recipe-link text-decoration-none text-dark">
+                            <a href="{% url 'recipe_details' recipe.slug %}"
+                                class="recipe-link text-decoration-none text-dark">
                                 <h2 class="card-title font-weight-bold my-3 ">{{ recipe.title }}</h2>
                                 <p class="card-text">
                                     {{ recipe.description | capfirst | truncatechars:50 | add:"..." }}
