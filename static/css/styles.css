@@ -7,6 +7,11 @@ body{
     font-size: 1.3rem;
 }
 
+.container{
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
 /* -------------------------------------------------------Navbar styles */
 
 nav {
@@ -44,8 +49,15 @@ nav {
     justify-content: space-around;
 }
 
-/* -------------------------------------------------------General styles styles */
+.nav-foot-hr{
+    border-top: 3px solid black;
+}
 
+/* -------------------------------------------------------General styles styles */
+.hero-img{
+    height: 30vh;
+    object-fit: cover;
+}
 
 /* -------------------------------------------------------Browse recipes styles */
 
@@ -59,7 +71,7 @@ nav {
 }
 
 .category{
-    font-size: 1.3rem;
+    font-size: 1rem;
     border: 1px solid black;
 }
 
@@ -68,16 +80,10 @@ nav {
     font-weight: bold !important;
 }
 
-.card-info{
-}
-
-.gio{
-    height: 40vh;
-}
-
 .card-text-brown{
     color: #C68C4F;
-    border-top: 1px solid #C68C4F;
+    border-top: 1px solid black;
+    font-size: 1rem;
 }
 /* -------------------------------------------------------Footer styles */
 
