@@ -2,33 +2,32 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-STATUS = (
-    (0, "Draft"), 
-    (1, "Published")
-    )
-
-DIFFICULTY = (
-    (0, "Easy"),
-    (1, "Moderate"),
-    (2, "Expert"),
-)
-
-COST = (
-    (0, "Low"),
-    (1, "Medium"),
-    (2, "High"),
-)
-
-CATEGORY = (
-    (0, "STARTERS"),
-    (1, "MAINS"),
-    (2, "SIDES"),
-    (3, "DESSERTS"),
-    (4, "SNACKS"),
-)
-
 
 class Recipe(models.Model):
+    STATUS = (
+        (0, "Draft"), 
+        (1, "Published")
+    )
+
+    DIFFICULTY = (
+        (0, "Easy"),
+        (1, "Moderate"),
+        (2, "Expert"),
+    )
+
+    COST = (
+        (0, "Low"),
+        (1, "Medium"),
+        (2, "High"),
+    )
+
+    CATEGORY = (
+        (0, "STARTERS"),
+        (1, "MAINS"),
+        (2, "SIDES"),
+        (3, "DESSERTS"),
+        (4, "SNACKS"),
+    )
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipes")

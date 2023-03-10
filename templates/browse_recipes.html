@@ -3,76 +3,95 @@
 {% block content %}
 
 <div class="container">
-    <!-- search bar -->
+    <!-- Search bar
     <div class="mt-3 inputs">
         <i class="fa fa-search"></i>
         <input type="text" class="form-control" placeholder="Search recipe...">
     </div>
 
-    <!-- Category buttons -->
-    {% for cat in category(choices) %}
-    {{ cat.1 }}<br />
-    {% endfor %}
+     Category buttons 
+    <div class="row text-center mt-4 cat-btns">
+        <button class="col-sm-6 col-md-4 col-lg-2">
+            ALL
+        </button>
+        <button class="col-sm-6 col-md-4 col-lg-2">
+            STARTERS
+        </button>
+        <button class="col-sm-6 col-md-4 col-lg-2">
+            MAINS
+        </button>
+        <button class="col-sm-6 col-md-4 col-lg-2">
+            SIDES
+        </button>
+        <button class="col-sm-6 col-md-4 col-lg-2">
+            DESSERTS
+        </button>
+        <button class="col-sm-6 col-md-4 col-lg-2">
+            SNACKS
+        </button>
+    </div> -->
     <!-- Recipe cards Column -->
-    <div class="col-12">
-        <div class="row mx-2">
-            {% for recipe in recipe_list %}
-            <div class="col-sm-6 col-lg-3 my-3">
-                <div class="card h-100">
-                    <div class="d-flex flex-column card-body text-center">
-                        <div class="image-container mb-3">
-                            {% if "placeholder" in recipe.featured_image.url %}
-                            <img class="card-img-top" src="../static/images/empty-recipe-img.jpg">
-                            {% else %}
-                            <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
-                            {% endif %}
-                        </div>
-                        <div class="category py-1">
-                            {% if recipe.category == 0 %}
-                            STARTERS
-                            {% elif recipe.category == 1 %}
-                            MAINS
-                            {% elif recipe.category == 2 %}
-                            SIDES
-                            {% elif recipe.category == 3 %}
-                            DESSERTS
-                            {% elif recipe.category == 4 %}
-                            SNACKS
-                            {% endif %}
-                        </div>
-                        <div class="card-info d-flex justify-content-center align-items-center mb-3">
-                            <a href="{% url 'recipe_details' recipe.slug %}"
-                                class="recipe-link text-decoration-none text-dark">
-                                <h2 class="card-title font-weight-bold my-3 ">{{ recipe.title }}</h2>
-                                <p class="card-text">
-                                    {{ recipe.description | capfirst | truncatechars:50 | add:"..." }}
-                                </p>
-                            </a>
-                        </div>
-                        <div class="d-flex justify-content-around align-items-center card-text-brown mt-auto pt-3">
-                            <p class="card-text mb-0">
-                                By <span class="recipe-author">{{ recipe.author}}</span>
-                            </p>
-                            |
-                            <p class="card-text">
-                                {% if recipe.difficulty == 0 %}
-                                EASY
-                                {% elif recipe.difficulty == 1 %}
-                                MODERATE
-                                {% elif recipe.difficulty == 2 %}
-                                EXPERT
+    <div class="row">
+        <div class="col-12">
+            <div class="row mx-2">
+                {% for recipe in recipe_list %}
+                <div class="col-sm-6 col-lg-3 my-3">
+                    <div class="card h-100">
+                        <div class="d-flex flex-column card-body text-center">
+                            <div class="image-container mb-3">
+                                {% if "placeholder" in recipe.featured_image.url %}
+                                <img class="card-img-top" src="../static/images/empty-recipe-img.jpg">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
                                 {% endif %}
-                            </p>
+                            </div>
+                            <div class="category py-1">
+                                {% if recipe.category == 0 %}
+                                STARTERS
+                                {% elif recipe.category == 1 %}
+                                MAINS
+                                {% elif recipe.category == 2 %}
+                                SIDES
+                                {% elif recipe.category == 3 %}
+                                DESSERTS
+                                {% elif recipe.category == 4 %}
+                                SNACKS
+                                {% endif %}
+                            </div>
+                            <div class="card-info d-flex justify-content-center align-items-center mb-3">
+                                <a href="{% url 'recipe_details' recipe.slug %}"
+                                    class="recipe-link text-decoration-none text-dark">
+                                    <h2 class="card-title font-weight-bold my-3 ">{{ recipe.title }}</h2>
+                                    <p class="card-text">
+                                        {{ recipe.description | capfirst | truncatechars:50 | add:"..." }}
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="d-flex justify-content-around align-items-center card-text-brown mt-auto pt-3">
+                                <p class="card-text mb-0">
+                                    By <span class="recipe-author">{{ recipe.author}}</span>
+                                </p>
+                                |
+                                <p class="card-text">
+                                    {% if recipe.difficulty == 0 %}
+                                    EASY
+                                    {% elif recipe.difficulty == 1 %}
+                                    MODERATE
+                                    {% elif recipe.difficulty == 2 %}
+                                    EXPERT
+                                    {% endif %}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% if forloop.counter|divisibleby:4 %}
             </div>
-            {% if forloop.counter|divisibleby:4 %}
-        </div>
-        <div class="row mx-2">
-            {% endif %}
-            {% endfor %}
+            <div class="row mx-2">
+                {% endif %}
+                {% endfor %}
 
+            </div>
         </div>
     </div>
 </div>
