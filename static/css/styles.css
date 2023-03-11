@@ -103,6 +103,8 @@ nav {
 .category {
     font-size: 1rem;
     border: 1px solid black;
+    width: 96%;
+    margin: 0 auto;
 }
 
 .card-title {
@@ -117,8 +119,13 @@ nav {
 }
 
 /* -------------------------------------------------------Recipe details styles */
+.recipe-spec{
+    height: 50vh;
+}
 
-
+.recipe-img{
+    height: 100%;
+}
 
 
 /* -------------------------------------------------------Footer styles */
