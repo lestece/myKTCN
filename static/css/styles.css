@@ -19,7 +19,7 @@ nav {
     font-weight: 600;
     text-transform: uppercase;
     margin-top: 1rem;
-    margin-bottom: 4rem;
+    /* margin-bottom: 4rem; */
 }
 
 .logo-container {
@@ -53,8 +53,28 @@ nav {
     border-top: 3px solid black;
 }
 
-/* -------------------------------------------------------General styles */
+/* -------------------------------------------------------Homepage styles */
+.hero-text-1{
+    margin-left: 5%;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
 
+.hero-text-2{
+    float: right;
+    margin-right: 5%;
+    color: #C68C4F;
+}
+
+.hero-image-container{
+    height: 50vh;
+}
+
+.hero-image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 /* -------------------------------------------------------Search bar and cat btnss styles */
 
 /* .inputs {
