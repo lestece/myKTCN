@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-md-6 recipe-spec mb-3">
+        <div class="col-md-6 recipe-img-block mb-3">
             {% if "placeholder" in recipe.featured_image.url %}
             <img class="card-img-top recipe-img" src="../static/images/empty-recipe-img.jpg">
             {% else %}
@@ -56,13 +56,13 @@
                             COST: {{ recipe.get_cost_display }}
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 my-4">
-                            {{ recipe.description }}
-                        </div>
-                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 my-3 text-center">
+            {{ recipe.description }}
         </div>
     </div>
     <div class="row">
@@ -88,6 +88,22 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12 card">
+            <div class="card-body">
+                <h3 class="card-title text-center">What other users say about this recipe:</h3>
+                {% for comment in comments %}
+                <div class="comment p-3 mt-3">
+                    <div class="row text-muted">
+                        <div class="col-6">{{ comment.name }}</div>
+                        <div class="col-6 d-flex justify-content-end">{{ comment.created_on | date:" d M Y" }}</div>
+                    </div>
+                    <p class="card-text mt-3">{{ comment.body }}</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
