@@ -61,13 +61,33 @@
                 <hr />
                 <div class="row">
                     {% for recipe in newly_added_recipes %}
-                    <div class="col-12">
-                        <p>{{ recipe.title }}</p>
+                    <div class="col-md-4 card-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="image-container mb-3">
+                                    {% if "placeholder" in recipe.featured_image.url %}
+                                    <img class="card-img-top" src="../static/images/empty-recipe-img.jpg">
+                                    {% else %}
+                                    <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
+                                    {% endif %}
+                                </div>
+                                <a href="{% url 'recipe_details' recipe.slug %}"
+                                    class="recipe-link text-decoration-none text-dark">
+                                    <div class="card-title">
+                                        {{ recipe.title }}
+                                    </div>
+                                </a>
+                                    <div class="card-body">
+
+                                    </div>
+                            </div>
+                        </div>
                     </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
