@@ -121,6 +121,14 @@ nav {
     margin-top: 1.5rem;
 }
 
+/* -------------------------------------------------------Account templates styles */
+
+.account-action h1,
+.account-action a{
+    color: #C68C4F;
+    font-family: 'Playfair Display', serif;
+}
+
 
 /* -------------------------------------------------------Search bar and cat btnss styles */
 

@@ -5,20 +5,21 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container account-action">
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <h1>{% trans "Sign In" %}</h1>
-      <p>{% blocktrans %}If you have not created an account yet, then please
-        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+    <div class="col-md-8 mt-3 offset-md-2 text-center">
+      <h1 class="mb-4">{% trans "Login" %}</h1>
+      <p>{% blocktrans %}Welcome back to myKTCN! Login to access your Cookbook.
+        If you have not created an account yet, then please
+        <a href="{{ signup_url }}">register</a> first.{% endblocktrans %}</p>
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{ form.as_p }}
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+        <button class="primaryAction btn btn-outline-dark" type="submit">{% trans "Sign In" %}</button>
+        <a class="button secondaryAction d-block mt-2 small" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
       </form>
     </div>
   </div>
