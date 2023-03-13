@@ -63,13 +63,7 @@
                                 </p>
                                 |
                                 <p class="card-text">
-                                    {% if recipe.difficulty == 0 %}
-                                    EASY
-                                    {% elif recipe.difficulty == 1 %}
-                                    MODERATE
-                                    {% elif recipe.difficulty == 2 %}
-                                    EXPERT
-                                    {% endif %}
+                                    {{ recipe.get_difficulty_display }}
                                 </p>
                             </div>
                         </div>
