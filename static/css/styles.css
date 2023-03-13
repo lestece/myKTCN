@@ -95,6 +95,10 @@ nav {
     margin-right: 1rem;
 }
 
+.browse-recipes-block {
+    --bs-gutter-x: 0;
+}
+
 /* -------------------------------------------------------Search bar and cat btnss styles */
 
 /* .inputs {

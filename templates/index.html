@@ -48,13 +48,26 @@
                 </div>
                 <div class="card col-sm-6 col-lg-3 mt-2">
                     <div class="card-body">
-                    <h3 class="card-title"><i class="fas fa-share"></i>Browse &amp; Share</h3>
-                    <p class="card-text">Share your yummy recipes with the world and
-                        get inspired by other foodies like you!</p>
+                        <h3 class="card-title"><i class="fas fa-share"></i>Browse &amp; Share</h3>
+                        <p class="card-text">Share your yummy recipes with the world and
+                            get inspired by other foodies like you!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 browse-recipes-block">
+            <div class="col-12 text-center">
+                <h2>Recently shared by other users:</h2>
+                <hr />
+                <div class="row">
+                    {% for recipe in newly_added_recipes %}
+                    <div class="col-12">
+                        <p>{{ recipe.title }}</p>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}

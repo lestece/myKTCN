@@ -6,6 +6,11 @@ from .models import Recipe
 class Home(generic.TemplateView):
     template_name = "index.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['newly_added_recipes'] = Recipe.objects.filter(status=1, is_public=True).order_by('-created_on')[:6]
+        return context
+
 
 class RecipeList(generic.ListView):
     model = Recipe
@@ -29,3 +34,4 @@ class RecipeDetails(View):
                 "comments": comments
             }
         )
+        
