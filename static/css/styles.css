@@ -12,6 +12,7 @@ body {
     box-sizing: border-box;
 }
 
+
 /* -------------------------------------------------------Navbar styles */
 
 nav {
@@ -97,7 +98,29 @@ nav {
 
 .browse-recipes-block {
     --bs-gutter-x: 0;
+    margin-top: 3rem;
 }
+
+.browse-recipes-block hr{
+    border-top: 1px solid black;
+    margin: 0 auto 2rem;
+}
+
+.signup-cta-block{
+    background-color: #ECEBEB;
+}
+
+.signup-cta-block{
+    margin: 2rem 0 0; 
+    padding: 2rem 0;
+}
+
+
+.signup-btn{
+    font-family: 'Playfair Display', serif;
+    margin-top: 1.5rem;
+}
+
 
 /* -------------------------------------------------------Search bar and cat btnss styles */
 

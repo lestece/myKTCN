@@ -55,13 +55,13 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-4 browse-recipes-block">
+        <div class="row browse-recipes-block">
             <div class="col-12 text-center">
                 <h2>Recently shared by other users:</h2>
-                <hr />
-                <div class="row">
+                <hr class="w-50"/>
+                <div class="row mx-2">
                     {% for recipe in newly_added_recipes %}
-                    <div class="col-md-4 card-lg-3">
+                    <div class="col-md-3 my-2">
                         <div class="card h-100">
                             <div class="card-body">
                                 <div class="image-container mb-3">
@@ -77,9 +77,15 @@
                                         {{ recipe.title }}
                                     </div>
                                 </a>
-                                    <div class="card-body">
-
-                                    </div>
+                                <div class="card-body">
+                                    <p>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +93,15 @@
                 </div>
             </div>
         </div>
+        <div class="row signup-cta-block text-center">
+            <div class="col-12 w-100">
+                <h2 class="lh-base mt-3">Create an account now to use myKTCN and start saving your recipes!</h2>
+                <button type="button" class="btn btn-outline-dark signup-btn fs-2 fw-bold text-uppercase">Sign up</button>
+            </div>
+        </div>
     </div>
+</div>
+</div>
 </div>
 </div>
 {% endblock %}
