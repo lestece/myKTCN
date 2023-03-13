@@ -2,4 +2,7 @@
 
 {% block content %}
 This is the user cookbook
+{% for recipe in user_recipes %}
+{{ recipe.title }}
+{% endfor %}
 {% endblock %}
