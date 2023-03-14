@@ -131,6 +131,11 @@ nav {
     float: right;
 }
 
+/* -------------------------------------------------------Add recipe styles */
+.form-group{
+    margin: 2rem;
+}
+
 /* -------------------------------------------------------Search bar and cat btnss styles */
 
 /* .inputs {

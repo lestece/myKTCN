@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Recipe
 from .forms import RecipeForm
+from django.template.defaultfilters import slugify
 
 
 class Home(generic.TemplateView):
@@ -16,7 +17,7 @@ class Home(generic.TemplateView):
 class UserRecipes(generic.ListView):
     model = Recipe
     template_name = "cookbook.html"
-    paginate_by = 6
+    paginate_by = 8
 
     def get(self, request):
         queryset = Recipe.objects.filter(status=1, author=request.user.id).order_by("-created_on")
@@ -33,7 +34,7 @@ class RecipeList(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter(status=1, is_public=True).order_by("-created_on")
     template_name = "browse_recipes.html"
-    paginate_by = 6
+    paginate_by = 8
 
 
 class RecipeDetails(View):
@@ -57,7 +58,7 @@ class AddRecipe(View):
     form_class = RecipeForm
     template_name = 'add_recipe.html'
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         form = self.form_class
         return render(
             request,
@@ -66,6 +67,33 @@ class AddRecipe(View):
                 "form": form,
             }
         )
+
+    def post(self, request, *args, **kwargs):
+        form = RecipeForm(data=request.POST)
+
+        if form.is_valid():
+            form.instance.author = request.user
+            form.instance.slug = slugify(form.instance.title)
+            recipe = form.save(commit=False)
+            recipe.save()
+            return render(
+                request,
+                'add_recipe.html',
+                {
+                    'posted': True,
+                }
+            )
+        else:
+            return render(
+                request,
+                'add_recipe.html',
+                {
+                    'form': form,
+                    'failed': True,
+                    'posted': False,
+                }
+            )
+    
 
 
 

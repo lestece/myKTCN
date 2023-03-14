@@ -21,9 +21,4 @@ class RecipeForm(forms.ModelForm):
             'status',
             'is_public',
             ]
-        widgets = {
-            'description': SummernoteWidget(),
-            'ingredients': SummernoteWidget(),
-            'method': SummernoteWidget(),
-        }
 
