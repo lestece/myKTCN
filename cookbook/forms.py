@@ -22,3 +22,8 @@ class RecipeForm(forms.ModelForm):
             'is_public',
             ]
 
+        labels = {
+            'status': 'Save as Draft or Publish?',
+            'is_public': 'Share it with the Community?',
+        }
+

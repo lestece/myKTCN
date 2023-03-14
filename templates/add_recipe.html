@@ -20,10 +20,10 @@
             </div>
             {% else %}
             <div class="row">
-                <div class="col-12 add-confirmation">
-                    <h1>Your recipe: {{ title }} has been successfully added to your Cookbook!</h1>
-                    <button class="btn btn-lg btn-outline-dark">Add another recipe</button>
-                    <button class="btn btn-lg btn-outline-dark">Go to my Cookbook</button>
+                <div class="col-12 add-confirmation text-center p-4">
+                    <h1 class="mb-4">Your recipe: <span>{{ title }}</span> has been successfully added to your Cookbook!</h1>
+                    <a href="{% url 'add_recipe' %}" class="btn btn-outline-dark mx-2" >Add another recipe</a>
+                    <a href="{% url 'my_cookbook' %}" class="btn btn-outline-dark mx-2" >Go to my Cookbook</a>
                 </div>
             </div>
         </div>

@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
+from django.template.defaultfilters import slugify
+from django.contrib import messages
 from .models import Recipe
 from .forms import RecipeForm
-from django.template.defaultfilters import slugify
 
 
 class Home(generic.TemplateView):
