@@ -65,6 +65,7 @@ class AddRecipe(View):
             self.template_name,
             {
                 "form": form,
+                'posted': False,
             }
         )
 
