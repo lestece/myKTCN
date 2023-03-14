@@ -75,6 +75,7 @@ class AddRecipe(View):
         if form.is_valid():
             form.instance.author = request.user
             form.instance.slug = slugify(form.instance.title)
+            title = form.instance.title
             recipe = form.save(commit=False)
             recipe.save()
             return render(
@@ -82,6 +83,7 @@ class AddRecipe(View):
                 'add_recipe.html',
                 {
                     'posted': True,
+                    'title': title,
                 }
             )
         else:

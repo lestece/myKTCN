@@ -132,8 +132,32 @@ nav {
 }
 
 /* -------------------------------------------------------Add recipe styles */
+.add-recipe h1{
+    color: #C68C4F;
+    font-family: 'Playfair Display', serif;
+}
+
 .form-group{
     margin: 2rem;
+}
+
+.form-group select{
+    -webkit-appearance: auto;
+}
+
+.clearablefileinput {
+    color: white;
+}
+
+.form-control-file{
+    width: 100%;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.add-confirmation{
+    background-color: #ECEBEB;
+    border: 1px solid black;
 }
 
 /* -------------------------------------------------------Search bar and cat btnss styles */
