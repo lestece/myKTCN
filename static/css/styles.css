@@ -120,7 +120,7 @@ nav {
 
 /* -------------------------------------------------------Account templates styles */
 
-.account-action h1,
+h1,
 .account-action a{
     color: #C68C4F;
     font-family: 'Playfair Display', serif;
@@ -129,6 +129,18 @@ nav {
 /* -------------------------------------------------------User cookbook styles */
 .add-recipe{
     float: right;
+}
+
+/* -------------------------------------------------------User drafts styles */
+
+.draft-img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.brown-text{
+    color: #C68C4F;
 }
 
 /* -------------------------------------------------------Add recipe styles */
@@ -256,8 +268,7 @@ nav {
 .social-container {
     display: flex;
     justify-content: space-around;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-top: 1rem;
 }
 
 footer i {
