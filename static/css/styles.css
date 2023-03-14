@@ -1,5 +1,4 @@
-/* font-family: 'Josefin Sans', sans-serif;
-font-family: 'Playfair Display', serif; */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&display=swap');
 
 
 body {
@@ -129,6 +128,10 @@ nav {
     font-family: 'Playfair Display', serif;
 }
 
+/* -------------------------------------------------------User cookbook styles */
+.add-recipe{
+    float: right;
+}
 
 /* -------------------------------------------------------Search bar and cat btnss styles */
 
