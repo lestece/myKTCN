@@ -115,7 +115,53 @@ class AddRecipe(View):
             )
     
 
+class EditRecipe(View):
 
+    def extract(request, slug):
+        context = {}
+        obj = Recipe.objects.get(title=slug)
+        form = RecipeForm(instance=obj)
+        context = {'form': form}
+        return render(request, 'edit_recipe.html', context)
+
+    # def get(self, request, *args, **kwargs):
+    #     form = self.form_class
+    #     return render(
+    #         request,
+    #         self.template_name,
+    #         {
+    #             "form": form,
+    #             'posted': False,
+    #         }
+    #     )
+
+    # def post(self, request, *args, **kwargs):
+    #     form = RecipeForm(data=request.POST)
+
+    #     if form.is_valid():
+    #         form.instance.author = request.user
+    #         form.instance.slug = slugify(form.instance.title)
+    #         title = form.instance.title
+    #         recipe = form.save(commit=False)
+    #         recipe.save()
+    #         return render(
+    #             request,
+    #             'add_recipe.html',
+    #             {
+    #                 'posted': True,
+    #                 'title': title,
+    #             }
+    #         )
+    #     else:
+    #         return render(
+    #             request,
+    #             'add_recipe.html',
+    #             {
+    #                 'form': form,
+    #                 'failed': True,
+    #                 'posted': False,
+    #             }
+    #         )
 
 
 
