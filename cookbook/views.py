@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
+from django.views.generic.edit import UpdateView
 from django.template.defaultfilters import slugify
 from django.contrib import messages
 from .models import Recipe
@@ -115,55 +116,12 @@ class AddRecipe(View):
             )
     
 
-class EditRecipe(View):
+# class EditRecipe(UpdateView):
+#     form_class = RecipeForm
+#     template_name = 'edit_recipe.html'
+#     success_url = '/thanks/'
 
-    def extract(request, slug):
-        context = {}
-        obj = Recipe.objects.get(title=slug)
-        form = RecipeForm(instance=obj)
-        context = {'form': form}
-        return render(request, 'edit_recipe.html', context)
-
-    # def get(self, request, *args, **kwargs):
-    #     form = self.form_class
-    #     return render(
-    #         request,
-    #         self.template_name,
-    #         {
-    #             "form": form,
-    #             'posted': False,
-    #         }
-    #     )
-
-    # def post(self, request, *args, **kwargs):
-    #     form = RecipeForm(data=request.POST)
-
-    #     if form.is_valid():
-    #         form.instance.author = request.user
-    #         form.instance.slug = slugify(form.instance.title)
-    #         title = form.instance.title
-    #         recipe = form.save(commit=False)
-    #         recipe.save()
-    #         return render(
-    #             request,
-    #             'add_recipe.html',
-    #             {
-    #                 'posted': True,
-    #                 'title': title,
-    #             }
-    #         )
-    #     else:
-    #         return render(
-    #             request,
-    #             'add_recipe.html',
-    #             {
-    #                 'form': form,
-    #                 'failed': True,
-    #                 'posted': False,
-    #             }
-    #         )
-
-
-
-
-    
+#     def form_valid(self, form):
+#         # This method is called when valid form data has been POSTed.
+#         # It should return an HttpResponse.
+#         return super().form_valid(form)

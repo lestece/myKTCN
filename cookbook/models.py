@@ -53,6 +53,9 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('recipe-detail', kwargs={'pk': self.pk})
+
     
 class Comment(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='comments')
