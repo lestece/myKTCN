@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.template.defaultfilters import slugify
@@ -103,7 +104,7 @@ class RecipeEditView(UpdateView):
 
 
 class RecipeDeleteView(DeleteView):
-    model = Author
+    model = Recipe
     template_name = 'recipe_confirm_delete.html'
     success_url = reverse_lazy('my_cookbook')
 
