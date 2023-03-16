@@ -77,6 +77,7 @@ class RecipeDetails(View):
 
 
 class RecipeCreateView(CreateView):
+    model = Recipe
     form_class = RecipeForm
     template_name = 'recipe_create.html'
     
@@ -85,6 +86,17 @@ class RecipeCreateView(CreateView):
         form.instance.slug = slugify(form.instance.title)
         return super().form_valid(form)
 
+
+# CRUD - Update
+class RecipeEditView(UpdateView):
+    model = Recipe
+    form_class = RecipeForm
+    template_name = 'recipe_edit.html'
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.slug = slugify(form.instance.title)
+        return super().form_valid(form)
 
 # class AddRecipe(View):
 #     form_class = RecipeForm
