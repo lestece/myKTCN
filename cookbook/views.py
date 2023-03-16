@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.template.defaultfilters import slugify
 from django.contrib import messages
 from .models import Recipe
-from .forms import RecipeForm
+from .forms import RecipeForm, CommentForm
 
 
 class Home(generic.TemplateView):
@@ -68,7 +68,8 @@ class RecipeDetails(View):
             "recipe_details.html",
             {
                 "recipe": recipe,
-                "comments": comments
+                "comments": comments,
+                "comment_form": CommentForm(),
             }
         )
         

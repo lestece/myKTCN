@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% load crispy_forms_tags %}
 <div class="container">
     <div class="row">
         <div class="col-md-6 recipe-img-block mb-3">
@@ -122,6 +124,15 @@
                     <p class="card-text mt-3">{{ comment.body }}</p>
                 </div>
                 {% endfor %}
+                {% if user.is_authenticated %}
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg btn-outline-dark">Submit</button>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>
