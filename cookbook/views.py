@@ -73,6 +73,9 @@ class RecipeDetails(View):
         
 # Generic editing views created following the documentation at:
 # https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-editing/#django.views.generic.edit
+# and tutorials:
+# https://www.youtube.com/watch?v=KB_wDXBwhUA
+# https://www.youtube.com/watch?v=a718ii0Lf6M
 # CRUD - C
 
 
@@ -97,6 +100,12 @@ class RecipeEditView(UpdateView):
         form.instance.author = self.request.user
         form.instance.slug = slugify(form.instance.title)
         return super().form_valid(form)
+
+
+class RecipeDeleteView(DeleteView):
+    model = Author
+    template_name = 'recipe_confirm_delete.html'
+    success_url = reverse_lazy('my_cookbook')
 
 # class AddRecipe(View):
 #     form_class = RecipeForm
