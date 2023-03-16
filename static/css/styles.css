@@ -258,11 +258,18 @@ h1,
     text-align: left;
 }
 
+.comment-card{
+    border: none;
+}
+
 .comment{
     border: 1px solid black;
     background-color: white;
 }
 
+.user-comments-container{
+    height: fit-content;
+}
 
 /* -------------------------------------------------------Footer styles */
 
