@@ -81,14 +81,21 @@ class RecipeDetails(View):
 
 
 class RecipeCreateView(CreateView):
-    model = Recipe
     form_class = RecipeForm
     template_name = 'recipe_create.html'
-    
+
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.slug = slugify(form.instance.title)
         return super().form_valid(form)
+
+    # Overwrite the absolute url reverse in the Recipe model 
+    # Redirect differently based on recipe status (Published or draft)
+    def get_success_url(self, **kwargs):
+        if self.object.status == 0:
+            return reverse_lazy('drafts')
+        else:
+            return reverse_lazy('recipe_details', kwargs={'slug': self.object.slug})
 
 
 # CRUD - Update
