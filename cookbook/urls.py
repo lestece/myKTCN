@@ -5,8 +5,7 @@ urlpatterns = [
     path('', views.Home.as_view(), name='home'),
     path('browserecipes/', views.RecipeList.as_view(), name='browse_recipes'),
     path('my_cookbook/', views.UserRecipes.as_view(), name='my_cookbook'),
-    path('add_recipe/', views.AddRecipe.as_view(), name='add_recipe'),
+    path('recipe/create/', views.RecipeCreateView.as_view(), name='create_recipe'),
     path('my_drafts/', views.UserDrafts.as_view(), name='drafts'),
-    path('<slug:slug>/', views.RecipeDetails.as_view(), name='recipe_details'),
-    # path('<slug:slug>/edit_recipe/', views.EditRecipe.as_view(), name='edit_recipe'),
+    path('recipe/<slug:slug>/', views.RecipeDetails.as_view(), name='recipe_details'),
 ]

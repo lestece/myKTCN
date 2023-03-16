@@ -1,6 +1,5 @@
 from django import forms
 from .models import Recipe
-from django_summernote.widgets import SummernoteWidget
 
 
 class RecipeForm(forms.ModelForm):
