@@ -72,6 +72,30 @@ class RecipeDetails(View):
                 "comment_form": CommentForm(),
             }
         )
+
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Recipe.objects.filter(status=1)
+        recipe = get_object_or_404(queryset, slug=slug)
+        comments = recipe.comments.filter(approved=True).order_by("created_on")
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.recipe = recipe
+            comment.save()
+        else:
+            comment_form = CommentForm()
+
+        return render(
+            request,
+            "recipe_details.html",
+            {
+                "recipe": recipe,
+                "comments": comments,
+                "commented": True,
+                "comment_form": comment_form,
+            },
+        )
         
 # Generic editing views created following the documentation at:
 # https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-editing/#django.views.generic.edit
