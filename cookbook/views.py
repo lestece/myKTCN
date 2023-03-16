@@ -71,6 +71,10 @@ class RecipeDetails(View):
             }
         )
         
+# Generic editing views created following the documentation at:
+# https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-editing/#django.views.generic.edit
+# CRUD - C
+
 
 class RecipeCreateView(CreateView):
     form_class = RecipeForm

@@ -5,21 +5,13 @@ from .models import Recipe
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = [
-            'title',
-            'description',
-            'ingredients',
-            'method',
-            'featured_image',
-            'prep_time',
-            'cook_time',
-            'serving',
-            'difficulty',
-            'cost',
-            'category',
-            'status',
-            'is_public',
-            ]
+        fields = '__all__'
+        exclude = [
+            'author', 
+            'slug', 
+            'updated_on', 
+            'created_on', 
+            'excerpt']
 
         labels = {
             'status': 'Save as Draft or Publish?',
