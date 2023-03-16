@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.db.models import Avg
 from cloudinary.models import CloudinaryField
 
 
@@ -51,8 +52,11 @@ class Recipe(models.Model):
     class Meta:
         ordering = ['created_on']
 
+    def average_rating(self) -> float:
+        return Rating.objects.filter(recipe=self).aggregate(Avg("rating"))["rating__avg"] or 0
+
     def __str__(self):
-        return self.title
+        return f"{self.title}: {self.average_rating()}"
 
     def get_absolute_url(self):
         return reverse('recipe_details', kwargs={'slug': self.slug})
