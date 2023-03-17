@@ -9,29 +9,6 @@ body {
     box-sizing: border-box;
 }
 
-.fa-star{
-    color: #cfcfcf;
-    width: 10px;
-    font-size: 14px;
-}
-
-.rating-list li {
-    float: right;
-    color: #ddd;
-    padding: 10px 5px;
-  }
-
-  .rating-list li:hover,
-  .rating-list li:hover ~ li {
-    color: orange;
-  }
-
-  .rating-list {
-    display: inline-block;
-    list-style: none;
-  }
-
-
 /* -------------------------------------------------------Navbar styles */
 
 nav {
@@ -268,14 +245,6 @@ h1,
     position: relative;
 }
 
-.image-flash {
-    position: absolute;
-    bottom: 2%;
-    min-width: 30%;
-    left: 20px;
-    background-color:white;
-}
-
 .recipe-spec{
     min-height: 50vh;
 }
@@ -302,9 +271,50 @@ h1,
     height: fit-content;
 }
 
-/* -------------------------------------------------------Rating styles */
+/* -------------------------------------------------------Rating system styles */
+.fa-star{
+    color: #cfcfcf;
+    width: 20px;
+    font-size: 24px;
+}
+
+.rating-list li {
+    float: right;
+    padding: 10px 5px;
+  }
+
+  .rating-list li i:hover,
+  .rating-list li i:hover ~ i {
+    color: orange;
+  }
+
+  .rating-list {
+    display: inline-block;
+    list-style: none;
+  }
+
 .checked {
     color: orange;
+}
+
+.image-flash {
+    text-align: center;
+    position: absolute;
+    bottom: 2%;
+    min-width: 20%;
+    right: 20px;
+    background-color:white;
+}
+
+.flash-browse-page{
+    min-width: 40%;
+    right: 0;
+    bottom: 0;
+}
+
+.image-flash .fa-star{
+    width: 10px;
+    font-size: 14px;
 }
 
 /* -------------------------------------------------------Footer styles */
