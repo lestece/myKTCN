@@ -59,9 +59,13 @@ class RecipeList(generic.ListView):
 class RecipeDetails(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Recipe.objects.filter(status=1)
-        recipe = get_object_or_404(queryset, slug=slug)
+        queryset_recipes = Recipe.objects.filter(status=1)
+        recipe = get_object_or_404(queryset_recipes, slug=slug)
+        ratings = Rating.objects.filter(recipe=recipe.id)
         comments = recipe.comments.filter(approved=True).order_by('created_on')
+        rated = False
+        if ratings.user.filter(id=self.request.user.id).exists():
+            rated = True
 
         return render(
             request,
@@ -69,6 +73,8 @@ class RecipeDetails(View):
             {
                 "recipe": recipe,
                 "comments": comments,
+                "commented": False,
+                "rated": rated,
                 "comment_form": CommentForm(),
 
             }
@@ -77,7 +83,12 @@ class RecipeDetails(View):
     def post(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
+        ratings = Rating.objects.filter(recipe=recipe.id)
         comments = recipe.comments.filter(approved=True).order_by("created_on")
+        rated = False
+        if ratings.user.filter(id=self.request.user.id).exists():
+            rated = True
+
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment_form.instance.name = request.user.username
@@ -95,6 +106,7 @@ class RecipeDetails(View):
                 "comments": comments,
                 "commented": True,
                 "comment_form": comment_form,
+                "rated": rated,
             },
         )
         

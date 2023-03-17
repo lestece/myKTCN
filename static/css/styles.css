@@ -9,6 +9,12 @@ body {
     box-sizing: border-box;
 }
 
+.fa-star{
+    color: #cfcfcf;
+    width: 10px;
+    font-size: 14px;
+}
+
 
 /* -------------------------------------------------------Navbar styles */
 
@@ -243,6 +249,15 @@ h1,
 
 .recipe-img-block{
     height: 50vh;
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 2%;
+    min-width: 30%;
+    left: 20px;
+    background-color:white;
 }
 
 .recipe-spec{
