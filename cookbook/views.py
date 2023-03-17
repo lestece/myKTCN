@@ -62,11 +62,8 @@ class RecipeDetails(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
-        # ratings = Rating.objects.filter(recipe=recipe.id)
         comments = recipe.comments.filter(approved=True).order_by('created_on')
-        # rated = False
-        # if ratings.user.filter(id=self.request.user.id).exists():
-        #     rated = True
+        
         rating = Rating.objects.filter(recipe=recipe, user=request.user).first()
         recipe.user_rating = rating.rating if rating else 0
 
@@ -77,7 +74,6 @@ class RecipeDetails(View):
                 "recipe": recipe,
                 "comments": comments,
                 "commented": False,
-                # "rated": rated,
                 "comment_form": CommentForm(),
 
             }
@@ -86,11 +82,7 @@ class RecipeDetails(View):
     def post(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
-        # ratings = Rating.objects.filter(recipe=recipe.id)
         comments = recipe.comments.filter(approved=True).order_by("created_on")
-        # rated = False
-        # if ratings.user.filter(id=self.request.user.id).exists():
-        #     rated = True
 
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -109,7 +101,6 @@ class RecipeDetails(View):
                 "comments": comments,
                 "commented": True,
                 "comment_form": comment_form,
-                # "rated": rated,
             },
         )
 
@@ -122,25 +113,15 @@ def rate(request: HttpRequest, recipe_id: int, rating: int) -> HttpResponse:
     Rating.objects.filter(recipe=recipe, user=request.user).delete()
     recipe.rating_set.create(user=request.user, rating=rating)
     return rate(request)
-# class RecipeRating(View):
 
-#     def post(self, request, slug):
-#         recipe = get_object_or_404(Recipe, slug=slug)
-#         ratings = Rating.objects.filter(recipe=recipe.id)
-#         if ratings.user.filter(id=self.request.user.id).exists():
-#             ratings.user.remove(request.user)
-#         else:
-#             ratings.user.add(request.user)
-#         return HttpResponseRedirect(reverse('recipe_details', args=[slug]))
 
 # Generic editing views created following the documentation at:
 # https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-editing/#django.views.generic.edit
 # and tutorials:
 # https://www.youtube.com/watch?v=KB_wDXBwhUA
 # https://www.youtube.com/watch?v=a718ii0Lf6M
+
 # CRUD - C
-
-
 class RecipeCreateView(CreateView):
     form_class = RecipeForm
     template_name = 'recipe_create.html'
@@ -177,56 +158,3 @@ class RecipeDeleteView(DeleteView):
     template_name = 'recipe_confirm_delete.html'
     success_url = reverse_lazy('my_cookbook')
 
-# class AddRecipe(View):
-#     form_class = RecipeForm
-#     template_name = 'add_recipe.html'
-
-#     def get(self, request, *args, **kwargs):
-#         form = self.form_class
-#         return render(
-#             request,
-#             self.template_name,
-#             {
-#                 "form": form,
-#                 'posted': False,
-#             }
-#         )
-
-#     def post(self, request, *args, **kwargs):
-#         form = RecipeForm(data=request.POST)
-
-#         if form.is_valid():
-#             form.instance.author = request.user
-#             form.instance.slug = slugify(form.instance.title)
-#             title = form.instance.title
-#             recipe = form.save(commit=False)
-#             recipe.save()
-#             return render(
-#                 request,
-#                 'add_recipe.html',
-#                 {
-#                     'posted': True,
-#                     'title': title,
-#                 }
-#             )
-#         else:
-#             return render(
-#                 request,
-#                 'add_recipe.html',
-#                 {
-#                     'form': form,
-#                     'failed': True,
-#                     'posted': False,
-#                 }
-#             )
-    
-
-# class EditRecipe(UpdateView):
-#     form_class = RecipeForm
-#     template_name = 'edit_recipe.html'
-#     success_url = '/thanks/'
-
-#     def form_valid(self, form):
-#         # This method is called when valid form data has been POSTed.
-#         # It should return an HttpResponse.
-#         return super().form_valid(form)
