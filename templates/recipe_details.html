@@ -175,8 +175,8 @@
     </div>
 </div>
 <script>
-    const rate = (rating, post_id) => {
-        fetch(`/rate/${post_id}/${rating}/`, {
+    const rate = (rating, recipe_id) => {
+        fetch(`/rate/${recipe_id}/${rating}/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

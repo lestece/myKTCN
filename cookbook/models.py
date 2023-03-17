@@ -85,8 +85,8 @@ class Rating(models.Model):
         (4, 4),
         (5, 5),
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipe_rate')
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ratings')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     rating = models.IntegerField(choices=RATING, default=0)
 
     def __str__(self):
