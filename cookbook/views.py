@@ -70,6 +70,7 @@ class RecipeDetails(View):
                 "recipe": recipe,
                 "comments": comments,
                 "comment_form": CommentForm(),
+
             }
         )
 

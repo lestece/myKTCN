@@ -56,7 +56,7 @@ class Recipe(models.Model):
         return Rating.objects.filter(recipe=self).aggregate(Avg("rating"))["rating__avg"] or 0
 
     def __str__(self):
-        return f"{self.title}: {self.average_rating()}"
+        return self.title
 
     def get_absolute_url(self):
         return reverse('recipe_details', kwargs={'slug': self.slug})
