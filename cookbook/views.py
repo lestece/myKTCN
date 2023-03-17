@@ -114,14 +114,14 @@ class RecipeDetails(View):
         )
 
 
-# API for rating
-def rate(request: HttpRequest, post_id: int, rating: int) -> HttpResponse:
-    post = Post.objects.get(id=post_id)
-    Rating.objects.filter(post=post, user=request.user).delete()
-    post.rating_set.create(user=request.user, rating=rating)
-    return index(request)
-
-
+# API for Rating
+# Rating system implemented thanks to this tutorial:
+# https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c
+def rate(request: HttpRequest, recipe_id: int, rating: int) -> HttpResponse:
+    recipe = Recipe.objects.get(id=recipe_id)
+    Rating.objects.filter(recipe=recipe, user=request.user).delete()
+    recipe.rating_set.create(user=request.user, rating=rating)
+    return rate(request)
 # class RecipeRating(View):
 
 #     def post(self, request, slug):

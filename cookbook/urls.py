@@ -10,5 +10,5 @@ urlpatterns = [
     path('<slug:slug>/', views.RecipeDetails.as_view(), name='recipe_details'),
     path('<slug:slug>/update/', views.RecipeEditView.as_view(), name='edit_recipe'),
     path('<slug:slug>/delete/', views.RecipeDeleteView.as_view(), name='delete_recipe'),
-#     path('rate/<slug:slug>', views.RecipeRating.as_view(), name='recipe_rating'),
+    path('rate/<int:recipe_id>/<int:rating>/', views.rate),
 ]
