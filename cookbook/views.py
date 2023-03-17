@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.template.defaultfilters import slugify
@@ -113,6 +113,13 @@ class RecipeDetails(View):
             },
         )
 
+
+# API for rating
+def rate(request: HttpRequest, post_id: int, rating: int) -> HttpResponse:
+    post = Post.objects.get(id=post_id)
+    Rating.objects.filter(post=post, user=request.user).delete()
+    post.rating_set.create(user=request.user, rating=rating)
+    return index(request)
 
 
 # class RecipeRating(View):
