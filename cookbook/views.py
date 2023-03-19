@@ -160,3 +160,13 @@ class RecipeDeleteView(DeleteView):
 
 
 # Autocomplete search bar view
+def search_recipe(request):
+    """everytime user inputs to search box, this function runs"""
+    name = request.GET.get("name")
+    namelist = []
+    if name:
+        #collect every objects that contains the input text
+        recipes_objects = Recipe.objects.filter(ingredients__icontains=name)
+        for recipe in recipes_objects:
+            namelist.append(recipe.title)
+    return JsonResponse({'status':200, 'name':namelist})
