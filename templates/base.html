@@ -17,6 +17,10 @@
     </script>
     <script src="https://kit.fontawesome.com/1705e36da1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/styles.css?v=1' %}">
+    <!-- Search bar stylesheet
+    Implemented on this tutorial:
+    https://python.plainenglish.io/autocomplete-search-suggestions-in-django-fe18981585a5 -->
+    <link   rel="stylesheet"   href="https://unpkg.com/@trevoreyre/autocomplete-js/dist/style.css" />
 
 </head>
 
@@ -119,6 +123,42 @@
             alert.close();
         }, 3000)
     </script>
+    <!-- Search bar implementation scripts -->
+    <script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        var name; // global variable that keeps the name
+        new Autocomplete('#autocomplete', {
+            search: input => {
+                const url = `/search/?name=${input}`;
+                return new Promise(resolve => {
+                    fetch(url).then(response => response.json()).then(data => {
+                        resolve(data.name);
+                    })
+                })
+            },
+    
+            onSubmit: result => {
+                name = result; //pass clicked result to global
+            }
+        })
+        $('#ull').click(function (e) {
+            $.ajax({
+                url: '',
+                type: 'GET',
+                data: {
+                    valname: name,
+                },
+                success: function (response) {
+                    window.location = response.urlLink;
+                }
+            })
+    
+        })
+    </script>
+    
+    </html>
+    
 </body>
 
 </html>
