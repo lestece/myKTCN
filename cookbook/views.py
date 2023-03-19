@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
-from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
+from django.http import HttpResponseRedirect, HttpResponse, HttpRequest, JsonResponse
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.template.defaultfilters import slugify
@@ -158,3 +158,5 @@ class RecipeDeleteView(DeleteView):
     template_name = 'recipe_confirm_delete.html'
     success_url = reverse_lazy('my_cookbook')
 
+
+# Autocomplete search bar view
