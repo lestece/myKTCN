@@ -28,3 +28,5 @@ class CommentForm(forms.ModelForm):
         widgets = {'body': Textarea(attrs={'rows': 2})}
 
         labels = {'body': ''}
+
+
