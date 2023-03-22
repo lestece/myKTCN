@@ -89,6 +89,8 @@
             </div>
             <div class="row mx-2">
                 {% endif %}
+                {% empty %}
+                <h1>No recipes match {{ searched }}</h1>
                 {% endfor %}
 
             </div>
