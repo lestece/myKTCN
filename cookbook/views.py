@@ -31,7 +31,6 @@ class UserRecipes(generic.ListView):
         search_recipe = request.GET.get('search')
         # Category filter - django filter
         filter = RecipeFilter(request.GET, queryset=Recipe.objects.all()) 
-        # filtered_recipes = filter.qs
         
         if search_recipe:
             queryset = Recipe.objects.filter(Q(title__icontains=search_recipe) | Q(ingredients__icontains=search_recipe), status=1, author=request.user.id)
@@ -39,11 +38,6 @@ class UserRecipes(generic.ListView):
             queryset = filter.qs.filter(status=1, author=request.user.id)
         else:
             queryset = Recipe.objects.filter(status=1, author=request.user.id).order_by("-created_on")
-
-        # cat_choices_tuple = Recipe.CATEGORY
-        # cat_choices = []
-        # for choice in cat_choices_tuple:
-        #     cat_choices.append(choice[1])
         
         return render(
             request,
@@ -51,9 +45,6 @@ class UserRecipes(generic.ListView):
             {
                 "user_recipes": queryset,
                 "searched": search_recipe,
-                # "cat_choices": cat_choices,
-
-                # "filtered_recipes": filtered_recipes,
                 "filter": filter,
                 }
         )
@@ -205,10 +196,6 @@ class RecipeDeleteView(DeleteView):
     success_url = reverse_lazy('my_cookbook')
 
 
-# Recipe filtering view
-# def filter(request):
-#     recipe_list = Recipe.objects.all()
-#     recipe_filter = RecipeFilter(request.GET, queryset=recipe_list)
-#     return render(request, 'cookbook.html', {'filter': recipe_filter})
+
 
 
