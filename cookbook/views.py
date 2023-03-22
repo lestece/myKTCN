@@ -24,7 +24,7 @@ class UserRecipes(generic.ListView):
     model = Recipe
     template_name = "cookbook.html"
     paginate_by = 8
-
+    
     def get(self, request):
         search_recipe = request.GET.get('search')
         if search_recipe:
@@ -32,12 +32,18 @@ class UserRecipes(generic.ListView):
         else:
             queryset = Recipe.objects.filter(status=1, author=request.user.id).order_by("-created_on")
 
+        cat_choices_tuple = Recipe.CATEGORY
+        cat_choices = []
+        for choice in cat_choices_tuple:
+            cat_choices.append(choice[1])
+
         return render(
             request,
             self.template_name,
             {
-                'user_recipes': queryset,
+                "user_recipes": queryset,
                 "searched": search_recipe,
+                "cat_choices": cat_choices,
                 }
         )
         
