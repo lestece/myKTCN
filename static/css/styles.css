@@ -50,6 +50,13 @@ nav {
     border-top: 3px solid black;
 }
 
+
+.user-text{
+    color: #C68C4F !important;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: lowercase;
+    font-weight: 400;
+}
 /* -------------------------------------------------------Homepage styles */
 .hero-text-1{
     margin-left: 5%;
