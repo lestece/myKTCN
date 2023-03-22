@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
-from django.http import HttpResponseRedirect, HttpResponse, HttpRequest, JsonResponse
+from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.template.defaultfilters import slugify
@@ -159,14 +159,5 @@ class RecipeDeleteView(DeleteView):
     success_url = reverse_lazy('my_cookbook')
 
 
-# Autocomplete search bar view
-def search_recipe(request):
-    """everytime user inputs to search box, this function runs"""
-    name = request.GET.get("name")
-    namelist = []
-    if name:
-        #collect every objects that contains the input text
-        recipes_objects = Recipe.objects.filter(ingredients__icontains=name)
-        for recipe in recipes_objects:
-            namelist.append(recipe.title)
-    return JsonResponse({'status':200, 'name':namelist})
+
+
