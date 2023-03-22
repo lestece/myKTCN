@@ -194,20 +194,20 @@ h1,
 
 /* -------------------------------------------------------Search bar and cat btnss styles */
 
-.inputs {
+.search-bar .inputs {
     width: 60vw;
     margin: 0 auto;
     position: relative;
 }
 
-.form-control {
+.search-bar .form-control {
     text-indent: 35px;
     height: 35px;
     border-radius: 50px;
     /* border-bottom: 1px solid black;  */
  }
 
-.form-control:focus {
+.search-bar .form-control:focus {
     color: #C68C4F;
     border-color: #eee;
     outline: 0;
@@ -215,7 +215,7 @@ h1,
     border-bottom: 1px solid #C68C4F;
 }
 
-.inputs i {
+.search-bar .inputs i {
     position: absolute;
     top: 8px;
     left: 20px;
