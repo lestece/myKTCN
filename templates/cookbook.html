@@ -12,11 +12,11 @@
 
     <div class="row">
         <div class="col-12">
-            <a href="{% url 'create_recipe' %}" class="btn btn-outline-dark add-recipe-btn" >ADD RECIPE</a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <a href="{% url 'create_recipe' %}" class="btn btn-outline-dark add-recipe-btn" >ADD RECIPE</a>
+                </div>
+            </div>
             <div class="row mx-2">
                 {% for recipe in user_recipes %}
                 <div class="col-sm-6 col-lg-3 my-3">
@@ -57,6 +57,15 @@
             </div>
             <div class="row mx-2">
                 {% endif %}
+                {% empty %}
+                <div class="row mx-2">
+                    <div class="col-12 text-center mt-4">
+                        <h1>Sorry, none of your recipes matches '{{ searched }}'!</h1>
+                        <p>Search for another recipe/ingredient or
+                            <a class="btn" href="{% url 'browse_recipes'%}">Go back to your cookbook <i class="fas fa-chevron-right"></i></a>
+                        </p>
+                    </div>
+                </div>
                 {% endfor %}
 
             </div>
