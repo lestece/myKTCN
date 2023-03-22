@@ -11,7 +11,15 @@
     </form>
     <div class="row mt-3">
         <div class="col-6">
-            <div class="dropdown d-inline">
+            <div class="form-group">
+                <div class="card">
+                    <form method="get">
+                        <p><b>Category:</b>{{ filter.form.category }}</p>
+                        <button class="btn" type="submit">Search</button>
+                    </form>
+                </div>
+            </div> 
+            <!-- <div class="dropdown d-inline">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 All
@@ -21,7 +29,7 @@
                     <a class="dropdown-item" href="#">{{ choice }}</a>
                     {% endfor %}
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="col-6">
             <a href="{% url 'create_recipe' %}" class="btn btn-outline-dark add-recipe-btn">ADD RECIPE</a>

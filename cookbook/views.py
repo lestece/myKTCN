@@ -27,6 +27,7 @@ class UserRecipes(generic.ListView):
     paginate_by = 8
     
     def get(self, request):
+        # Search bar
         search_recipe = request.GET.get('search')
         if search_recipe:
             queryset = Recipe.objects.filter(Q(title__icontains=search_recipe) | Q(ingredients__icontains=search_recipe), author=request.user.id)
@@ -37,7 +38,10 @@ class UserRecipes(generic.ListView):
         cat_choices = []
         for choice in cat_choices_tuple:
             cat_choices.append(choice[1])
-
+        # Category filter
+        all_recipes = Recipe.objects.order_by('-created_on')
+        filter = RecipeFilter(request.GET, queryset=all_recipes) 
+        all_recipes = filter.qs
         return render(
             request,
             self.template_name,
@@ -45,6 +49,9 @@ class UserRecipes(generic.ListView):
                 "user_recipes": queryset,
                 "searched": search_recipe,
                 "cat_choices": cat_choices,
+
+                "all_recipes": all_recipes,
+                "filter": filter
                 }
         )
         
@@ -196,8 +203,9 @@ class RecipeDeleteView(DeleteView):
 
 
 # Recipe filtering view
-def search(request):
-    recipe_list = Recipe.objects.all()
-    recipe_filter = RecipeFilter(request.GET, queryset=recipe_list)
-    return render(request, 'search/recipe_list.html', {'filter': recipe_filter})
+# def filter(request):
+#     recipe_list = Recipe.objects.all()
+#     recipe_filter = RecipeFilter(request.GET, queryset=recipe_list)
+#     return render(request, 'cookbook.html', {'filter': recipe_filter})
+
 
