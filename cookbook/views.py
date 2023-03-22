@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
 from .models import Recipe, Rating
 from .forms import RecipeForm, CommentForm
+from .filters import RecipeFilter
 
 
 class Home(generic.TemplateView):
@@ -194,5 +195,9 @@ class RecipeDeleteView(DeleteView):
     success_url = reverse_lazy('my_cookbook')
 
 
-
+# Recipe filtering view
+def search(request):
+    recipe_list = Recipe.objects.all()
+    recipe_filter = RecipeFilter(request.GET, queryset=recipe_list)
+    return render(request, 'search/recipe_list.html', {'filter': recipe_filter})
 
