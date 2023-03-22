@@ -29,29 +29,32 @@ class UserRecipes(generic.ListView):
     def get(self, request):
         # Search bar
         search_recipe = request.GET.get('search')
+        # Category filter - django filter
+        filter = RecipeFilter(request.GET, queryset=Recipe.objects.all()) 
+        # filtered_recipes = filter.qs
+        
         if search_recipe:
-            queryset = Recipe.objects.filter(Q(title__icontains=search_recipe) | Q(ingredients__icontains=search_recipe), author=request.user.id)
+            queryset = Recipe.objects.filter(Q(title__icontains=search_recipe) | Q(ingredients__icontains=search_recipe), status=1, author=request.user.id)
+        elif filter:
+            queryset = filter.qs.filter(status=1, author=request.user.id)
         else:
             queryset = Recipe.objects.filter(status=1, author=request.user.id).order_by("-created_on")
 
-        cat_choices_tuple = Recipe.CATEGORY
-        cat_choices = []
-        for choice in cat_choices_tuple:
-            cat_choices.append(choice[1])
-        # Category filter
-        all_recipes = Recipe.objects.order_by('-created_on')
-        filter = RecipeFilter(request.GET, queryset=all_recipes) 
-        all_recipes = filter.qs
+        # cat_choices_tuple = Recipe.CATEGORY
+        # cat_choices = []
+        # for choice in cat_choices_tuple:
+        #     cat_choices.append(choice[1])
+        
         return render(
             request,
             self.template_name,
             {
                 "user_recipes": queryset,
                 "searched": search_recipe,
-                "cat_choices": cat_choices,
+                # "cat_choices": cat_choices,
 
-                "all_recipes": all_recipes,
-                "filter": filter
+                # "filtered_recipes": filtered_recipes,
+                "filter": filter,
                 }
         )
         
