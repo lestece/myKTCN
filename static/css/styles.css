@@ -126,10 +126,20 @@ h1,
 }
 
 /* -------------------------------------------------------User cookbook styles */
-.add-recipe-btn{
+/* .add-recipe-btn{
     float: right;
+} */
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: #C68C4F;
+    color: white;
 }
 
+.select2-results__option,
+.select2-selection__rendered{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: medium;
+}
 /* -------------------------------------------------------User drafts styles */
 
 .draft-img{
