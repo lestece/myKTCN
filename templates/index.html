@@ -16,7 +16,8 @@
                     </div>
                 </div>
                 <div class="col-12 hero-image-container">
-                    <img src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725046/hero-image_gj1wpf.jpg" alt="hero-image" class="hero-image">
+                    <img src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725046/hero-image_gj1wpf.jpg"
+                        alt="hero-image" class="hero-image">
                 </div>
             </div>
         </div>
@@ -55,29 +56,31 @@
                 </div>
             </div>
         </div>
-        <div class="row browse-recipes-block">
-            <div class="col-12 text-center">
-                <h2>Recently shared by other users:</h2>
-                <hr class="w-50"/>
-                <div class="row mx-2">
-                    {% for recipe in newly_added_recipes %}
-                    <div class="col-md-3 my-2">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <div class="image-container mb-3">
-                                    {% if "placeholder" in recipe.featured_image.url %}
-                                    <img class="card-img-top" src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725047/empty-recipe-img_rzjg6v.jpg">
-                                    {% else %}
-                                    <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
-                                    {% endif %}
+    </div>
+    <div class="row browse-recipes-block">
+        <div class="col-12 text-center">
+            <h2>Recently shared by other users:</h2>
+            <hr class="w-50" />
+            <div class="row mx-2">
+                {% for recipe in newly_added_recipes %}
+                <div class="col-md-3 my-2">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="image-container mb-3">
+                                {% if "placeholder" in recipe.featured_image.url %}
+                                <img class="card-img-top"
+                                    src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725047/empty-recipe-img_rzjg6v.jpg">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
+                                {% endif %}
+                            </div>
+                            <a href="{% url 'recipe_details' recipe.slug %}"
+                                class="recipe-link text-decoration-none text-dark">
+                                <div class="card-title">
+                                    {{ recipe.title }}
                                 </div>
-                                <a href="{% url 'recipe_details' recipe.slug %}"
-                                    class="recipe-link text-decoration-none text-dark">
-                                    <div class="card-title">
-                                        {{ recipe.title }}
-                                    </div>
-                                </a>
-                                <div class="card-body">
+                            </a>
+                            <!-- <div class="card-body">
                                     <p>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -85,25 +88,70 @@
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                     </p>
-                                </div>
-                            </div>
+                                </div> -->
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
-            </div>
-        </div>
-        <div class="row signup-cta-block text-center">
-            <div class="col-12 w-100">
-                <h2 class="lh-base mt-3">Create an account now to use myKTCN and start saving your recipes!</h2>
-                <a href="{% url 'account_signup' %}">
-                    <button type="button" class="btn btn-outline-dark signup-btn fs-2 fw-bold text-uppercase">Sign up</button>
-                </a>
+                {% endfor %}
             </div>
         </div>
     </div>
+    <!-- Bootstrap Carousel for small screens-->
+    <div id="last-recipes-carousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for recipe in newly_added_recipes %}
+            {% if forloop.first %}
+            <div class="carousel-item active" data-bs-interval="3000">
+            {% else %}
+            <div class="carousel-item" data-bs-interval="3000">
+                {% endif %}
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="image-container mb-3">
+                            {% if "placeholder" in recipe.featured_image.url %}
+                            <img class="card-img-top"
+                                src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725047/empty-recipe-img_rzjg6v.jpg">
+                            {% else %}
+                            <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
+                            {% endif %}
+                        </div>
+                        <a href="{% url 'recipe_details' recipe.slug %}"
+                            class="recipe-link text-decoration-none text-dark">
+                            <div class="card-title">
+                                {{ recipe.title }}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#last-recipes-carousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#last-recipes-carousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="row signup-cta-block text-center">
+        <div class="col-12 w-100">
+            <h2 class="lh-base mt-3">Create an account now to use myKTCN and start saving your recipes!</h2>
+            <a href="{% url 'account_signup' %}">
+                <button type="button" class="btn btn-outline-dark signup-btn fs-2 fw-bold text-uppercase">Sign
+                    up</button>
+            </a>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-</div>
+
+<!-- Carousel script -->
+<script>
+    var myCarousel = document.querySelector('#myCarousel')
+    var carousel = new bootstrap.Carousel(myCarousel)
+</script>
 {% endblock %}

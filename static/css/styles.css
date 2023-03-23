@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.3rem;
@@ -51,53 +50,55 @@ nav {
 }
 
 
-.user-text{
+.user-text {
     color: #C68C4F !important;
     font-family: 'Josefin Sans', sans-serif;
     text-transform: lowercase;
     font-weight: 400;
 }
+
 /* -------------------------------------------------------Homepage styles */
-.hero-text-1{
+.hero-text-1 {
     /* margin-left: 5%; */
     font-family: 'Playfair Display', serif;
     /* font-weight: bold; */
     font-size: xxx-large;
 }
 
-.hero-text-2{
+.hero-text-2 {
     float: right;
     /* margin-right: 5%; */
     color: #C68C4F;
     font-size: xxx-large;
 }
 
-.hero-image-container{
+.hero-image-container {
     height: 40vh;
 }
 
-.hero-image{
+.hero-image {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-.perks-block .card{
+.perks-block .card {
     border: none;
     text-align: center;
 }
-.perks-block .card-body{
+
+.perks-block .card-body {
     border-radius: 10px;
     padding: 1rem;
 }
 
 
-.perks-block .card-title{
+.perks-block .card-title {
     color: #C68C4F;
     margin-bottom: 1rem;
 }
 
-.perks-block .card-title i{
+.perks-block .card-title i {
     margin-right: 1rem;
 }
 
@@ -106,22 +107,22 @@ nav {
     margin-top: 3rem;
 }
 
-.browse-recipes-block hr{
+.browse-recipes-block hr {
     border-top: 1px solid black;
     margin: 0 auto 2rem;
 }
 
-.signup-cta-block{
+.signup-cta-block {
     background-color: #ECEBEB;
 }
 
-.signup-cta-block{
-    margin: 2rem 0 0; 
+.signup-cta-block {
+    margin: 2rem 0 0;
     padding: 2rem 0;
 }
 
 
-.signup-btn{
+.signup-btn {
     font-family: 'Playfair Display', serif;
     margin-top: 1.5rem;
 }
@@ -129,7 +130,7 @@ nav {
 /* -------------------------------------------------------Account templates styles */
 
 h1,
-.account-action a{
+.account-action a {
     color: #C68C4F;
     font-family: 'Playfair Display', serif;
 }
@@ -145,36 +146,37 @@ h1,
 }
 
 .select2-results__option,
-.select2-selection__rendered{
+.select2-selection__rendered {
     font-family: 'Josefin Sans', sans-serif;
     font-size: medium;
 }
+
 /* -------------------------------------------------------User drafts styles */
 
-.draft-img{
+.draft-img {
     height: 100px;
     width: 100px;
     border-radius: 50%;
 }
 
-.brown-text{
+.brown-text {
     color: #C68C4F;
 }
 
 /* -------------------------------------------------------Add recipe styles */
-.add-recipe h1{
+.add-recipe h1 {
     font-family: 'Playfair Display', serif;
 }
 
-.add-recipe span{
+.add-recipe span {
     color: #C68C4F;
 }
 
-.form-group{
+.form-group {
     margin: 2rem;
 }
 
-.form-group select{
+.form-group select {
     -webkit-appearance: auto;
 }
 
@@ -182,13 +184,13 @@ h1,
     color: #C68C4F;
 }
 
-.form-control-file{
+.form-control-file {
     width: 100%;
     margin-top: 1rem;
     text-align: center;
 }
 
-.add-confirmation{
+.add-confirmation {
     border: 1px solid black;
     border-radius: 10px;
 }
@@ -207,7 +209,7 @@ h1,
     height: 35px;
     border-radius: 50px;
     /* border-bottom: 1px solid black;  */
- }
+}
 
 .search-bar .form-control:focus {
     color: #C68C4F;
@@ -259,39 +261,39 @@ h1,
 
 /* -------------------------------------------------------Recipe details styles */
 
-.recipe-img-block{
+.recipe-img-block {
     height: 50vh;
     position: relative;
 }
 
-.recipe-spec{
+.recipe-spec {
     min-height: 50vh;
 }
 
-.recipe-img{
+.recipe-img {
     height: 100%;
 }
 
-.recipe-list{
+.recipe-list {
     list-style: none;
     text-align: left;
 }
 
-.comment-card{
+.comment-card {
     border: none;
 }
 
-.comment{
+.comment {
     border: 1px solid black;
     background-color: white;
 }
 
-.user-comments-container{
+.user-comments-container {
     height: fit-content;
 }
 
 /* -------------------------------------------------------Rating system styles */
-.fa-star{
+.fa-star {
     color: #cfcfcf;
     width: 20px;
     font-size: 24px;
@@ -300,17 +302,17 @@ h1,
 .rating-list li {
     float: right;
     padding: 10px 5px;
-  }
+}
 
-  .rating-list li i:hover,
-  .rating-list li i:hover ~ i {
+.rating-list li i:hover,
+.rating-list li i:hover~i {
     color: orange;
-  }
+}
 
-  .rating-list {
+.rating-list {
     display: inline-block;
     list-style: none;
-  }
+}
 
 .checked {
     color: orange;
@@ -322,16 +324,16 @@ h1,
     bottom: 2%;
     min-width: 20%;
     right: 20px;
-    background-color:white;
+    background-color: white;
 }
 
-.flash-browse-page{
+.flash-browse-page {
     min-width: 40%;
     right: 0;
     bottom: 0;
 }
 
-.image-flash .fa-star{
+.image-flash .fa-star {
     width: 10px;
     font-size: 14px;
 }
@@ -350,3 +352,6 @@ footer i {
     margin-bottom: 2rem;
 }
 
+
+  
+  
