@@ -61,7 +61,8 @@
         <div class="col-12 text-center">
             <h2>Recently shared by other users:</h2>
             <hr class="w-50" />
-            <div class="row mx-2">
+            <!-- Last added recipes for large screens -->
+            <div class="row mx-2 d-none d-md-flex">
                 {% for recipe in newly_added_recipes %}
                 <div class="col-md-3 my-2">
                     <div class="card h-100">
@@ -97,7 +98,7 @@
         </div>
     </div>
     <!-- Bootstrap Carousel for small screens-->
-    <div id="last-recipes-carousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div id="last-recipes-carousel" class="carousel carousel-dark slide d-md-none text-center" data-bs-ride="carousel">
         <div class="carousel-inner">
             {% for recipe in newly_added_recipes %}
             {% if forloop.first %}
