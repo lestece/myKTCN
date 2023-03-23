@@ -59,15 +59,17 @@ nav {
 }
 /* -------------------------------------------------------Homepage styles */
 .hero-text-1{
-    margin-left: 5%;
+    /* margin-left: 5%; */
     font-family: 'Playfair Display', serif;
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-size: xxx-large;
 }
 
 .hero-text-2{
     float: right;
-    margin-right: 5%;
+    /* margin-right: 5%; */
     color: #C68C4F;
+    font-size: xxx-large;
 }
 
 .hero-image-container{

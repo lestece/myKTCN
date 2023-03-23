@@ -3,6 +3,25 @@
 {% block content %}
 
 <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row hero-content d-flex justify-content-center">
+                <div class="col-sm-10 col-md-8 col-lg-6 mx-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="hero-text-1">Get inspired</p>
+                        </div>
+                        <div class="col-12">
+                            <p class="hero-text-2">by other users!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 hero-image-container">
+                    <img src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725048/browse-recipes_sufdy7.jpg" alt="hero-image" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Search bar -->
     <form class="form-inline my-2 my-lg-0 search-bar" action="{% url 'browse_recipes'%}">
