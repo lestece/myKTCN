@@ -86,7 +86,7 @@ class RecipeList(generic.ListView):
             Q(ingredients__icontains=search_recipe), status=1, is_public=True).order_by("-created_on")
             # queryset_dict = {'recipe_list': queryset}
         elif filter:
-            queryset = filter.qs.filter(status=1, is_public=True).order_by("-created_on")
+            recipe_list = filter.qs.filter(status=1, is_public=True).order_by("-created_on")
         else:
             recipe_list = Recipe.objects.filter(status=1, is_public=True).order_by("-created_on")
             # queryset_dict = {'recipe_list': queryset}
@@ -97,6 +97,7 @@ class RecipeList(generic.ListView):
             {
                 "recipe_list": recipe_list,
                 "searched": search_recipe,
+                "filter": filter,
             }
         )
 
