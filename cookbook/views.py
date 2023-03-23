@@ -34,9 +34,10 @@ class UserRecipes(generic.ListView):
         filter = RecipeFilter(request.GET, queryset=Recipe.objects.all()) 
         
         if search_recipe:
-            queryset = Recipe.objects.filter(Q(title__icontains=search_recipe) | Q(ingredients__icontains=search_recipe), status=1, author=request.user.id)
+            queryset = Recipe.objects.filter(Q(title__icontains=search_recipe) |
+            Q(ingredients__icontains=search_recipe), status=1, author=request.user.id).order_by("-created_on")
         elif filter:
-            queryset = filter.qs.filter(status=1, author=request.user.id)
+            queryset = filter.qs.filter(status=1, author=request.user.id).order_by("-created_on")
         else:
             queryset = Recipe.objects.filter(status=1, author=request.user.id).order_by("-created_on")
         
@@ -76,10 +77,16 @@ class RecipeList(generic.ListView):
     # https://stackpython.medium.com/django-search-with-q-objects-tutorial-9c701db74e0e
     def get(self, request):
         search_recipe = request.GET.get('search')
+        # Category filter - django filter
+        # https://medium.com/@balt1794/chapter-15-django-filters-6947da6df52a
+        filter = RecipeFilter(request.GET, queryset=Recipe.objects.all())
 
         if search_recipe:
-            recipe_list = Recipe.objects.filter(Q(title__icontains=search_recipe) | Q(ingredients__icontains=search_recipe))
+            recipe_list = Recipe.objects.filter(Q(title__icontains=search_recipe) | 
+            Q(ingredients__icontains=search_recipe), status=1, is_public=True).order_by("-created_on")
             # queryset_dict = {'recipe_list': queryset}
+        elif filter:
+            queryset = filter.qs.filter(status=1, is_public=True).order_by("-created_on")
         else:
             recipe_list = Recipe.objects.filter(status=1, is_public=True).order_by("-created_on")
             # queryset_dict = {'recipe_list': queryset}
