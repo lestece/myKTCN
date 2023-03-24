@@ -5,8 +5,7 @@ from django.db.models import Q
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.template.defaultfilters import slugify
-from django.contrib import messages
-from django.contrib.auth.models import AnonymousUser
+from django.contrib.messages.views import SuccessMessageMixin
 from .models import Recipe, Rating
 from .forms import RecipeForm, CommentForm
 from .filters import RecipeFilter
@@ -168,9 +167,10 @@ def rate(request: HttpRequest, recipe_id: int, rating: int) -> HttpResponse:
 # https://www.youtube.com/watch?v=a718ii0Lf6M
 
 # CRUD - C
-class RecipeCreateView(CreateView):
+class RecipeCreateView(SuccessMessageMixin, CreateView):
     form_class = RecipeForm
     template_name = 'recipe_create.html'
+    success_message = "Recipe successfully added!"
 
     def form_valid(self, form):
         form.instance.author = self.request.user

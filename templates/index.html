@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div class="row browse-recipes-block">
+    <div class="row browse-recipes-block border p-4">
         <div class="col-12 text-center">
             <h2>Recently shared by other users:</h2>
             <hr class="w-50" />
@@ -81,22 +81,12 @@
                                     {{ recipe.title }}
                                 </div>
                             </a>
-                            <!-- <div class="card-body">
-                                    <p>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </p>
-                                </div> -->
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-    </div>
     <!-- Bootstrap Carousel for small screens-->
     <div id="last-recipes-carousel" class="carousel carousel-dark slide d-md-none text-center" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -116,12 +106,17 @@
                             <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
                             {% endif %}
                         </div>
-                        <a href="{% url 'recipe_details' recipe.slug %}"
+                        <div class="carousel-caption">
+                            <a href="{% url 'recipe_details' recipe.slug %}"
                             class="recipe-link text-decoration-none text-dark">
                             <div class="card-title">
                                 {{ recipe.title }}
                             </div>
+                            <div class="card-description">
+                                {{ recipe.description | capfirst | truncatechars:50 | add:"..." }}
+                            </div>
                         </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -138,6 +133,13 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <div class="col-12 text-center">
+        <a href="{% url 'browse_recipes' %}" class="btn btn-outline-dark add-recipe-btn mt-4">
+            BROWSE ALL <i class="fas fa-angle-right"></i> 
+        </a>
+    </div>
+    
+</div>
 
     <div class="row signup-cta-block text-center">
         <div class="col-12 w-100">
