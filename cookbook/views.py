@@ -6,6 +6,7 @@ from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.template.defaultfilters import slugify
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from .models import Recipe, Rating
 from .forms import RecipeForm, CommentForm
 from .filters import RecipeFilter
@@ -209,12 +210,19 @@ class RecipeEditView(SuccessMessageMixin, UpdateView):
 class RecipeDeleteView(SuccessMessageMixin, DeleteView):
     model = Recipe
     template_name = 'recipe_confirm_delete.html'
+    success_message = "Recipe successfully deleted!"
 
     def get_success_url(self):
         if self.object.status == 0:
             return reverse_lazy('drafts')
         else:
             return reverse_lazy('my_cookbook')
+            
+    # SuccessMessageMixin can't be used with DeleteView; fix found at:
+    # https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(RecipeDeleteView, self).delete(request, *args, **kwargs)
 
 
 
