@@ -187,10 +187,11 @@ class RecipeCreateView(SuccessMessageMixin, CreateView):
 
 
 # CRUD - Update
-class RecipeEditView(UpdateView):
+class RecipeEditView(SuccessMessageMixin, UpdateView):
     model = Recipe
     form_class = RecipeForm
     template_name = 'recipe_edit.html'
+    success_message = "Recipe successfully edited!"
     
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -205,7 +206,7 @@ class RecipeEditView(UpdateView):
 
 
 # CRUD - Delete
-class RecipeDeleteView(DeleteView):
+class RecipeDeleteView(SuccessMessageMixin, DeleteView):
     model = Recipe
     template_name = 'recipe_confirm_delete.html'
 
