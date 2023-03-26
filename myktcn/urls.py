@@ -22,3 +22,6 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('accounts/', include('allauth.urls')),
 ]
+
+
+handler404 = "cookbook.views.page_not_found_view"

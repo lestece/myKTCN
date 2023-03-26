@@ -225,6 +225,7 @@ class RecipeDeleteView(SuccessMessageMixin, DeleteView):
         return super(RecipeDeleteView, self).delete(request, *args, **kwargs)
 
 
-
-
-
+# Custom 404 error view
+# Tutotial at https://levelup.gitconnected.com/django-customize-404-error-page-72c6b6277317
+def page_not_found_view(request, exception):
+    return render(request, '404.html', status=404)
