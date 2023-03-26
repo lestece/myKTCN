@@ -8,6 +8,15 @@ body {
     box-sizing: border-box;
 }
 
+.brown-text {
+    color: #C68C4F;
+}
+
+.brand-text{
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+
 /* -------------------------------------------------------Navbar styles */
 
 nav {
@@ -50,11 +59,24 @@ nav {
 }
 
 
-.user-text {
+.user-text,
+.logout-text {
     color: #C68C4F !important;
     font-family: 'Josefin Sans', sans-serif;
     text-transform: lowercase;
     font-weight: 400;
+}
+
+.logout-text{
+    font-weight: lighter !important;
+}
+
+.dropdown-menu{
+    width: 50%;
+}
+
+.dropdown-menu a{
+    font-weight: bold;
 }
 
 /* -------------------------------------------------------Homepage styles */
@@ -120,10 +142,10 @@ nav {
 }
 
 
-.signup-btn {
+/* .signup-btn {
     font-family: 'Playfair Display', serif;
     margin-top: 1.5rem;
-}
+} */
 
 /* -------------------------------------------------------Account templates styles */
 
@@ -155,10 +177,6 @@ h1,
     height: 100px;
     width: 100px;
     border-radius: 50%;
-}
-
-.brown-text {
-    color: #C68C4F;
 }
 
 /* -------------------------------------------------------Add recipe styles */

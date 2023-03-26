@@ -51,7 +51,7 @@
                     <a class="nav-link" href="{% url 'browse_recipes'%}">Browse recipes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'my_cookbook' %}">My Cookbook</a>
+                    <a class="nav-link nav-link-spaced" href="{% url 'my_cookbook' %}">My Cookbook</a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
@@ -60,9 +60,10 @@
                             <i class="far fa-user"></i> {{ user.username }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="{% url 'drafts' %}">Drafts</a></li>
-                            <li><a class="dropdown-item" href="{% url 'create_recipe' %}">Add recipe</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                            <li><a class="dropdown-item text-muted" href="{% url 'drafts' %}">Drafts</a></li>
+                            <li><a class="dropdown-item text-muted my-4" href="{% url 'create_recipe' %}">Add recipe</a></li>
+                            <li><a class="dropdown-item logout-text" href="{% url 'account_logout' %}">
+                                Logout <i class="fas fa-sign-out-alt"></i></a></li>
                         </ul>
                     </div>
                 </li>
@@ -73,10 +74,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'browse_recipes'%}">Browse recipes</a>
                 </li>
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                <a class="nav-link logout-text text-capitalize" href="{% url 'account_login' %}">
+                    Login <i class="fas fa-sign-in-alt"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">Signup</a>
+                    <a class="nav-link logout-text text-capitalize" href="{% url 'account_signup' %}">
+                        Signup <i class="fas fa-user-plus"></i></a>
                 </li>
                 {% endif %}
             </ul>
@@ -109,10 +112,10 @@
     <hr class="w-100 nav-foot-hr" />
     <footer class="footer mt-auto py-3">
         <div class="social-container">
-            <i class="fab fa-facebook-f ms-3"></i>
-            <i class="fab fa-instagram ms-3"></i>
-            <i class="fab fa-twitter ms-3"></i>
-            <i class="fab fa-youtube ms-3"></i>
+            <a href="https://en-gb.facebook.com/" target="_blank"><i class="fab fa-facebook-f ms-3"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram ms-3"></i></a>
+            <a href="https://twitter.com/?lang=en" target="_blank"><i class="fab fa-twitter ms-3"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube ms-3"></i></a>
         </div>
         <p class="m-0 text-center">MyKTCN &copy;
             <script>
