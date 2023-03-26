@@ -24,7 +24,7 @@ class Home(generic.TemplateView):
 class UserRecipes(generic.ListView):
     model = Recipe
     template_name = "cookbook.html"
-    paginate_by = 8
+    # paginate_by = 8
     
     def get(self, request):
         # Search bar
@@ -75,31 +75,23 @@ class RecipeList(generic.ListView):
 
     # Search bar with Q objects implemented following:
     # https://stackpython.medium.com/django-search-with-q-objects-tutorial-9c701db74e0e
-    def get(self, request):
-        search_recipe = request.GET.get('search')
+    def get_queryset(self):
+        search_recipe = self.request.GET.get('search')
         # Category filter - django filter
         # https://medium.com/@balt1794/chapter-15-django-filters-6947da6df52a
-        filter = RecipeFilter(request.GET, queryset=Recipe.objects.all())
+        filter = RecipeFilter(self.request.GET, queryset=Recipe.objects.all())
 
         if search_recipe:
-            recipe_list = Recipe.objects.filter(Q(title__icontains=search_recipe) | 
+            queryset = Recipe.objects.filter(Q(title__icontains=search_recipe) | 
             Q(ingredients__icontains=search_recipe), status=1, is_public=True).order_by("-created_on")
             # queryset_dict = {'recipe_list': queryset}
         elif filter:
-            recipe_list = filter.qs.filter(status=1, is_public=True).order_by("-created_on")
+            queryset = filter.qs.filter(status=1, is_public=True).order_by("-created_on")
         else:
-            recipe_list = Recipe.objects.filter(status=1, is_public=True).order_by("-created_on")
+            queryset = Recipe.objects.filter(status=1, is_public=True).order_by("-created_on")
             # queryset_dict = {'recipe_list': queryset}
 
-        return render(
-            request,
-            self.template_name,
-            {
-                "recipe_list": recipe_list,
-                "searched": search_recipe,
-                "filter": filter,
-            }
-        )
+        return queryset
 
 
 class RecipeDetails(View):
@@ -229,3 +221,6 @@ class RecipeDeleteView(SuccessMessageMixin, DeleteView):
 # Tutotial at https://levelup.gitconnected.com/django-customize-404-error-page-72c6b6277317
 def page_not_found_view(request, exception):
     return render(request, '404.html', status=404)
+
+
+
