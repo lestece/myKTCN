@@ -24,48 +24,39 @@ class Home(generic.TemplateView):
 class UserRecipes(generic.ListView):
     model = Recipe
     template_name = "cookbook.html"
-    # paginate_by = 8
+    paginate_by = 8
     
-    def get(self, request):
+    def get_queryset(self):
         # Search bar
-        search_recipe = request.GET.get('search')
+        search_recipe = self.request.GET.get('search')
         # Category filter - django filter
         # https://medium.com/@balt1794/chapter-15-django-filters-6947da6df52a
-        filter = RecipeFilter(request.GET, queryset=Recipe.objects.all()) 
+        filter = RecipeFilter(self.request.GET, queryset=Recipe.objects.all()) 
         
         if search_recipe:
             queryset = Recipe.objects.filter(Q(title__icontains=search_recipe) |
-            Q(ingredients__icontains=search_recipe), status=1, author=request.user.id).order_by("-created_on")
+            Q(ingredients__icontains=search_recipe), status=1, author=self.request.user.id).order_by("-created_on")
         elif filter:
-            queryset = filter.qs.filter(status=1, author=request.user.id).order_by("-created_on")
+            queryset = filter.qs.filter(status=1, author=self.request.user.id).order_by("-created_on")
         else:
-            queryset = Recipe.objects.filter(status=1, author=request.user.id).order_by("-created_on")
-        
-        return render(
-            request,
-            self.template_name,
-            {
-                "user_recipes": queryset,
-                "searched": search_recipe,
-                "filter": filter,
-                }
-        )
-        
+            queryset = Recipe.objects.filter(status=1, author=self.request.user.id).order_by("-created_on")
+        return queryset
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = RecipeFilter(self.request.GET, queryset=Recipe.objects.all())
+        context['searched'] = self.request.GET.get('search')
+        return context
+    
+    
 class UserDrafts(generic.ListView):
     model = Recipe
     template_name = "drafts.html"
-    paginate_by = 12
+    paginate_by = 6
 
-    def get(self, request):
-        queryset = Recipe.objects.filter(status=0, author=request.user.id).order_by("-created_on")
-        queryset_dict = {'drafts': queryset}
-
-        return render(
-            request,
-            self.template_name,
-            queryset_dict,
-        )
+    def get_queryset(self):
+        queryset = Recipe.objects.filter(status=0, author=self.request.user.id).order_by("-created_on")
+        return queryset
 
 
 class RecipeList(generic.ListView):
@@ -92,7 +83,7 @@ class RecipeList(generic.ListView):
             # queryset_dict = {'recipe_list': queryset}
 
         return queryset
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filter'] = RecipeFilter(self.request.GET, queryset=Recipe.objects.all())
