@@ -78,6 +78,15 @@ nav {
 .dropdown-menu a{
     font-weight: bold;
 }
+/* -------------------------------------------------------Pagination styles */
+
+.pagination .page-link{
+    color: #C68C4F !important;
+}
+
+.pagination .current{
+    font-size: smaller;
+}
 
 /* -------------------------------------------------------Homepage styles */
 .hero-text-1 {
@@ -369,5 +378,3 @@ footer i {
 }
 
 
-  
-  
