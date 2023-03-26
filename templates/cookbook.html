@@ -46,7 +46,6 @@
         </div>
     </div>
 
-
     <div class="row">
         <div class="col-12">
             <div class="row mx-2">
@@ -91,15 +90,23 @@
             <div class="row mx-2">
                 {% endif %}
                 {% empty %}
+                {% if searched is None %}
                 <div class="row mx-2">
-                    <div class="col-12 text-center mt-4">
-                        <h1>Sorry, none of your recipes matches '{{ searched }}'!</h1>
+                    <div class="col-12 text-center my-4">
+                        <h1>Your Cookbook is empty!</h1>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row mx-2">
+                    <div class="col-12 text-center my-4">
+                        <h1 class="mb-4">Sorry, none of your recipes matches '{{ searched }}'!</h1>
                         <p>Search for another recipe/ingredient or
-                            <a class="btn" href="{% url 'my_cookbook'%}">Go back to your cookbook <i
+                            <a class="btn btn-outline-dark brown-text mt-3 mt-sm-0" href="{% url 'my_cookbook'%}">Go back to your cookbook <i
                                     class="fas fa-chevron-right"></i></a>
                         </p>
                     </div>
                 </div>
+                {% endif %}
                 {% endfor %}
 
             </div>
