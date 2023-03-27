@@ -269,7 +269,8 @@ h1,
 .category {
     font-size: 1rem;
     border: 1px solid black;
-    width: 96%;
+    border-radius: 5px;
+    width: 50%;
     margin: 0 auto;
 }
 
