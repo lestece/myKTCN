@@ -310,6 +310,18 @@ h1,
     position: relative;
 }
 
+.cat-recipe-details{
+    width: 30%;
+}
+
+.specifics{
+    margin-left: 20px !important;
+}
+
+.second-spec{
+    padding-left: 20px;
+}
+
 .recipe-spec {
     min-height: 50vh;
 }
@@ -366,7 +378,7 @@ h1,
     text-align: center;
     position: absolute;
     bottom: 2%;
-    min-width: 20%;
+    min-width: 30%;
     right: 20px;
     background-color: white;
 }

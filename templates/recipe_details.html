@@ -22,84 +22,52 @@
         </div>
         <div class="col-md-6 recipe-spec mb-3">
             <div class="row">
-                <div class="col-12 py-1 text-center">
-                    <h1>{{ recipe.title }}</h1>
+                <div class="col-12 py-1 mb-4 text-center">
+                    <h1 class="display-1">{{ recipe.title }}</h1>
                 </div>
             </div>
-            {% if user.is_authenticated %}
-            {% if recipe.author == user %}
-            <div class="row mb-4 text-center">
-                <div class="col-6">
-                    <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-outline-dark mx-2">Edit</a>
-                </div>
-                <div class="col-6">
-                    <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-outline-dark mx-2">Delete</a>
-                </div>
-            </div>
-            {% else %}
-            <div class="row mb-4 text-center">
-                <div class="col-12">
-                    <ul class="btn btn-light list-inline rating-list">
-                        <li onclick="rate(5, {{ recipe.id }})">
-                            <i class="fa fa-star {% if recipe.user_rating > 4 %} checked {% endif %}"
-                                title="Rate 5"></i>
-                        </li>
-                        <li onclick="rate(4, {{ recipe.id }})">
-                            <i class="fa fa-star {% if recipe.user_rating > 3 %} checked {% endif %}"
-                                title="Rate 4"></i>
-                        </li>
-                        <li onclick="rate(3, {{ recipe.id }})">
-                            <i class="fa fa-star {% if recipe.user_rating > 2 %} checked {% endif %}"
-                                title="Rate 3"></i>
-                        </li>
-                        <li onclick="rate(2, {{ recipe.id }})">
-                            <i class="fa fa-star {% if recipe.user_rating > 1 %} checked {% endif %}"
-                                title="Rate 2"></i>
-                        </li>
-                        <li onclick="rate(1, {{ recipe.id }})">
-                            <i class="fa fa-star {% if recipe.user_rating > 0 %} checked {% endif %}"
-                                title="Rate 1"></i>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            {% endif %}
-            {% endif %}
             <div class="row">
-                <div class="col-12 category py-1 text-center">
+                <div class="col-12 category cat-recipe-details py-1 text-center">
                     {{ recipe.get_category_display }}
                 </div>
             </div>
-            <div class="row">
+            <div class="row specifics">
                 <div class="col-12">
-                    <div class="row mt-4">
-                        <div class="col-6">
-                            {{ recipe.author }}
-                        </div>
-                        <div class="col-6">
-                            Posted on: {{ recipe.created_on | date:" d M Y" }}
+                    {% if user.is_authenticated %}
+                    {% if recipe.author != user %}
+                    <div class="row my-4">
+                        <div class="col-12 brown-text">
+                            <span class="h6">by {{ recipe.author }}</span>
                         </div>
                     </div>
-                    <div class="row mt-4">
-                        <div class="col-sm-6 mt-4">
+                    {% endif %}
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-6 my-2">
+                            <i class="far fa-calendar"></i>
+                            {{ recipe.created_on | date:"j/n/Y" }}
+                        </div>
+                        <div class="col-6 my-2 second-spec">
                             <i class="fas fa-wrench"></i>
                             {{ recipe.get_difficulty_display }}
                         </div>
                     </div>
-                    <div class="row d-flex justify-content-center ">
-                        <div class="col-sm-6 col-lg-3 my-2">
+                    <div class="row">
+                        <div class="col-6 my-2">
                             <i class="fas fa-clock"></i>
                             {{ recipe.prep_time }} min
                         </div>
-                        <div class="col-sm-6 col-lg-3 my-2">
+                        <div class="col-6 my-2 second-spec">
                             <i class="fas fa-fire-alt"></i>
                             {{ recipe.cook_time }} min
                         </div>
-                        <div class="col-sm-6 col-lg-3 my-2">
+                    </div>
+                    <div class="row">
+                        <div class="col-6 my-2">
                             <i class="fas fa-user"></i>
                             {{ recipe.serving }} ppl
                         </div>
-                        <div class="col-sm-6 col-lg-3 my-2">
+                        <div class="col-6 my-2 second-spec">
                             <i class="fas fa-wallet"></i>
                             {{ recipe.get_cost_display }}
                         </div>
@@ -108,11 +76,49 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 my-3 text-center">
+
+    <div class="row text-center">
+        <div class="col-12 my-3 text-muted mb-4">
             {{ recipe.description }}
         </div>
     </div>
+    {% if user.is_authenticated %}
+    {% if recipe.author == user %}
+    <div class="row mb-4 text-center mt-4">
+        <div class="col-6">
+            <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-secondary mx-2">
+                Edit <i class="fas fa-edit"></i></a>
+        </div>
+        <div class="col-6">
+            <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-secondary mx-2">
+                Delete <i class="fas fa-trash-alt"></i></a>
+        </div>
+    </div>
+    {% else %}
+    <div class="row text-center mt-4">
+        <div class="col-12">
+            <p class="h6">Rate this recipe:</p>
+            <ul class="btn btn-light list-inline rating-list">
+                <li onclick="rate(5, {{ recipe.id }})">
+                    <i class="fa fa-star {% if recipe.user_rating > 4 %} checked {% endif %}" title="Rate 5"></i>
+                </li>
+                <li onclick="rate(4, {{ recipe.id }})">
+                    <i class="fa fa-star {% if recipe.user_rating > 3 %} checked {% endif %}" title="Rate 4"></i>
+                </li>
+                <li onclick="rate(3, {{ recipe.id }})">
+                    <i class="fa fa-star {% if recipe.user_rating > 2 %} checked {% endif %}" title="Rate 3"></i>
+                </li>
+                <li onclick="rate(2, {{ recipe.id }})">
+                    <i class="fa fa-star {% if recipe.user_rating > 1 %} checked {% endif %}" title="Rate 2"></i>
+                </li>
+                <li onclick="rate(1, {{ recipe.id }})">
+                    <i class="fa fa-star {% if recipe.user_rating > 0 %} checked {% endif %}" title="Rate 1"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
     <div class="row">
         <div class="col-12">
             <div class="row">
