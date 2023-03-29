@@ -86,7 +86,7 @@
                                 <a href="{% url 'recipe_details' recipe.slug %}"
                                     class="recipe-link text-decoration-none text-dark">
                                     <h2 class="card-title font-weight-bold my-3 ">{{ recipe.title }}</h2>
-                                    <p class="card-text">
+                                    <p class="card-text text-muted">
                                         {{ recipe.description | capfirst | truncatechars:50 | add:"..." }}
                                     </p>
                                 </a>

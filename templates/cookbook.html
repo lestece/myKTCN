@@ -78,18 +78,15 @@
                                 <a href="{% url 'recipe_details' recipe.slug %}"
                                     class="recipe-link text-decoration-none text-dark">
                                     <h2 class="card-title font-weight-bold my-3 ">{{ recipe.title }}</h2>
-                                    <p class="card-text">
+                                    <p class="card-text text-muted">
                                         {{ recipe.description | capfirst | truncatechars:50 | add:"..." }}
                                     </p>
                                 </a>
                             </div>
-                            <div class="d-flex justify-content-around align-items-center card-text-brown mt-auto pt-3">
+                            <div class="d-flex justify-content-center align-items-center card-text-brown mt-auto pt-3">
                                 <p class="card-text mb-0">
-                                    Created on: {{ recipe.created_on | date:" d M Y" }}
-                                </p>
-                                |
-                                <p class="card-text">
-                                    {{ recipe.get_difficulty_display }}
+                                    <i class="far fa-calendar"></i>
+                                    {{ recipe.created_on | date:" d M Y" }}
                                 </p>
                             </div>
                         </div>
