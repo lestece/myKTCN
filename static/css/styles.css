@@ -261,7 +261,7 @@ h1,
     border: 0;
 }
 
-.category-filter .btn{
+.btn-secondary {
     background-color: #C68C4F;
     border: none;
 }
