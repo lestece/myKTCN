@@ -77,14 +77,14 @@
         </div>
     </div>
 
-    <div class="row text-center">
+    <div class="row text-center mt-md-4">
         <div class="col-12 my-3 text-muted mb-4">
             {{ recipe.description }}
         </div>
     </div>
     {% if user.is_authenticated %}
     {% if recipe.author == user %}
-    <div class="row mb-4 text-center mt-4">
+    <div class="row mb-4 text-center my-4">
         <div class="col-6">
             <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-secondary mx-2">
                 Edit <i class="fas fa-edit"></i></a>
@@ -95,7 +95,7 @@
         </div>
     </div>
     {% else %}
-    <div class="row mt-4">
+    <div class="row my-4">
         <div class="col-12 text-center">
             <p class="h6">Rate this recipe:</p>
             <div class="btn btn-light d-flex flex-row-reverse justify-content-center rating-list w-50">
