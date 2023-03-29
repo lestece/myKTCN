@@ -102,7 +102,7 @@ nav {
 }
 
 .hero-image-container {
-    height: 40vh;
+    height: 30vh;
 }
 
 .hero-image {
@@ -223,14 +223,23 @@ h1,
 
 /* -------------------------------------------------------Search bar and cat btnss styles */
 
+.form-group{
+    margin: 1rem;
+}
+
+.search-bar,
+.category-filter{
+    width: 80%;
+}
+
 .search-bar .inputs {
-    width: 60vw;
+    min-width: 50vw; 
     margin: 0 auto;
     position: relative;
 }
 
 .search-bar .form-control {
-    text-indent: 35px;
+    text-indent: 15px;
     height: 35px;
     border-radius: 50px;
     /* border-bottom: 1px solid black;  */
@@ -244,17 +253,26 @@ h1,
     border-bottom: 1px solid #C68C4F;
 }
 
-.search-bar .inputs i {
+.search-bar .inputs button {
     position: absolute;
-    top: 8px;
-    left: 20px;
-    color: #C68C4F;
+    top: 0;
+    right: 0;
+    background-color: #C68C4F;
+    border: 0;
 }
 
-/* .cat-btns button{
-    background-color: #ECEBEB;
-}  */
+.category-filter .btn{
+    background-color: #C68C4F;
+    border: none;
+}
 
+.select2-container .select2-selection--single {
+    height: 35px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 36px;
+}
 /* -------------------------------------------------------Browse recipes styles */
 
 .card-img-top {
