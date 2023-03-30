@@ -110,7 +110,6 @@ class RecipeDetails(View):
                 "comments": comments,
                 "commented": False,
                 "comment_form": CommentForm(),
-
             }
         )
 

@@ -335,8 +335,12 @@ h1,
     height: 100%;
 }
 
-.recipe-list {
-    list-style: square;
+.ingredients-list {
+    list-style: "- ";
+}
+
+.ingredients-list,
+.method-list{
     text-align: left;
 }
 

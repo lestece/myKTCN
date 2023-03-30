@@ -121,8 +121,10 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title mb-4">Ingredients:</h3>
-                            <ul class="card-text recipe-list">
-                                <li> {{ recipe.ingredients | safe }} </li>
+                            <ul class="card-text ingredients-list">
+                                {% for ingredient in recipe.ingredients.split %}
+                                <li> {{ ingredient}} </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -131,8 +133,10 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title mb-4">Method:</h3>
-                            <ol class="card-text recipe-list">
-                                <li>{{ recipe.method | safe }}</li>
+                            <ol class="card-text method-list">
+                                {% for step in recipe.method.split %}
+                                <li>{{ step }}</li>
+                                {% endfor %}
                             </ol>
                         </div>
                     </div>
