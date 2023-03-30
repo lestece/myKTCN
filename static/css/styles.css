@@ -188,7 +188,7 @@ h1,
     border-radius: 50%;
 }
 
-/* -------------------------------------------------------Add recipe styles */
+/* -------------------------------------------------------Add recipe styles / recipe form styles */
 .add-recipe h1 {
     font-family: 'Playfair Display', serif;
 }
@@ -218,6 +218,11 @@ h1,
 .add-confirmation {
     border: 1px solid black;
     border-radius: 10px;
+}
+
+.form-check-input:checked {
+    background-color: #C68C4F;
+    border-color: #C68C4F;
 }
 
 

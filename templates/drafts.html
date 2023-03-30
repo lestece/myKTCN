@@ -22,10 +22,12 @@
                 <div class="col-md-3 my-4 text-muted">
                     <div class="row">
                         <div class="col-6">
-                            <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-outline-dark mx-2">Edit</a>
+                            <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-secondary mx-2">
+                                Edit <i class="fas fa-edit"></i></a>
                         </div>
                         <div class="col-6">
-                            <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-outline-dark mx-2">Delete</a>
+                            <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-secondary mx-2">
+                                Delete <i class="fas fa-trash-alt"></i></a>
                         </div>
                     </div>
                 </div>

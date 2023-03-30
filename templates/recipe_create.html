@@ -14,7 +14,8 @@
                         {% csrf_token %}
                         {{ form | crispy }}
 
-                        <button type="submit" class="btn btn-signup btn-lg btn-outline-dark">Create recipe</button>
+                        <button type="submit" class="btn btn-signup btn-lg btn-secondary">
+                            Create recipe <i class="fas fa-plus"></i></button>
                     </form>
                 </div>
             </div>
