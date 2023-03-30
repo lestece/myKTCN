@@ -29,11 +29,10 @@ nav {
 
 .logo-container {
     max-height: 30vh;
-    margin-bottom: 3rem;
 }
 
 #logo {
-    margin-top: 2rem;
+    width: 50%;
 }
 
 .navbar-toggler {
