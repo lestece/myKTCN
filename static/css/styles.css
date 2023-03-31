@@ -188,6 +188,10 @@ h1,
 }
 
 /* -------------------------------------------------------Add recipe styles / recipe form styles */
+.recipe-form > div{
+    margin-bottom: 2rem;
+}
+
 .add-recipe h1 {
     font-family: 'Playfair Display', serif;
 }

@@ -17,6 +17,8 @@ class RecipeForm(forms.ModelForm):
             ]
 
         labels = {
+            'prep_time': 'Prep time (min)',
+            'cook_time': 'Cook time (min)',
             'status': 'Save as Draft or Publish?',
             'is_public': 'Share it with the Community?',
         }
