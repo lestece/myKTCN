@@ -35,7 +35,15 @@
                     <p class="h6 brown-text my-2">Last update:</p>{{ recipe.created_on }}
                 </div>
             </div>
-            <!-- </a> -->
+            {% empty %}
+            <div class="row mx-2">
+                <div class="col-12 text-center my-4">
+                    <p>You have no drafts yet!</p>
+                    <a href="{% url 'create_recipe' %}" class="btn btn-secondary add-recipe-btn mx-2">
+                        ADD RECIPE <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </div>

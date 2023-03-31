@@ -10,7 +10,7 @@
             <hr>
             <div class="row d-flex justify-content-center">
                 <div class="col-10 col-md-8 col-lg-6 text-center">
-                    <form method="POST" enctype='multipart/form-data'>
+                    <form method="POST" enctype='multipart/form-data' class="recipe-form">
                         {% csrf_token %}
                         {{ form | crispy }}
                         <button type="submit" class="btn btn-signup btn-lg btn-secondary my-2">

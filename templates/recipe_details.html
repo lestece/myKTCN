@@ -42,7 +42,7 @@
                     </div>
                     {% endif %}
                     {% endif %}
-                    <div class="row brown-text">
+                    <div class="row">
                         <div class="col-6 my-2">
                             <i class="far fa-calendar"></i>
                             {{ recipe.created_on | date:"j/n/Y" }}
@@ -52,7 +52,7 @@
                             {{ recipe.get_difficulty_display }}
                         </div>
                     </div>
-                    <div class="row brown-text">
+                    <div class="row">
                         <div class="col-6 my-2">
                             <i class="fas fa-clock"></i>
                             {{ recipe.prep_time }} min
@@ -62,7 +62,7 @@
                             {{ recipe.cook_time }} min
                         </div>
                     </div>
-                    <div class="row brown-text">
+                    <div class="row">
                         <div class="col-6 my-2">
                             <i class="fas fa-user"></i>
                             {{ recipe.serving }} ppl
@@ -169,13 +169,13 @@
                         </div>
                         {% endfor %}
                         {% endif %}
+                        {% if user.is_authenticated %}
                         <div class="col-md-5 border p-4 text-center">
                             {% if commented %}
                             <div class="alert alert-success" role="alert">
                                 Your comment has been submitted! It will appear once it's been approved by our admins.
                             </div>
                             {% else %}
-                            {% if user.is_authenticated %}
                             <h3>Leave a comment:</h3>
                             <p>Posting as: <span class="brown-text">{{ user.username }}</span></p>
                             <form method="post" style="margin-top: 1.3em;">
@@ -184,8 +184,8 @@
                                 <button type="submit" class="btn btn-signup btn-lg btn-secondary">Submit</button>
                             </form>
                             {% endif %}
-                            {% endif %}
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
