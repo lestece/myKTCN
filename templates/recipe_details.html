@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 category cat-recipe-details py-1 text-center mb-4">
+                <div class="col-12 category cat-recipe-details py-1 text-center mb-4 text-muted border">
                     {{ recipe.get_category_display }}
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     </div>
                     {% endif %}
                     {% endif %}
-                    <div class="row">
+                    <div class="row brown-text">
                         <div class="col-6 my-2">
                             <i class="far fa-calendar"></i>
                             {{ recipe.created_on | date:"j/n/Y" }}
@@ -52,7 +52,7 @@
                             {{ recipe.get_difficulty_display }}
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row brown-text">
                         <div class="col-6 my-2">
                             <i class="fas fa-clock"></i>
                             {{ recipe.prep_time }} min
@@ -62,7 +62,7 @@
                             {{ recipe.cook_time }} min
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row brown-text">
                         <div class="col-6 my-2">
                             <i class="fas fa-user"></i>
                             {{ recipe.serving }} ppl
@@ -84,7 +84,7 @@
     </div>
     {% if user.is_authenticated %}
     {% if recipe.author == user %}
-    <div class="row mb-4 text-center my-4">
+    <div class="row mb-4 text-center my-4 border py-4">
         <div class="col-6">
             <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-secondary mx-2">
                 Edit <i class="fas fa-edit"></i></a>
@@ -121,9 +121,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title mb-4">Ingredients:</h3>
-                            <ul class="card-text ingredients-list">
-                                <li> {{ recipe.ingredients | linebreaksbr}} </li>
-                            </ul>
+                            <div class="card-text ingredients-list">{{ recipe.ingredients | safe }}</div>
                         </div>
                     </div>
                 </div>
@@ -131,11 +129,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title mb-4">Method:</h3>
-                            <ol class="card-text method-list">
-                                {% for step in recipe.method.split %}
-                                <li>{{ step }}</li>
-                                {% endfor %}
-                            </ol>
+                            <div class="card-text method-list">{{ recipe.method | safe }}</div>
                         </div>
                     </div>
                 </div>
@@ -187,7 +181,7 @@
                             <form method="post" style="margin-top: 1.3em;">
                                 {{ comment_form | crispy }}
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-signup btn-lg btn-outline-dark">Submit</button>
+                                <button type="submit" class="btn btn-signup btn-lg btn-secondary">Submit</button>
                             </form>
                             {% endif %}
                             {% endif %}
