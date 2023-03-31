@@ -122,9 +122,7 @@
                         <div class="card-body">
                             <h3 class="card-title mb-4">Ingredients:</h3>
                             <ul class="card-text ingredients-list">
-                                {% for ingredient in recipe.ingredients.split %}
-                                <li> {{ ingredient}} </li>
-                                {% endfor %}
+                                <li> {{ recipe.ingredients | linebreaksbr}} </li>
                             </ul>
                         </div>
                     </div>

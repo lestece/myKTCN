@@ -335,8 +335,13 @@ h1,
 }
 
 .ingredients-list {
-    list-style: "- ";
+    list-style: "-";
 }
+
+.ingredients-list::marker { 
+    display: none;
+}
+
 
 .ingredients-list,
 .method-list{
