@@ -334,17 +334,8 @@ h1,
     height: 100%;
 }
 
-.ingredients-list {
-    list-style: "-";
-}
-
-.ingredients-list::marker { 
-    display: none;
-}
-
-
-.ingredients-list,
-.method-list{
+.ingredients-card,
+.method-card{
     text-align: left;
 }
 

@@ -6,3 +6,5 @@ class RecipeFilter(django_filters.FilterSet):
     class Meta:
         model = Recipe
         fields = ['category']
+
+

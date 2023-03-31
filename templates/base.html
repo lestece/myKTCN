@@ -37,8 +37,8 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white">
         <div class="container-fluid justify-content-center logo-container">
             <a href="{% url 'home' %}" class="text-center mt-4">
-                <img src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1680205922/MyKTCN_2_burc1q.png"
-                    alt="logo" id="logo">
+                <img src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1680205922/MyKTCN_2_burc1q.png" alt="logo"
+                    id="logo">
             </a>
         </div>
 
@@ -64,9 +64,10 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item text-muted" href="{% url 'drafts' %}">Drafts</a></li>
-                            <li><a class="dropdown-item text-muted my-4" href="{% url 'create_recipe' %}">Add recipe</a></li>
+                            <li><a class="dropdown-item text-muted my-4" href="{% url 'create_recipe' %}">Add recipe</a>
+                            </li>
                             <li><a class="dropdown-item logout-text" href="{% url 'account_logout' %}">
-                                Logout <i class="fas fa-sign-out-alt"></i></a></li>
+                                    Logout <i class="fas fa-sign-out-alt"></i></a></li>
                         </ul>
                     </div>
                 </li>
@@ -133,7 +134,6 @@
             alert.close();
         }, 4000)
     </script>
-
 </body>
 
 </html>
