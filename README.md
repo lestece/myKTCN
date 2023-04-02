@@ -45,6 +45,46 @@ This app has been created to showcase my Full Stack knowledge, along with my ski
 
 ### USER STORIES
 
+#### EPIC: ADMINISTRATION
+
+- As a **Site Administrator**, I can **perform CRUD on the recipes and their comments** so that **I can manage the app content and keep it consistent and appropriate at all times**.
+
+#### EPIC: USER PROFILE
+
+- As a **Site User**, I can **create an account** so that **I can add, edit and delete recipes in my cookbook, choose which ones to share with the Community and interact with other users' recipes**.
+
+- As a **Site User**, I can **login and logout from my account** so that **it stays secure**.
+
+#### EPIC: APP NAVIGATION
+
+- As a **Site User**, I can **immediately understand the website purpose** so that **I can decide if it meets my needs**.
+
+- As a **Site User**, I can **easily and intuitively navigate the site** so that **I can find the desired content**.
+
+- As a **Site User**, I can **view a paginated list of recipes** so that **I can choose and select the ones I am interested in**.
+
+- As a **Site User**, I can **click on a recipe** so that **I can view the full details and comments**.
+
+#### EPIC: COOKBOOK MANAGEMENT
+
+- As a **Site User**, I can **create a new recipe** so that **it can be added to my Cookbook and, if wanted, shared with other users**.
+
+- As a **Site User**, I can **edit and delete my recipes** so that **I can improve my Cookbook or remove the recipes that I no longer like and want to have in my arsenal**.
+
+#### EPIC: RECIPE INTERACTION
+
+- As a **Site User**, I can **rate other users' recipes** so that **I can leave a feedback about them**.
+
+- As a **Site User**, I can **comment on the recipes other users have made public** so that **I can express my feedback about them**.
+
+#### EPIC: UX IMPROVEMENTS
+
+- As a **Site User**, I can **search through the recipes by category or name** so that **I can quickly locate the recipe I'm looking for**.
+
+#### USER STORIES TO IMPLEMENT IN THE FUTURE
+
+- As a **Site User**, I can **see the nutritional values of a recipe** so that **I can decide if it suits my current diet**.
+
 - - - 
 ### BUSINESS GOALS
 
