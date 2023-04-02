@@ -1,108 +1,171 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# myKTCN Cookbook
 
-Welcome lestece,
+![AmIResponsive](docs/README-images/amiresponsive.png)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+** Your personal Cookbook, in one app! **
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+[View the live website here](https://my-ktcn.herokuapp.com/)
 
-## Gitpod Reminders
+## TABLE OF CONTENTS
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+1. [INTRODUCTION](#1-introduction)
+2. [USER EXPERIENCE DESIGN](#2-user-experience-design)
+   - [User stories](#user-stories)
+   - [Business goals](#business-goals)
+   - [Wireframes](#wireframes)
+   - [Design](#design)
+     - [Logo](#logo)
+     - [Colors](#colors)
+     - [Icons](#icons)
+     - [Typography](#typography)
+     - [Images](#images)
+     - [Mockups](#mockups)
+3. [FEATURES](#3-features)
+   - [Existing features](#existing-features)
+   - [Features to implement in the future](#features-to-implement-in-the-future)
+4. [TESTING](#4-testing)
+5. [TECHNOLOGIES USED](#5-technologies-used)
+   - [Main languages used](#main-languages-used)
+   - [Frameworks, Libraries and Programs used](#frameworks-libraries-and-programs-used)
+6. [CREDITS](#6-credits)
+7. [DEPLOYMENT](#7-deployment)
+8. [ACKNOWLEDGEMENTS](#8-acknowledgements)
+- - -
+## 1. INTRODUCTION
 
-`python3 -m http.server`
+myKTCN is a Django app created to provide users with a digital cookbook, accessible through an account registration, __to save their personal recipes, share them with the Community if wanted, and access other users' public recipes to get inspired__.
 
-A blue button should appear to click: _Make Public_,
+The app allows users to filter the recipes by category or title/ingredient, rate and comment other users' recipes. 
 
-Another blue button should appear to click: _Open Browser_.
+CRUD funtionality is fully implemented: recipes can be created, read, edited or deleted from the database.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+This app has been created to showcase my Full Stack knowledge, along with my skills relating responsiveness, accessibility and UX Design.
+- - - 
+## 2. USER EXPERIENCE DESIGN
 
-A blue button should appear to click: _Make Public_,
+### USER STORIES
 
-Another blue button should appear to click: _Open Browser_.
+- - - 
+### BUSINESS GOALS
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- - -
+### WIREFRAMES
 
-To log into the Heroku toolbelt CLI:
+[See wireframes here]().
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+All wireframes were created with [Figma](https://www.figma.com/).
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+[Back to top ↑](README.md/#myktcn-cookbook)
+- - - 
+### DESIGN
 
-------
+- #### LOGO
 
-## Release History
+myKTCN logo was created by me using [Canva](https://www.canva.com/).
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+![myKTCN Logo](docs/README-images/myKTCN-logo.png)
+- - - 
+- #### COLORS
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- - -
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- #### ICONS
+  Icons were needed for the social media links, recipe specifications and buttons. They've all have been taken from [FontAwesome](https://fontawesome.com/).
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- - - 
+- #### TYPOGRAPHY
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- - - 
+- #### IMAGES
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- - - 
+- #### MOCKUPS
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+After ideating the website structure and the wireframes, and after having decided on the design elements, I've created high-fidelity mockups of all of the pages to make tangible the idea in my mind and have a detailed guide to follow when coding.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+[See mockups here](docs/mockups)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+[Back to top ↑](README.md/#myktcn-cookbook)
+- - - 
+## 3. FEATURES
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### EXISTING FEATURES
 
-------
 
-## FAQ about the uptime script
 
-**Why have you added this script?**
+- - - 
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### FEATURES TO IMPLEMENT IN THE FUTURE
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+[Back to top ↑](README.md/#myktcn-cookbook)
+- - - 
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+## 4. TESTING
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+All of the information regarding the testing can be found [here](TESTING.md).
 
-**So….?**
+- - - 
+## 5. TECHNOLOGIES USED
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Main languages used
 
-**Can I opt out?**
+### Frameworks, Libraries and Programs used
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+[Back to top ↑](README.md/#myktcn-cookbook)
+- - - 
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+## 6. CREDITS
 
-**Anything more?**
+### Media
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
 
----
+- - - 
+### Code
 
-Happy coding!
+
+- - - 
+### Content
+
+
+[Back to top ↑](README.md/#myktcn-cookbook)
+- - - 
+## 7. DEPLOYMENT
+
+- - - 
+### FORKING THE REPOSITORY
+
+ 1) In this project repository, locate the _Fork_ button on the top-right corner of the page and click on it. 
+
+ 2) Select an owner for the forked repository and give it a name (by default it will be named VAPIKA-Dosha-Quiz)
+
+ 3) Add a description of the repository if you want to
+
+ 4) Choose whether to copy only the default branch or all of the branches to the new fork (Only the default branch is copied by default)
+
+ 5) Click _Create fork_
+
+![Forking the repository](docs/README-images/how-to-fork.gif) 
+- - -
+### CLONING THE REPOSITORY
+
+1) Locate the _<> Code_ button next to the _Gitpod_ button in this repository and click on it
+
+2) Copy the URL for the repository
+
+3) Open _Git Bash_ and select the location for the cloned directory
+
+4) Paste the URL copied after typing _git clone_
+
+5) After pressing _Enter_ you have your local clone
+
+- - - 
+## 8. ACKNOWLEDGEMENTS
+
+This website was created for submission as the __Project Portfolio 4__ for the _Diploma in Full Stack Software Development_ with the [Code Institute](https://codeinstitute.net/). 
+
