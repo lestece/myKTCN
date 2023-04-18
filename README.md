@@ -107,6 +107,15 @@ myKTCN logo was created by me using [Canva](https://www.canva.com/).
 - - - 
 - #### COLORS
 
+![myKTCN Palette](docs/README-images/myKTCN-palette.png)
+
+The palette was generated from the logo using [Coolors](https://coolors.co/).
+
+- __#c68c4f (brownish color)__ has been used for most of the headings, buttons background, user actions in the navbar (login/signup/logout) and social icons in the footer.
+
+- __black__ has been kept as the main color for most of the generic text so that a good background contrast is always present.
+
+- __#ecebeb (greysh color)__ has been used as the backhround color for the cards and some page sections (to create some separation with the rest of the content).
 
 - - -
 
@@ -116,19 +125,23 @@ myKTCN logo was created by me using [Canva](https://www.canva.com/).
 - - - 
 - #### TYPOGRAPHY
 
+- For the headings, I wanted a font that was delicate but bold and that would attract attention without taking too much away from the rest of the text. So I choose __Playfair Display__ for these purposes.
 
+- The font chosen for the body is __Josefin Sans__, inspired by geometric sans serif designs from the 1920s. It's an easy to read font and it pairs very well with Playfair Display.
+
+All fonts have been imported in the project from [Google Fonts](https://fonts.google.com/).
 
 - - - 
 - #### IMAGES
 
-
+The hero images that introduce the homepage, the browse recipes page and the cookbook page, have been taken from [Unsplash](https://unsplash.com) and uploaded on [Cloudinary](https://cloudinary.com/) as persistent file store.
 
 - - - 
 - #### MOCKUPS
 
 After ideating the website structure and the wireframes, and after having decided on the design elements, I've created high-fidelity mockups of all of the pages to make tangible the idea in my mind and have a detailed guide to follow when coding.
 
-[See mockups here](docs/mockups)
+[See mockups here](docs/README-images/mockups)
 
 [Back to top ↑](README.md/#myktcn-cookbook)
 - - - 
