@@ -2,7 +2,7 @@
 
 ![AmIResponsive](docs/README-images/amiresponsive.png)
 
-** Your personal Cookbook, in one app! **
+**Your personal Cookbook, in one app!**
 
 [View the live website here](https://my-ktcn.herokuapp.com/)
 
@@ -11,7 +11,8 @@
 1. [INTRODUCTION](#1-introduction)
 2. [USER EXPERIENCE DESIGN](#2-user-experience-design)
    - [User stories](#user-stories)
-   - [Business goals](#business-goals)
+   - [Project Management](#project-management)
+   - [Database Schema](#database-schema---er-diagram)
    - [Wireframes](#wireframes)
    - [Design](#design)
      - [Logo](#logo)
@@ -85,13 +86,38 @@ This app has been created to showcase my Full Stack knowledge, along with my ski
 
 - As a **Site User**, I can **see the nutritional values of a recipe** so that **I can decide if it suits my current diet**.
 
-- - - 
-### BUSINESS GOALS
-
 - - -
+### PROJECT MANAGEMENT
+Agile practices have been followed throughout the development of myKTCN and the GitHub __Project Board__ has been particularly useful to do so. 
+Each User Stories was created as an Issue on the Github repository for this project, then added to the "To do" section of the Project Board, moved to the "In progress" while working on it, and ultimately moved on the "Done" section once the feature was fully implemented.
+
+![myKTCN Project Board](docs/README-images/myKTCN-projectboard.png)
+
+[Visit the project board here](https://github.com/users/lestece/projects/4)
+
+[See User Stories as Issues](https://github.com/lestece/myKTCN/issues?q=is%3Aissue+is%3Aclosed)
+
+- - - 
+### DATABASE SCHEMA - ER DIAGRAM
+
+The database models and fields were planned and outlined using an ER Diagram in [Lucidchart](https://lucid.co/).
+
+![myKTCN ER diagram](docs/README-images/myKTCN-ERdiagram.png)
+
+The creation of the diagram was vital to understand how the models relate to each other:
+
+- User: Django allAuth was used for dealing with the registration, management and authentication of the user model.
+A specific user can be the creator of zero or many recipes, comments and ratings but one specific recipe, comment or rating can belong to one (and one only) user.
+
+- Recipe: a recipe can have zero or many comments, and zero or many ratings.
+
+- Comment: a specific comment can belong to one (and one only) recipe.
+
+- Rating: a certain rating is related to one (and one only) recipe.
+- - - 
 ### WIREFRAMES
 
-[See wireframes here]().
+[See wireframes here](docs/README-images/wireframes).
 
 All wireframes were created with [Figma](https://www.figma.com/).
 
@@ -115,7 +141,7 @@ The palette was generated from the logo using [Coolors](https://coolors.co/).
 
 - __black__ has been kept as the main color for most of the generic text so that a good background contrast is always present.
 
-- __#ecebeb (greysh color)__ has been used as the backhround color for the cards and some page sections (to create some separation with the rest of the content).
+- __#ecebeb (greysh color)__ has been used as the background color for the cards and some page sections (to create some separation with the rest of the content).
 
 - - -
 
