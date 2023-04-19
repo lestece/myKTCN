@@ -128,6 +128,8 @@ All wireframes were created with [Figma](https://www.figma.com/).
 - #### LOGO
 
 myKTCN logo was created by me using [Canva](https://www.canva.com/).
+I wanted to create an engaging logo that immediately conveys the app purpose, with simple colors and a "fun" feel.
+If clicked, it redirects to the homepage of the website.
 
 ![myKTCN Logo](docs/README-images/myKTCN-logo.png)
 - - - 
@@ -175,10 +177,44 @@ After ideating the website structure and the wireframes, and after having decide
 
 ### EXISTING FEATURES
 
+#### - __NAVBAR__
+myKTCN navbar is fully responsive and allows an intuitive site navigation.
+Depending on the user state, it displays different navigation links: 
+- __Logged out / Signed out user:__
+![Navbar - logged out user](docs/README-images/nav-lg-loggedout.png)
+If the user is not logged in or doesn't still have an account, the navbar is the first call to action to login into the account or register one. It allows limited access to the "Browse recipes" page where registered users can share their recipes with the world.
 
+- __Logged in user:__
+![Navbar - logged in user](docs/README-images/nav-lg-loggedin.png)
+When a user is logged in, the navbar displays the whole range of functionalities available to registered users:
+access to the personal Cookbook and to the recipes from the Community in the main navigation bar, and access to the user's drafts page, a quick link to create a new recipe and a logout button through the dropdown menu that opens under the user profile.
 
+- __Hamburger Menu for medium / small screen sizes:__
+![Navbar - Hamburger Menu](docs/README-images/nav-hamburger.png)
+Being fully responsive, the navigation bar shrinks to an hamburger menu when the screen size is below 768px.
+As for larger screen sizes, the toggled hamburger menu shows different navigation links based on the user state.
 - - - 
+#### - __HOMEPAGE__
+The homepage is showed for users that are not logged in or yet registered: it showcases the perks of using the app in a catchy and informative way.
 
+- __Hero content and features cards__
+![Hero and feature cards](docs/README-images/home-perks-cards.png)
+The hero section contains a concise introduction of the app main purpose and an image that wants to convey the feel of homecooked meals. It's then followed by a section that, through cards, showcases the perks and functionalities of using the app: it's aimed to convey trustworthiness and inimitability, leaving the users with the feeling that they need to create an account and use the app.
+
+- __Browse recipes section__
+![Browse recipes section](docs/README-images/home-browse-lg.png)
+The browse recipes section is a preview of the Browse recipes page and ends with a button that links to that page of the app. It shows the last four recipes that have been shared in the Community and, under 768px, mutates into a carousel with controls.
+
+![Carousel](docs/README-images/home-carousel.gif)
+
+- __Call to action__
+![Home CTA](docs/README-images/cta.png)
+After presenting the users with all the previous information, the last section of the homepage is a CTA containing a button to register an account with myKTCN.
+- - - 
+#### - __FOOTER__
+![Footer](docs/README-images/footer.png)
+myKTCN footer contains links to the social accounts (that open on a new page) and the app Copyright.
+- - -
 ### FEATURES TO IMPLEMENT IN THE FUTURE
 
 
