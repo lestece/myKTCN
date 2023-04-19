@@ -182,15 +182,18 @@ myKTCN navbar is fully responsive and allows an intuitive site navigation.
 Depending on the user state, it displays different navigation links: 
 - __Logged out / Signed out user:__
 ![Navbar - logged out user](docs/README-images/nav-lg-loggedout.png)
+
 If the user is not logged in or doesn't still have an account, the navbar is the first call to action to login into the account or register one. It allows limited access to the "Browse recipes" page where registered users can share their recipes with the world.
 
 - __Logged in user:__
 ![Navbar - logged in user](docs/README-images/nav-lg-loggedin.png)
+
 When a user is logged in, the navbar displays the whole range of functionalities available to registered users:
 access to the personal Cookbook and to the recipes from the Community in the main navigation bar, and access to the user's drafts page, a quick link to create a new recipe and a logout button through the dropdown menu that opens under the user profile.
 
 - __Hamburger Menu for medium / small screen sizes:__
 ![Navbar - Hamburger Menu](docs/README-images/nav-hamburger.png)
+
 Being fully responsive, the navigation bar shrinks to an hamburger menu when the screen size is below 768px.
 As for larger screen sizes, the toggled hamburger menu shows different navigation links based on the user state.
 - - - 
@@ -199,24 +202,92 @@ The homepage is showed for users that are not logged in or yet registered: it sh
 
 - __Hero content and features cards__
 ![Hero and feature cards](docs/README-images/home-perks-cards.png)
+
 The hero section contains a concise introduction of the app main purpose and an image that wants to convey the feel of homecooked meals. It's then followed by a section that, through cards, showcases the perks and functionalities of using the app: it's aimed to convey trustworthiness and inimitability, leaving the users with the feeling that they need to create an account and use the app.
 
 - __Browse recipes section__
 ![Browse recipes section](docs/README-images/home-browse-lg.png)
+
 The browse recipes section is a preview of the Browse recipes page and ends with a button that links to that page of the app. It shows the last four recipes that have been shared in the Community and, under 768px, mutates into a carousel with controls.
 
 ![Carousel](docs/README-images/home-carousel.gif)
 
 - __Call to action__
 ![Home CTA](docs/README-images/cta.png)
+
 After presenting the users with all the previous information, the last section of the homepage is a CTA containing a button to register an account with myKTCN.
 - - - 
 #### - __FOOTER__
 ![Footer](docs/README-images/footer.png)
+
 myKTCN footer contains links to the social accounts (that open on a new page) and the app Copyright.
 - - -
-### FEATURES TO IMPLEMENT IN THE FUTURE
+#### - __RECIPE FILTERING__
+![Filter recipes](docs/README-images/filter-recipes.png)
 
+Both in the Browse recipes page and user's personal Cookbook, recipes can be filtered by title or ingredient in a search bar, or by category selectable in a dropdown menu.
+- - -
+#### - __RECIPES DISPLAY IN BROWSE RECIPES PAGE__
+![Browse recipes display](docs/README-images/browse-page-recipes.png)
+
+In the browse recipes page, each recipe is displayed through a Bootstrap card that shows its image, average rating, title, a preview of the description, the total preparation time, its cost and level of difficulty. Each card is a link to the full recipe details page.
+
+On large screen sizes, four recipes are displayed one after the other horizontally, to then become two on medium screens, and on smaller screen sizes each recipe occupies the full width.
+- - -
+#### - __COOKBOOK PAGE__
+![Cookbook page](docs/README-images/cookbook-page.png)
+
+The user's cookbook page shows the personal recipes through Bootstrap cards that display the recipe's image, category, title, description preview and date of creation.
+
+Each recipe card is a link to the full recipe details page.
+
+A button to create a new recipe is shown before the cards.
+
+For consistency, the same layout used in the browse recipes page was used: four recipes displayed together horizontally for large screens, two for medium ones, and one individual recipe card occupying the full width of the screen for smaller sizes.
+- - -
+#### - __USER'S DRAFTS__
+![User's drafts](docs/README-images/drafts.png)
+
+Users can access the drafts page through the dropdown menu that opens on clicking on the user profile in the navbar.
+This page contains all of the recipes that have been started to be created, but saved as "draft" because incomplete. Each draft block shows the recipe image, its title, a button to edit the recipe (that links to the "create recipe" form prefilled with the recipe data already existing in the database), a delete button to eliminate the recipe completely, and the date the recipe was last worked on.
+- - -
+#### - __ADD RECIPE FORM__
+![Add recipe form](docs/README-images/recipe-form.gif)
+
+The form to create a new recipe is intuitive and easy to fill in. Users are required to insert the title, description, ingredients and method (these last two fields allow users to automatically have their inputs transformed into a list if the button at the top of the textarea is selected), an image (if none is uploaded, a placeholder image is provided), preparation time and cooking time in minutes, number of servings. They are also requested to select the level of difficulty, recipe cost, category. In the end they're asked if they want their recipe to be saved in their cookbook or as a draft, and if they want to make it available to the Community in the browse recipes page.
+- - - 
+#### - __RECIPE DETAILS PAGE__
+![Recipe details page](docs/README-images/recipe-details.gif)
+The recipe details page is displayed in a layout that wants to avoid crowded information and be as neat and organized as possible.-Recipe header: it contains the recipe specifics necessary for the user to understand if that recipe is what he/she was looking for. It displays the recipe image, it's title and category, date of creation, preparation and cooking times, number of servings, cost and difficulty.
+-Recipe description: this section gives extra information about that recipe in the form of a description.
+-Recipe in action: finally, the practical part of the recipe is shown. Ingredients and method blocks are displayed next to each other (or one after the other in the case of smaller screen sizes). Each ingredient and step is displayed in a list for easy readability and appearance.
+-Recipe comments: the end of the page shows the list of comments that have been posted for that recipe by users (if there's any).
+- - -
+#### - __EDIT/DELETE RECIPE__
+![Edit/Delete recipe](docs/README-images/edit-delete-recipe.png)
+In the recipe details page for a specific recipe, if the user is logged in and the author of that particular recipe, a button for editing and one for deleting the recipe are available under the recipe description.
+- - -
+#### - __RATE RECIPE__
+![Rate recipe](docs/README-images/rate-recipe.gif)
+Under the recipe description in the recipe details page, when a user is logged in and not the author of that specific recipe, a rating system is available.
+- - -
+#### - __RECIPE COMMENTING__
+![Comment recipe](docs/README-images/recipe-commenting.png)
+In the recipe comments section on the recipe details page, a comment form is made available to users who are logged in and not the author of that particular recipe.
+The comment needs to be approved by the admin before publication to maintain the site content safe and respectful.
+- - -
+#### - __USER SIGN UP, LOGIN AND LOGOUT__
+![User sign up](docs/README-images/signup.png)
+![User login](docs/README-images/login.png)
+![User logout](docs/README-images/logout)
+
+[Django allAuth](https://django-allauth.readthedocs.io/en/latest/) was used for myKTCN to handle user accounts. The basic templates have been customized to fit the app and simplified so that upon registration, username, email and password are required to create an account, to login in only username and password are asked for, and to logout a confirmation of the action is required.
+- - - 
+### FEATURES TO IMPLEMENT IN THE FUTURE
+- A section in the recipe details page that shows the nutritional values for that specific recipes.
+- More recipes filtering options to aid navigation when the browse recipe page or the personal cookbook get populated with a large amount of recipes.
+- Implementing the password retrieving with Django allAuth
+- Implementing Django allAuth registration/logging in using social network accounts
 
 [Back to top ↑](README.md/#myktcn-cookbook)
 - - - 
