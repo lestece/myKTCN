@@ -1,3 +1,5 @@
+# Database models
+
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -5,9 +7,10 @@ from django.db.models import Avg, Func
 from cloudinary.models import CloudinaryField
 
 
+# Recipe Model
 class Recipe(models.Model):
     STATUS = (
-        (0, "Draft"), 
+        (0, "Draft"),
         (1, "Published")
     )
 
@@ -32,7 +35,8 @@ class Recipe(models.Model):
     )
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipes")
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               related_name="recipes")
     updated_on = models.DateField(auto_now=True)
     created_on = models.DateField(auto_now_add=True)
     description = models.TextField()
@@ -49,26 +53,37 @@ class Recipe(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     is_public = models.BooleanField(default=False)
 
+    # To display the recipes in ascending order
     class Meta:
         ordering = ['created_on']
 
+    '''
+    To calculate the average rating for the recipe.
+    Implemented following the tutorial at
+    https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c
+    '''
     def average_rating(self) -> float:
-        return Rating.objects.filter(recipe=self).aggregate(Avg("rating"))["rating__avg"] or 0
+        return Rating.objects.filter(recipe=self).aggregate(Avg("rating"))
+        ["rating__avg"] or 0
 
     def __str__(self):
         return self.title
 
+    # Brings the user to the recipe details page when recipe is created/edited
     def get_absolute_url(self):
         return reverse('recipe_details', kwargs={'slug': self.slug})
 
-    
+
+# Comment Model
 class Comment(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='comments')
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE,
+                               related_name='comments')
     name = models.CharField(max_length=80)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
+    # Displays the comments in ascending order
     class Meta:
         ordering = ['created_on']
 
@@ -76,9 +91,14 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}"
 
 
+''' 
+Rating Model
+Implemented following this tutorial:
+https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c
+'''
 class Rating(models.Model):
     RATING = (
-        (0, 0), 
+        (0, 0),
         (1, 1),
         (2, 2),
         (3, 3),
@@ -91,3 +111,4 @@ class Rating(models.Model):
 
     def __str__(self):
         return f"{self.recipe.title}: {self.rating}"
+        

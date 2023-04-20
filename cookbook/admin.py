@@ -3,6 +3,7 @@ from .models import Recipe, Comment, Rating
 from django_summernote.admin import SummernoteModelAdmin
 
 
+# Register the Recipe model in the Admin panel
 @admin.register(Recipe)
 class RecipeAdmin(SummernoteModelAdmin):
 
@@ -17,6 +18,7 @@ class RecipeAdmin(SummernoteModelAdmin):
         queryset.update(is_public=True)
 
 
+# Register the Comment model in the Admin panel
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
 
@@ -30,10 +32,12 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
+# Register the Rating model in the Admin panel
 @admin.register(Rating)
 class RatingAdmin(admin.ModelAdmin):
 
     list_display = ('user', 'recipe', 'rating')
     search_fields = ('recipe', 'user')
+
 
 
