@@ -56,3 +56,32 @@ All html pages have been run through the [W3C HTML Validator](https://validator.
 
 As indicated in the table, there are two pages that return validation errors: __recipe_create.html__ and __recipe_edit.html__. These errors come from the installed Summernote library, that runs on the ingredients and method input fields in the recipe form. These errors stay __unresolved/cannot be fixed__ since they come from an external source.
 - - - 
+### Jigsaw CSS VALIDATION
+
+__No errors or warnings__ are returned when passing the styles.css through the [Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/).
+
+![CSS Validation](docs/TESTING-images/css-validation/css-validated.png)
+
+- - -
+### JSHint JavaScript VALIDATION
+
+All the sripts used in myKTCN have been run through the [JSHint Javascript Validator](https://jshint.com/) and they return __no errors__.
+
+| Script     | Errors        | See results  |
+| ------------- | -------------|--------------|
+| carousel     | None          | <details><summary>carousel script results</summary> ![carousel script results](docs/TESTING-images/javascript-validation/jshint-carousel-validated.png) </details>|
+| messages display     | None          | <details><summary>display messages script results</summary> ![display messages script results](docs/TESTING-images/javascript-validation/jshint-displaymessages-validated.png) </details>|
+| rating system     | None          | <details><summary>rating system script results</summary> ![rating system script results](docs/TESTING-images/javascript-validation/jshint-ratingsystem-validated.png) </details>|
+| select2     | None          | <details><summary>select2 script results</summary> ![select2 script results](docs/TESTING-images/javascript-validation/jshint-select2-validated.png) </details>|
+
+- - -
+### CI Python Linter Python VALIDATION
+
+All the main Python files were run through the [CI Python Linter Validator](https://pep8ci.herokuapp.com/) with __no errors__ returned.
+
+| Python file     | Errors        | See results  |
+| ------------- | -------------|--------------|
+| forms.py     | None          | <details><summary>forms.py results</summary> ![forms.py results](docs/TESTING-images/python-validation/forms.py-validated.png) </details>|
+| models.py     | None          | <details><summary>models.py results</summary> ![models.py results](docs/TESTING-images/python-validation/models.py-validated.png) </details>|
+| urls.py     | None          | <details><summary>urls.py results</summary> ![urls.py results](docs/TESTING-images/python-validation/urls.py-validated.png) </details>|
+| views.py     | None          | <details><summary>views.py results</summary> ![views.py results](docs/TESTING-images/python-validation/views.py-validated.png) </details>|
