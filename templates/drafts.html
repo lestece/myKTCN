@@ -5,8 +5,8 @@
         <div class="col-12">
             <h1>Your drafts:</h1>
             <hr>
+            <!-- Iterates through the user drafted recipes -->
             {% for recipe in recipe_list %}
-            <!-- <a href="{% url 'recipe_details' recipe.slug %}" class="recipe-link text-decoration-none text-dark"> -->
             <div class="row mb-2 border p-2">
                 <div class="col-md-3">
                     {% if "placeholder" in recipe.featured_image.url %}
@@ -20,6 +20,7 @@
                     <p class="h6 brown-text my-2">Title:</p>{{ recipe.title }}
                 </div>
                 <div class="col-md-3 my-4 text-muted">
+                    <!-- Buttons to edit or delete the draft -->
                     <div class="row">
                         <div class="col-6">
                             <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-secondary mx-2">
@@ -35,6 +36,7 @@
                     <p class="h6 brown-text my-2">Last update:</p>{{ recipe.created_on }}
                 </div>
             </div>
+            <!-- If the user has no drafts -->
             {% empty %}
             <div class="row mx-2">
                 <div class="col-12 text-center my-4">
