@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+            <!-- Hero section -->
             <div class="row hero-content d-flex justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-8 mx-2">
                     <div class="row my-4">
@@ -22,6 +23,7 @@
             </div>
         </div>
     </div>
+    <!-- myKTCN perks/features cards section -->
     <div class="row mt-2">
         <div class="col-12">
             <div class="row perks-block">
@@ -57,11 +59,11 @@
             </div>
         </div>
     </div>
+    <!-- Browse recipes section -->
     <div class="row browse-recipes-block border p-4">
         <div class="col-12 text-center mb-2">
             <h2 class="brown-text">Recently shared by other users:</h2>
-            <!-- <hr class="w-50" /> -->
-            <!-- Last added recipes for large screens -->
+            <!-- Latest added recipes for large screens -->
             <div class="row mx-2 d-none d-md-flex">
                 {% for recipe in newly_added_recipes %}
                 <div class="col-md-3 my-2">
@@ -70,9 +72,10 @@
                             <div class="image-container mb-3">
                                 {% if "placeholder" in recipe.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725047/empty-recipe-img_rzjg6v.jpg">
+                                    src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725047/empty-recipe-img_rzjg6v.jpg"
+                                    alt="Placeholder image for the recipe">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
+                                <img class="card-img-top" src=" {{ recipe.featured_image.url }}" alt="Recipe image">
                                 {% endif %}
                             </div>
                             <a href="{% url 'recipe_details' recipe.slug %}"
@@ -90,7 +93,8 @@
                 {% endfor %}
             </div>
         </div>
-        <!-- Bootstrap Carousel for small screens-->
+        <!-- Latest added recipes for medium/small screens: Bootstrap Carousel-->
+        <!-- Implemented following the instructions at https://getbootstrap.com/docs/4.0/components/carousel/ -->
         <div id="last-recipes-carousel" class="carousel carousel-dark slide d-md-none text-center"
             data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -124,6 +128,7 @@
                     </div>
                     {% endfor %}
                 </div>
+                <!-- Carousel controls -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#last-recipes-carousel"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -140,9 +145,8 @@
                     BROWSE ALL <i class="fas fa-angle-double-right"></i>
                 </a>
             </div>
-
         </div>
-
+        <!-- CTA section -->
         <div class="row signup-cta-block text-center">
             <div class="col-12 w-100">
                 <h2 class="lh-base mt-3">Create an account now to start using <span class="brown-text brand-text">myKTCN</span> and save your recipes!</h2>
