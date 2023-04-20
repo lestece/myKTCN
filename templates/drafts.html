@@ -11,9 +11,10 @@
                 <div class="col-md-3">
                     {% if "placeholder" in recipe.featured_image.url %}
                     <img class="draft-img"
-                        src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725047/empty-recipe-img_rzjg6v.jpg">
+                        src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725047/empty-recipe-img_rzjg6v.jpg"
+                        alt="Placeholder image for the recipe">
                     {% else %}
-                    <img class="draft-img" src=" {{ recipe.featured_image.url }}">
+                    <img class="draft-img" src=" {{ recipe.featured_image.url }}" alt="Recipe image">
                     {% endif %}
                 </div>
                 <div class="col-md-3">
