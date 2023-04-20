@@ -259,8 +259,11 @@ The form to create a new recipe is intuitive and easy to fill in. Users are requ
 #### - __RECIPE DETAILS PAGE__
 ![Recipe details page](docs/README-images/recipe-details.gif)
 The recipe details page is displayed in a layout that wants to avoid crowded information and be as neat and organized as possible.-Recipe header: it contains the recipe specifics necessary for the user to understand if that recipe is what he/she was looking for. It displays the recipe image, it's title and category, date of creation, preparation and cooking times, number of servings, cost and difficulty.
+
 -Recipe description: this section gives extra information about that recipe in the form of a description.
+
 -Recipe in action: finally, the practical part of the recipe is shown. Ingredients and method blocks are displayed next to each other (or one after the other in the case of smaller screen sizes). Each ingredient and step is displayed in a list for easy readability and appearance.
+
 -Recipe comments: the end of the page shows the list of comments that have been posted for that recipe by users (if there's any).
 - - -
 #### - __EDIT/DELETE RECIPE__
@@ -279,7 +282,7 @@ The comment needs to be approved by the admin before publication to maintain the
 #### - __USER SIGN UP, LOGIN AND LOGOUT__
 ![User sign up](docs/README-images/signup.png)
 ![User login](docs/README-images/login.png)
-![User logout](docs/README-images/logout)
+![User logout](docs/README-images/logout.png)
 
 [Django allAuth](https://django-allauth.readthedocs.io/en/latest/) was used for myKTCN to handle user accounts. The basic templates have been customized to fit the app and simplified so that upon registration, username, email and password are required to create an account, to login in only username and password are asked for, and to logout a confirmation of the action is required.
 - - - 
