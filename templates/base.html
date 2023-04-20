@@ -3,141 +3,143 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
-    <head>
-        <title>myKTCN</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&display=swap"
-            rel="stylesheet">
-        <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-        </script>
-        <!-- Fontawesome -->
-        <script src="https://kit.fontawesome.com/1705e36da1.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-        </script>
-        <!-- Select2 for filtering recipes by category -->
-        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <!-- Cooking icon created by mangsaabguru - Flaticon; this commented out code is just for the purpose of attribution: 
+<head>
+    <title>myKTCN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/1705e36da1.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <!-- Select2 for filtering recipes by category -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Cooking icon created by mangsaabguru - Flaticon; this commented out code is just for the purpose of attribution: 
         <a href="https://www.flaticon.com/free-icons/cooking" title="cooking icons">Cooking icons created by mangsaabguru - Flaticon</a>
         Icon has been converted to the .ico format https://www.icoconverter.com/ -->
-        <link rel="icon" href="https://res.cloudinary.com/dlvymsj4u/image/upload/v1680204895/favicon_tr94gg.ico">
-        <link rel="stylesheet" href="{% static 'css/styles.css?v=1' %}">
-    </head>
+    <link rel="icon" href="https://res.cloudinary.com/dlvymsj4u/image/upload/v1680204895/favicon_tr94gg.ico">
+    <link rel="stylesheet" href="{% static 'css/styles.css?v=1' %}">
+</head>
 
-    <body class="d-flex flex-column h-100 main-bg">
+<body class="d-flex flex-column h-100 main-bg">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-md navbar-light bg-white">
-            <div class="container-fluid justify-content-center logo-container">
-                <a href="{% url 'home' %}" class="text-center">
-                    <img src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1680205922/MyKTCN_2_burc1q.png" alt="logo"
-                        id="logo">
-                </a>
-            </div>
-
-            <!-- Hamburger menu for screens below 768px -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <!-- navbar links for logged in users -->
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'browse_recipes'%}">Browse recipes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-spaced" href="{% url 'my_cookbook' %}">My Cookbook</a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <a class="dropdown-toggle nav-link user-text" href="#" role="button" id="dropdownMenuLink"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="far fa-user"></i> {{ user.username }}
-                            </a>
-                            <ul class="dropdown-menu" aria-label="dropdownMenuButton1">
-                                <li><a class="dropdown-item text-muted" href="{% url 'drafts' %}">Drafts</a></li>
-                                <li><a class="dropdown-item text-muted my-4" href="{% url 'create_recipe' %}">Add recipe</a>
-                                </li>
-                                <li><a class="dropdown-item logout-text" href="{% url 'account_logout' %}">
-                                        Logout <i class="fas fa-sign-out-alt"></i></a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    {% else %}
-                    <!-- navbar links for logged out users -->
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{% url 'home'%}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'browse_recipes'%}">Browse recipes</a>
-                    </li>
-                    <a class="nav-link logout-text text-capitalize" href="{% url 'account_login' %}">
-                        Login <i class="fas fa-sign-in-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link logout-text text-capitalize" href="{% url 'account_signup' %}">
-                            Signup <i class="fas fa-user-plus"></i></a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
-            <hr class="w-100 nav-foot-hr" />
-        </nav>
-
-        <!-- Display messages -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    {% for message in messages %}
-                    <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                        {{ message | safe }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
+        <div class="container-fluid justify-content-center logo-container">
+            <a href="{% url 'home' %}" class="text-center">
+                <img src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1680205922/MyKTCN_2_burc1q.png" alt="logo"
+                    id="logo">
+            </a>
         </div>
 
-        <main class="flex-shrink-0 main-bg">
-            {% block content %}
-            <!-- Content Goes here -->
-            {% endblock content %}
-        </main>
+        <!-- Hamburger menu for screens below 768px -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!-- Footer -->
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <!-- navbar links for logged in users -->
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'browse_recipes'%}">Browse recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-spaced" href="{% url 'my_cookbook' %}">My Cookbook</a>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle nav-link user-text" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="far fa-user"></i> {{ user.username }}
+                        </a>
+                        <ul class="dropdown-menu" aria-label="dropdownMenuButton1">
+                            <li><a class="dropdown-item text-muted" href="{% url 'drafts' %}">Drafts</a></li>
+                            <li><a class="dropdown-item text-muted my-4" href="{% url 'create_recipe' %}">Add recipe</a>
+                            </li>
+                            <li><a class="dropdown-item logout-text" href="{% url 'account_logout' %}">
+                                    Logout <i class="fas fa-sign-out-alt"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% else %}
+                <!-- navbar links for logged out users -->
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'home'%}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'browse_recipes'%}">Browse recipes</a>
+                </li>
+                <li>
+                    <a class="nav-link logout-text text-capitalize" href="{% url 'account_login' %}">
+                        Login <i class="fas fa-sign-in-alt"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link logout-text text-capitalize" href="{% url 'account_signup' %}">
+                        Signup <i class="fas fa-user-plus"></i></a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
         <hr class="w-100 nav-foot-hr" />
-        <footer class="footer mt-auto py-3">
-            <div class="social-container">
-                <a href="https://en-gb.facebook.com/" target="_blank"><i class="fab fa-facebook-f ms-3"></i></a>
-                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram ms-3"></i></a>
-                <a href="https://twitter.com/?lang=en" target="_blank"><i class="fab fa-twitter ms-3"></i></a>
-                <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube ms-3"></i></a>
+    </nav>
+
+    <!-- Display messages -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
             </div>
-            <p class="m-0 text-center">MyKTCN &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>
-                <span class="d-block d-sm-inline"> <small> All Rights Reserved </small></span></p>
-        </footer>
-        <!-- script for displaying the messages -->
-        <!-- Taken from Code Institute walkthrough project "I think, therefore I blog" -->
-        <script>
-            setTimeout(function () {
-                let messages = document.getElementById("msg");
-                let alert = new bootstrap.Alert(messages);
-                alert.close();
-            }, 4000)
-        </script>
-    </body>
+        </div>
+    </div>
+
+    <main class="flex-shrink-0 main-bg">
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <hr class="w-100 nav-foot-hr" />
+    <footer class="footer mt-auto py-3">
+        <div class="social-container">
+            <a href="https://en-gb.facebook.com/" target="_blank"><i class="fab fa-facebook-f ms-3"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram ms-3"></i></a>
+            <a href="https://twitter.com/?lang=en" target="_blank"><i class="fab fa-twitter ms-3"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube ms-3"></i></a>
+        </div>
+        <p class="m-0 text-center">MyKTCN &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            <span class="d-block d-sm-inline"> <small> All Rights Reserved </small></span></p>
+    </footer>
+    <!-- script for displaying the messages -->
+    <!-- Taken from Code Institute walkthrough project "I think, therefore I blog" -->
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById("msg");
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 4000);
+    </script>
+</body>
+
 </html>
