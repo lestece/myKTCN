@@ -1,3 +1,5 @@
+/* -------------------------------------------------------General styles */
+
 body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.3rem;
@@ -24,7 +26,6 @@ nav {
     font-weight: 600;
     text-transform: uppercase;
     margin-top: 1rem;
-    /* margin-bottom: 4rem; */
 }
 
 .navbar{
@@ -61,7 +62,6 @@ nav {
     border-top: 3px solid black;
 }
 
-
 .user-text,
 .logout-text {
     color: #C68C4F !important;
@@ -81,6 +81,7 @@ nav {
 .dropdown-menu a{
     font-weight: bold;
 }
+
 /* -------------------------------------------------------Pagination styles */
 
 .pagination .page-link{
@@ -94,14 +95,11 @@ nav {
 /* -------------------------------------------------------Homepage styles */
 .hero-text-1 {
     color: black;
-    /* font-size: xxx-large; */
 }
 
 .hero-text-2 {
-    /* float: right; */
     color: #C68C4F;
     font-family: 'Josefin Sans', sans-serif;
-    /* font-size: xxx-large; */
 }
 
 .hero-image-container {
@@ -153,12 +151,6 @@ nav {
     padding: 2rem 0;
 }
 
-
-/* .signup-btn {
-    font-family: 'Playfair Display', serif;
-    margin-top: 1.5rem;
-} */
-
 /* -------------------------------------------------------Account templates styles */
 
 h1,
@@ -168,9 +160,6 @@ h1,
 }
 
 /* -------------------------------------------------------User cookbook styles */
-/* .add-recipe-btn{
-    float: right;
-} */
 
 .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
     background-color: #C68C4F;
@@ -232,7 +221,6 @@ h1,
     border-color: #C68C4F;
 }
 
-
 /* -------------------------------------------------------Search bar and cat btnss styles */
 
 .form-group{
@@ -254,7 +242,6 @@ h1,
     text-indent: 15px;
     height: 35px;
     border-radius: 50px;
-    /* border-bottom: 1px solid black;  */
 }
 
 .search-bar .form-control:focus {
@@ -285,6 +272,7 @@ h1,
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     line-height: 36px;
 }
+
 /* -------------------------------------------------------Browse recipes styles */
 
 .card-img-top {
