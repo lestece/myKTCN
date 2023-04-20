@@ -5,6 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+            <!-- Hero section -->
             <div class="row hero-content d-flex justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-8 mx-2">
                     <div class="row my-4">
@@ -24,14 +25,14 @@
         </div>
     </div>
 
-    <!-- Recipe filtering by title/ingredient or category -->
+    <!-- Recipes filtering -->
     <div class="row mt-3">
-        <!-- Search bar -->
+        <!-- Search bar for filtering by title or ingredient -->
+        <!-- Implemented following the tutorial at https://stackpython.medium.com/django-search-with-q-objects-tutorial-9c701db74e0e -->
         <div class="col-md-6 d-flex justify-content-center justify-content-md-start align-items-center">
             <div class="form-group search-bar">
                 <form class="form-inline" action="{% url 'browse_recipes'%}">
                     <div class="inputs w-100">
-                        <!-- <i class="fa fa-search"></i> -->
                         <input type="search" class="form-control" placeholder="Search by title or ingredient..." aria-label="Search" name="search">
                         <button class="btn btn-secondary d-inline" type="submit"><i class="fas fa-search"></i></button>
                     </div>
@@ -39,6 +40,7 @@
             </div>
         </div>
         <!-- Filter by category -->
+        <!-- Implemented following this tutorial: https://medium.com/@balt1794/chapter-15-django-filters-6947da6df52a -->
         <div class="col-md-6 d-flex justify-content-center justify-content-md-end align-items-center">
             <div class="form-group category-filter text-center">
                 <form method="get">
@@ -50,22 +52,24 @@
         </div>
     </div>
     
-    
     <!-- Recipe cards Column -->
     <div class="row">
         <div class="col-12">
             <div class="row mx-2">
                 {% for recipe in recipe_list %}
                 <div class="col-sm-6 col-lg-3 my-3">
+                    <!-- Recipe card -->
                     <div class="card h-100">
                         <div class="d-flex flex-column card-body text-center">
                             <div class="image-container mb-3 position-relative">
                                 {% if "placeholder" in recipe.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725047/empty-recipe-img_rzjg6v.jpg">
+                                    src="https://res.cloudinary.com/dlvymsj4u/image/upload/v1678725047/empty-recipe-img_rzjg6v.jpg"
+                                    alt="Placeholder image for the recipe">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
+                                <img class="card-img-top" src=" {{ recipe.featured_image.url }}" alt="Recipe image">
                                 {% endif %}
+                                <!-- To display the average rating for the recipe -->
                                 <div class="image-flash flash-browse-page">
                                     <span
                                         class="fa fa-star {% if recipe.average_rating > 0 %} checked {% endif %}"></span>
@@ -93,7 +97,6 @@
                             </div>
                             <div class="d-flex justify-content-around align-items-center card-text-brown mt-auto pt-3">
                                 <p class="card-text mb-0">
-                                    <!-- By <span class="recipe-author">{{ recipe.author}}</span> -->
                                     <i class="fas fa-clock"></i>
                                     {{ recipe.prep_time|add:recipe.cook_time }} min
                                 </p>
@@ -111,10 +114,12 @@
                         </div>
                     </div>
                 </div>
+                <!-- Display 4 recipes per row in large screens -->
                 {% if forloop.counter|divisibleby:4 %}
             </div>
             <div class="row mx-2">
                 {% endif %}
+                <!-- If the recipe searched ingredient/title returns an empty array: -->
                 {% empty %}
                 <div class="row mx-2">
                     <div class="col-12 text-center mt-4">
@@ -148,6 +153,7 @@
     {% endif %}
 </div>
 <!-- Select2 script for adding a placeholder to the category select box for filtering the recipes -->
+<!-- Implemented with the help of the documentation: https://github.com/select2/select2 -->
 <script>
     $("#id_category").select2({
         placeholder: "All",
