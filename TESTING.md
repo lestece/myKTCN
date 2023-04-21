@@ -85,3 +85,32 @@ All the main Python files were run through the [CI Python Linter Validator](http
 | models.py     | None          | <details><summary>models.py results</summary> ![models.py results](docs/TESTING-images/python-validation/models.py-validated.png) </details>|
 | urls.py     | None          | <details><summary>urls.py results</summary> ![urls.py results](docs/TESTING-images/python-validation/urls.py-validated.png) </details>|
 | views.py     | None          | <details><summary>views.py results</summary> ![views.py results](docs/TESTING-images/python-validation/views.py-validated.png) </details>|
+
+- - -
+## 6) LIGHTHOUSE REPORTS
+
+All of myKTCN app pages have been tested for Performance, Accessibility, Best Practices and SEO using [Lighthouse Chrome Developer Tool](https://developer.chrome.com/docs/lighthouse/overview/).
+
+Results are reported in the table below and we can notice that the scores are not ideal, particularly regarding Performance.
+I improved the scores by optimizing, resizing and converting the images uploaded to Cloudinary to the webp format, but I couldn't better them further: the main factor for them is load time, and since the site loads on Heroku, gets the images from Cloudinary (users also may upload images in formats that are not web friendly/sized properly) and gets the database information from ElephantSQL, so there really isn't much that can be done to improve the scores.
+
+| Page     | Performance (D-M)  | Accessibility (D-M)   | Best Practices (D-M)  | SEO (D-M)  | Desktop results |Mobile results |
+| ------------- | -------------|--------------|--------------|--------------|--------------|--------------|
+| __homepage__ |  82-62  |   92-92  |  100-100   | 90-92   | <details><summary>click</summary> ![home-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-homepage-loggedout-desktop.png) </details>|<details><summary>click</summary> ![home-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-homepage-loggedout-mobile.png) </details> |
+| __browse_recipes__ - logged out user |  53-49  |   89-88  |  100-100   | 90-89   | <details><summary>click</summary> ![browse-logout-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-browserecipes-loggedout-desktop.png) </details>|<details><summary>click</summary> ![browse-logout-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-browserecipes-loggedout-mobile.png) </details> |
+| __browse_recipes__ - logged in user |  52-49  |   89-88  |  100-100   | 90-89   | <details><summary>click</summary> ![browse-login-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-browserecipes-loggein-desktop.png) </details>|<details><summary>click</summary> ![browse-login-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-browserecipes-loggein-mobile.png) </details> |
+| __cookbook__ |  75-65  |   89-88  |  100-100   | 90-89   | <details><summary>click</summary> ![cookbook-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-cookbook-desktop.png) </details>|<details><summary>click</summary> ![cookbook-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-cookbook-mobile.png) </details> |
+| __drafts__ |  71-64  |   95-94  |  92-92   | 90-92   | <details><summary>click</summary> ![drafts-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-drafts-desktop.png) </details>|<details><summary>click</summary> ![drafts-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-drafts-mobile.png) </details> |
+| __drafts__ |  71-64  |   95-94  |  92-92   | 90-92   | <details><summary>click</summary> ![drafts-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-drafts-desktop.png) </details>|<details><summary>click</summary> ![drafts-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-drafts-mobile.png) </details> |
+| __recipe_create__ |  98-73  |   94-92  |  100-100   | 90-92   | <details><summary>click</summary> ![addrecipe-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-addrecipe-desktop.png) </details>|<details><summary>click</summary> ![addrecipe-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-addrecipe-mobile.png) </details> |
+| __recipe_edit__ |  97-69  |   94-92  |  100-100   | 90-92   | <details><summary>click</summary> ![editrecipe-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-editrecipe-desktop.png) </details>|<details><summary>click</summary> ![ editrecipe-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-editrecipe-mobile.png) </details> |
+| __recipe_delete__ |  85-75  |   95-94  |  100-100   | 90-92   | <details><summary>click</summary> ![deleterecipe-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-deleterecipe-desktop.png) </details>|<details><summary>click</summary> ![deleterecipe-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-deleterecipe-mobile.png) </details> |
+| __login__ |  97-67  |   95-95  |  100-100   | 90-92   | <details><summary>click</summary> ![login-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-login-desktop.png) </details>|<details><summary>click</summary> ![login-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-login-mobile.png) </details> |
+| __signup__ |  93-84  |   95-95  |  100-100   | 90-92   | <details><summary>click</summary> ![signup-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-signup-desktop.png) </details>|<details><summary>click</summary> ![signup-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-signup-mobile.png) </details> |
+
+
+
+
+
+
+
