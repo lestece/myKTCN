@@ -63,8 +63,9 @@ class Recipe(models.Model):
     https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c
     '''
     def average_rating(self) -> float:
-        return Rating.objects.filter(recipe=self).aggregate(Avg("rating"))
-        ["rating__avg"] or 0
+        return Rating.objects.filter(recipe=self).aggregate(
+                                                            Avg("rating")
+                                                            )["rating__avg"] or 0
 
     def __str__(self):
         return self.title

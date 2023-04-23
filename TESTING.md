@@ -92,7 +92,7 @@ All the main Python files were run through the [CI Python Linter Validator](http
 All of myKTCN app pages have been tested for Performance, Accessibility, Best Practices and SEO using [Lighthouse Chrome Developer Tool](https://developer.chrome.com/docs/lighthouse/overview/).
 
 Results are reported in the table below and we can notice that the scores are not ideal, particularly regarding Performance.
-I improved the scores by optimizing, resizing and converting the images uploaded to Cloudinary to the webp format, but I couldn't better them further: the main factor for them is load time, and since the site loads on Heroku, gets the images from Cloudinary (users also may upload images in formats that are not web friendly/sized properly) and gets the database information from ElephantSQL, so there really isn't much that can be done to improve the scores.
+I improved the scores by optimizing, resizing and converting the images uploaded to Cloudinary to the webp format, but I couldn't better them further: the main factor for them is load time, and since the site loads on Heroku, gets the images from Cloudinary (users also may upload images in formats that are not web friendly/sized properly) and gets the database information from ElephantSQL, there really isn't much that can be done to improve the scores further.
 
 | Page     | Performance (D-M)  | Accessibility (D-M)   | Best Practices (D-M)  | SEO (D-M)  | Desktop results |Mobile results |
 | ------------- | -------------|--------------|--------------|--------------|--------------|--------------|
