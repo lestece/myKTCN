@@ -28,10 +28,9 @@
     - [Cookbook responsiveness](TESTING.md/#cookbook-responsiveness)
     - [Recipe form responsiveness](TESTING.md/#recipe-form-responsiveness)
     - [Drafts page responsiveness](TESTING.md/#drafts-responsiveness)
-    - [Recipe form responsiveness](TESTING.md/#recipe-form-responsiveness)
 4) [Browser compatibility](TESTING.md/#4-browser-compatibility)
 5) [Bugs and fixes](TESTING.md/#5-bugs-and-fixes)
-6) [Lighthouse reports](TESTING.md/#6-ligthouse-reports)
+6) [Lighthouse reports](TESTING.md/#6-lighthouse-reports)
 7) [User testing](TESTING.md/#7-user-testing)
 
 [⬅ Back to the README.md file](README.md)
@@ -335,7 +334,7 @@ I improved the scores by optimizing, resizing and converting the images uploaded
 
 [Back to top ↑](TESTING.md/#myktcn-app-testing)
 - - -
-## 6) USER TESTING
+## 7) USER TESTING
 
 myKTCN has been sent to friends and family to be tested on their devices and gain user feedback. No bugs were reported and the app has been judged as perfectly functioning, appealing and user-friendly.
 
