@@ -82,7 +82,7 @@ myKTCN has been thoroughly manually tested to make sure that the app works as in
 ### LOGOUT PAGE
 | Element     | Expectation        | Test Result  |
 | ------------- | ------------- |---------------|
-| Confirm logout button  | On click, the user is logged out and notifies user about it  | Pass |
+| Confirm logout button  | On click, the user is logged out and notifies the user about it  | Pass |
 
 ### COOKBOOK
 | Element     | Expectation        | Test Result  |
@@ -94,11 +94,11 @@ myKTCN has been thoroughly manually tested to make sure that the app works as in
 ### RECIPE DETAILS
 | Element     | Expectation        | Test Result  |
 | ------------- | ------------- |---------------|
-| Avg rating  | The avg rating for the recipe in question is showed and correct  | Pass |
-| Edit btn - user is the author | If user is the author, the edit btn is showed and links to the edit recipe page  | Pass |
-| Delete btn - user is the author | If user is the author, the delete btn is showed and links to the edit recipe page  | Pass |
-| Rating system | If user is not the author, the rating system is showed and works as intended | Pass |
-| Comment form | If user is logged in, the comment form is showed and upon submission it notifies that it will be posted after admin approval. | Pass |
+| Avg rating  | The avg rating for the recipe in question is shown and correct  | Pass |
+| Edit btn - user is the author | If the user is the author, the edit btn is shown and links to the edit recipe page  | Pass |
+| Delete btn - user is the author | If the user is the author, the delete btn is shown and links to the edit recipe page  | Pass |
+| Rating system | If the user is not the author, the rating system is shown and works as intended | Pass |
+| Comment form | If the user is logged in, the comment form is shown and upon submission, it notifies that it will be posted after admin approval. | Pass |
 | Comment section | Shows the approved comments for the recipe. | Pass |
 
 ### DRAFTS
@@ -128,9 +128,9 @@ myKTCN has been thoroughly manually tested to make sure that the app works as in
 | Ingredients field  | Shows the Summernote widget to insert ingredients as a list | Pass |
 | Method field  | Shows the Summernote widget to insert the steps as a list | Pass |
 | Select fields  | Choices are selectable | Pass |
-| Recipe draft  | Is user choses to save as 'draft', the recipe is saved in the user's drafts page | Pass |
-| Recipe published | If user choses to save as 'published', the recipe is saved in the user's cookbook page | Pass |
-| Recipe shared  | If user checks the 'share with the Community' box, the recipe is made available to everybody in the browse recipes page  | Pass |
+| Recipe draft  | If the user chooses to save as 'draft', the recipe is saved in the user's drafts page | Pass |
+| Recipe published | If the user chooses to save as 'published', the recipe is saved in the user's cookbook page | Pass |
+| Recipe shared  | If the user checks the 'share with the Community' box, the recipe is made available to everybody in the browse recipes page  | Pass |
 | Edit recipe btn  | Correctly saves the recipe with the edited information and redirects to the recipe details page or draft page based on user choice | Pass |
 
 ### DELETE RECIPE
@@ -158,7 +158,7 @@ myKTCN has been thoroughly manually tested to make sure that the app works as in
 
 ![Admin comments control](docs/TESTING-images/manual-testing/admin-comments-control.png)
 
-- Each single rating is successfully recorded in the database. This has been particularly helpful to test that the average rating for each recipe was being calculated correctly.
+- Every single rating is successfully recorded in the database. This has been particularly helpful to test that the average rating for each recipe was being calculated correctly.
 
 ![Admin ratings](docs/TESTING-images/manual-testing/admin-ratings.png)
 
@@ -190,7 +190,7 @@ All html pages have been run through the [W3C HTML Validator](https://validator.
 | logout.html    | None          | None          |<details><summary>logout results</summary> ![logout.html results](docs/TESTING-images/html-validation/logout.html-validated.png) </details>|
 | signup.html    | None          | None          |<details><summary>signup results</summary> ![signup.html results](docs/TESTING-images/html-validation/signup.html-validated.png) </details>|
 
-As indicated in the table, there are two pages that return validation errors: __recipe_create.html__ and __recipe_edit.html__. These errors come from the installed Summernote library, that runs on the ingredients and method input fields in the recipe form. These errors stay __unresolved/cannot be fixed__ since they come from an external source.
+As indicated in the table, two pages that return validation errors: __recipe_create.html__ and __recipe_edit.html__. These errors come from the installed Summernote library, which runs on the ingredients and method input fields in the recipe form. These errors stay __unresolved/cannot be fixed__ since they come from an external source.
 - - - 
 ### Jigsaw CSS VALIDATION
 
@@ -227,7 +227,7 @@ All the main Python files were run through the [CI Python Linter Validator](http
 ## 3) RESPONSIVENESS TESTING 
 All of the website pages are fully responsive.
 
-The responsiveness testing has been conducted using [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/), both on the devices available and on "responsive" modality.
+The responsiveness testing has been conducted using [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/), both on the devices available and on the "responsive" modality.
 
 ### HOMEPAGE RESPONSIVENESS
 
@@ -278,27 +278,27 @@ myKTCN has been tested for browser compatibility on:
 All bugs found during the development and testing of myKTCN app are reported below alongside their fixes.
 
 ### Bug 1 - USER DRAFTS URL
-Clicking on "drafts" in the user account dowpdown menu, the link would display a page error: __http protocol error__. By inspecting the page, in the network section of the developer tools, the requested path showed that there was an error in the django templating: __closing % was missing in the tag. Fixed by adding it__ and the link started working correctly.
+Clicking on "drafts" in the user account dropdown menu, the link would display a page error: __http protocol error__. By inspecting the page, in the network section of the developer tools, the requested path showed that there was an error in the Django templating: __closing % was missing in the tag. Fixed by adding it__ and the link started working correctly.
 
 ![User drafts bug](docs/TESTING-images/bugs/user%20drafts%20bug.png)
 
 ### Bug 2 - CREATE RECIPE / DRAFT SHOWS 404 ERROR UPON SUBMISSION
-When creating a new recipe, a 404 error was displayed. The path was indicating a correct recipe slug, and checking the database from the admin panel it was obvious that the recipe had automatically being added to the records. I realized the error was coming from the fact that __the recipe was created as draft: since only recipes with a status of 1 (published) are filtered when requesting a recipe details page, and the success url for creating a new recipe was redirecting all of the recipes (even the ones with status 0 - draft) to a recipe detail page, I realized I had to redirect the recipes that are being created as drafts to a different url (the user draft page)__. So the original get_absolute_url in the Recipe model has been overwritten using a get_success_url that checks the recipe status and redirects to the recipe detail page if the recipe is saved as published, or the user drafts page if saved as draft.
+When creating a new recipe, a 404 error was displayed. The path was indicating a correct recipe slug, and checking the database from the admin panel it was obvious that the recipe had automatically been added to the records. I realized the error was coming from the fact that __the recipe was created as a draft: since only recipes with a status of 1 (published) are filtered when requesting a recipe details page, and the success URL for creating a new recipe was redirecting all of the recipes (even the ones with status 0 - draft) to a recipe detail page, I realized I had to redirect the recipes that are being created as drafts to a different URL (the user draft page)__. So the original get_absolute_url in the Recipe model has been overwritten using a get_success_url that checks the recipe status and redirects to the recipe detail page if the recipe is saved as published, or the user drafts page if saved as a draft.
 
 ![Create recipe - drafts bug](docs/TESTING-images/bugs/create%20recipe%20-drafts%20404%20error.png)
 
 ### Bug 3 - ANONYMOUS USER ERROR WHEN A NOT LOGGED IN USER CLICKS ON A RECIPE CARD FOR VIEWING THE RECIPE DETAILS PAGE
-The error was coming from the view: __ratings for the logged in user on a specific recipe where being filtered without checking if the user was logged in__. Fixed by adding an if statement that filters the rating for that user only if it's a logged in user.
+The error was coming from the view: __ratings for the logged-in user on a specific recipe were being filtered without checking if the user was logged in__. Fixed by adding an if statement that filters the rating for that user only if it's a logged-in user.
 
 ![Anonymous user error](docs/TESTING-images/bugs/anonymous-user-bug.png)
 
 ### Bug 4 - LOGIN REDIRECTING TO INDEX.HTML
-After login a user was being redirected to the homepage (which is designed for new users only and not for existing ones). The logged in user is supposed to be redirected to the cookbook instead. __Fixed by changing the LOGIN_REDIRECT_URL in the settings.py file to the Cookbook url__
+After login, a user was redirected to the homepage (which is designed for new users only and not for existing ones). The logged-in user is supposed to be redirected to the cookbook instead. __Fixed by changing the LOGIN_REDIRECT_URL in the settings.py file to the Cookbook url__
 
 ![Login wrong redirect](docs/TESTING-images/bugs/login-wrong-redirect.gif)
 
 ### Bug 5 - PAGINATION NOT WORKING
-The error was coming from the fact that, inside of the ListView for browsing recipes, user cookbook and user drafts, I was rewriting the get method and the pagination wasn't being passed to the context. __Fixed by adding the filters into the get_queryset and passing the context into the template for searched recipe (through the search bar) and the form for filtering through category using get_context_data__. These article have been very useful for understanding where the issue was:
+The error was coming from the fact that inside the ListView for browsing recipes, user cookbook and user drafts, I was rewriting the get method and the pagination wasn't being passed to the context. __Fixed by adding the filters into the get_queryset and passing the context into the template for the searched recipe (through the search bar) and the form for filtering through category using get_context_data__. These articles have been very useful for understanding where the issue was:
 -https://stackoverflow.com/questions/59870121/django-listview-is-not-paginating-despite-paginate-by-being-set
 -https://stackoverflow.com/questions/64618631/how-to-filter-and-paginate-in-listview-django
 
@@ -307,7 +307,7 @@ When adding or editing a recipe, the image upload wouldn't work (no error was gi
 (https://stackoverflow.com/questions/29171077/imagefield-not-saving-images-in-modelform-django-python)
 
 ### Bug 7 - SEARCH BAR IN COOKBOOK BUG
-While testing the cookbook page, a bug related to the search bar was found: __upon search, the results returned were redirecting to the 'browse recipes' page and retrieving recipes that didn't belong to the logged in user__. The error was found in the 'cookbook' template: the action for the search bar form was set as the url for the browse recipes page. __Fixed by changing the url to the cookbook one__.
+While testing the cookbook page, a bug related to the search bar was found: __upon search, the results returned were redirecting to the 'browse recipes' page and retrieving recipes that didn't belong to the logged-in user__. The error was found in the 'cookbook' template: the action for the search bar form was set as the URL for the browse recipes page. __Fixed by changing the URL to the cookbook one__.
 
 ![Cookbook search bar bug](docs/TESTING-images/bugs/cookbook-searchbar-bug.gif)
 
@@ -318,7 +318,7 @@ While testing the cookbook page, a bug related to the search bar was found: __up
 All of myKTCN app pages have been tested for Performance, Accessibility, Best Practices and SEO using [Lighthouse Chrome Developer Tool](https://developer.chrome.com/docs/lighthouse/overview/).
 
 Results are reported in the table below and we can notice that the scores are not ideal, particularly regarding Performance.
-I improved the scores by optimizing, resizing and converting the images uploaded to Cloudinary to the webp format, but I couldn't better them further: the main factor for them is load time, and since the site loads on Heroku, gets the images from Cloudinary (users also may upload images in formats that are not web friendly/sized properly) and gets the database information from ElephantSQL, there really isn't much that can be done to improve the scores further.
+I improved the scores by optimizing, resizing and converting the images uploaded to Cloudinary to the webp format, but I couldn't better them further: the main factor for them is load time, and since the site loads on Heroku, gets the images from Cloudinary (users also may upload images in formats that are not web-friendly/sized properly) and gets the database information from ElephantSQL, there really isn't much that can be done to improve the scores further.
 
 | Page     | Performance (D-M)  | Accessibility (D-M)   | Best Practices (D-M)  | SEO (D-M)  | Desktop results |Mobile results |
 | ------------- | -------------|--------------|--------------|--------------|--------------|--------------|
