@@ -77,11 +77,38 @@
 ### COOKBOOK
 | Element     | Expectation        | Test Result  |
 | ------------- | ------------- |---------------|
-| Search bar  | Returns the recipes containing the inputted ingredient in the title or ingredients list. Empty result if there's no match.  | Pass |
-| Category filter | Returns the recipes that belong in the selected category| Pass |
+| Search bar  | Returns the user's recipes containing the inputted ingredient in the title or ingredients list. Empty result if there's no match.  | Pass |
+| Category filter | Returns the user's recipes that belong in the selected category| Pass |
 | Recipe cards  | On click, they link to the related recipe details page | Pass |
 
+### RECIPE DETAILS
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Avg rating  | The avg rating for the recipe in question is showed and correct  | Pass |
+| Edit btn - user is the author | If user is the author, the edit btn is showed and links to the edit recipe page  | Pass |
+| Delete btn - user is the author | If user is the author, the delete btn is showed and links to the edit recipe page  | Pass |
+| Rating system | If user is not the author, the rating system is showed and works as intended | Pass |
+| Comment form | If user is logged in, the comment form is showed and upon submission it notifies that it will be posted after admin approval. | Pass |
+| Comment section | Shows the approved comments for the recipe. | Pass |
 
+### DRAFTS
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Edit button  | On click, it redirects to the edit recipe page  | Pass |
+| Delete button  | On click, it redirects to the delete recipe confirmation page  | Pass |
+
+### ADD RECIPE
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Form  | All fields are required except for the image  | Pass |
+| Image field  | Correctly uploads the user selected image for the recipe | Pass |
+| Ingredients field  | Shows the Summernote widget to insert ingredients as a list | Pass |
+| Method field  | Shows the Summernote widget to insert the steps as a list | Pass |
+| Select fields  | Choices are selectable | Pass |
+| Recipe draft  | Is user choses to save as 'draft', the recipe is saved in the user's drafts page | Pass |
+| Recipe published | If user choses to save as 'published', the recipe is saved in the user's cookbook page | Pass |
+| Recipe shared  | If user checks the 'share with the Community' box, the recipe is made available to everybody in the browse recipes page  | Pass |
+| Create recipe btn  | Correctly saves the recipe and redirects to the recipe details page or draft page based on user choice | Pass |
 - - -
 
 ## 2) CODE VALIDATION
