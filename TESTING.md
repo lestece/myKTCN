@@ -16,19 +16,19 @@
     - [Edit recipe page](TESTING.md/#edit-recipe)
     - [Delete recipe page](TESTING.md/#delete-recipe)
     - [404 page](TESTING.md/#404-page)
-    - [Admin panel](TESTING.md/)
+    - [Admin panel](TESTING.md/#admin-panel)
 2) [Code Validation](#2-code-validation)
     - [W3C HTML Validation](TESTING.md/#w3c-html-validation)
     - [W3C (Jigsaw) CSS Validation](TESTING.md/#jigsaw-css-validation)
     - [JSHint JavaScript Validation](TESTING.md/#jshint-javascript-validation)
     - [CI Python Linter Python Validation](TESTING.md/#ci-python-linter-python-validation)
 3) [Responsiveness testing](TESTING.md/#3-responsiveness-testing)
-    - [Homepage responsiveness](TESTING.md/)
-    - [Browse recipes responsiveness](TESTING.md/)
-    - [Cookbook responsiveness](TESTING.md/eness)
-    - [Recipe form responsiveness](TESTING.md/)
-    - [Drafts page responsiveness](TESTING.md/)
-    - [User account responsiveness](TESTING.md/)
+    - [Homepage responsiveness](TESTING.md/#homepage-responsiveness)
+    - [Browse recipes responsiveness](TESTING.md/#browse-recipes-responsiveness)
+    - [Cookbook responsiveness](TESTING.md/#cookbook-responsiveness)
+    - [Recipe form responsiveness](TESTING.md/#recipe-form-responsiveness)
+    - [Drafts page responsiveness](TESTING.md/#drafts-responsiveness)
+    - [Recipe form responsiveness](TESTING.md/#recipe-form-responsiveness)
 4) [Browser compatibility](TESTING.md/#4-browser-compatibility)
 5) [Bugs and fixes](TESTING.md/#5-bugs-and-fixes)
 6) [Lighthouse reports](TESTING.md/#6-ligthouse-reports)
@@ -222,6 +222,51 @@ All the main Python files were run through the [CI Python Linter Validator](http
 | views.py     | None          | <details><summary>views.py results</summary> ![views.py results](docs/TESTING-images/python-validation/views.py-validated.png) </details>|
 
 - - -
+## 3) RESPONSIVENESS TESTING 
+All of the website pages are fully responsive.
+
+The responsiveness testing has been conducted using [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/), both on the devices available and on "responsive" modality.
+
+### HOMEPAGE RESPONSIVENESS
+
+![Homepage responsiveness](docs/TESTING-images/responsiveness/home-responsiveness.gif)
+
+### BROWSE RECIPES RESPONSIVENESS
+
+![Browse recipes responsiveness](docs/TESTING-images/responsiveness/browse-recipes-responsiveness.gif)
+
+### COOKBOOK RESPONSIVENESS
+
+![Cookbook responsiveness](docs/TESTING-images/responsiveness/cookbook-responsiveness.gif)
+
+### DRAFTS RESPONSIVENESS
+
+![Drafts responsiveness](docs/TESTING-images/responsiveness/drafts-responsiveness.gif)
+
+### RECIPE FORM RESPONSIVENESS
+
+![Recipe form responsiveness](docs/TESTING-images/responsiveness/recipe-form-responsiveness.gif)
+- - - 
+## 4) BROWSER COMPATIBILITY
+
+myKTCN has been tested for browser compatibility on:
+
+- Google Chrome
+
+![Google Chrome compatibility](docs/TESTING-images/browser-compatibility/chrome-compatibility.gif)
+
+- Firefox
+
+![Firefox compatibility](docs/TESTING-images/browser-compatibility/firefox-compatibility.gif)
+
+- Microsoft Edge
+
+![Microsoft Edge compatibility](docs/TESTING-images/browser-compatibility/microsoft-edge-compatibility.gif)
+
+- Opera
+
+![Opera compatibility](docs/TESTING-images/browser-compatibility/opera-compatibility.gif)
+- - - 
 ## 6) LIGHTHOUSE REPORTS
 
 All of myKTCN app pages have been tested for Performance, Accessibility, Best Practices and SEO using [Lighthouse Chrome Developer Tool](https://developer.chrome.com/docs/lighthouse/overview/).
