@@ -322,6 +322,8 @@ All of the information regarding the testing can be found [here](TESTING.md).
 - [GitPod](https://gitpod.io): used for writing this website code, committing and pushing to GitHub.
 - [GitHub](https://github.com/): used for hosting, storing, deploying the project and for an agile development.
 - [Figma](https://www.figma.com/): used for designing the wireframes and mockups for the website in the first phase of the development process
+- [Lucidchart](https://www.lucidchart.com/pages/): used to create the ER diagram for the database
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/): used throughout the development and for testing responsiveness and lighthouse scores
 - [Coolors](https://coolors.co/): to generate the color palette from the logo created for this app
 - [Canva](https://www.canva.com/): for creating the website logo
 - [Google Fonts](https://fonts.google.com/): used for importing the fonts for this  website ("Josefin Sans" and "Playfair Display") into the project
@@ -329,11 +331,14 @@ All of the information regarding the testing can be found [here](TESTING.md).
 - [Flaticon.com](https://www.flaticon.com/): used for the title bar icon
 - [Icoconverter.com](https://www.icoconverter.com/): used for converting the title bar icon into the .ico format
 - [GifCap (by João Moreno)](https://gifcap.dev/): used for creating the gifs from the screen recordings during the testing process (for the TESTING.md) and for this README file. 
-- [AmIResponsive](https://ui.dev/amiresponsive): used for capturing a screenshot of how the website look on different screen sizes (screenshot that introduces this README file)
-- [Unsplash](https://unsplash.com/): used for downloading the hero images 
+- [AmIResponsive](https://ui.dev/amiresponsive): used for capturing a screenshot of how the website look on different screen sizes (screenshot that introduces this README file) 
 - [TinyPNG](https://tinypng.com/): used for compressing and optimizing the logo, hero images and the image placeholder for the recipes
 - [beFunky](https://www.befunky.com/features/resize-image/): used for resizing the hero images and the image placeholder for the recipes
 - [Convertio](https://convertio.co/it/jpg-webp/): used for converting the logo, hero images and the image placeholder for the recipes to the webp format
+- [W3C HTML validator](https://validator.w3.org/): used for validating the HTML code
+- [Jigsaw CSS validator](https://jigsaw.w3.org/css-validator/): used for validating the CSS code
+- [JSHint validator](https://jshint.com/): used for validating the JavaScript code
+- [CI Python Linter Validator](https://pep8ci.herokuapp.com/): used for validating the Python code
 
 [Back to top ↑](README.md/#myktcn-cookbook)
 - - - 
