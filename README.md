@@ -377,6 +377,50 @@ The recipes created by me have been sourced from different websites on the web, 
 - - - 
 ## 7. DEPLOYMENT
 
+This program has been deployed to [Heroku](https://www.heroku.com/) following these steps:
+
+1) __CREATE THE HEROKU APP__
+- Log in to your personal account and, after clicking on the __New__ button in the top-right corner of the page, select the __Create new app__ option from the dropdown menu.
+- Insert an __app name__ and choose a __region__ (Europe or United States) and click on the __Create app__ button.
+- From the __Settings__, click __"Reveal Config Vars"__
+- Add a Config Var called __DATABASE_URL__ and give it the value of the ElephantSQL __database URL__ created.
+- Add a Config Var called __PORT__ with value __8000__
+
+2) __ATTACH THE DATABASE__
+- In the terminal, create the __env.py__ file on the top level directory, setting in it the __environment variables__ and adding in the __secret key__
+- In Heroku, add __SECRET_KEY__ to Config Vars 
+
+3) __PREPARE THE ENVIRONMENT AND SETTINGS.PY FILE__
+- Reference env.py file in __settings.py__ file
+- __Replace the insecure secret key__, linking it with the one declared in the Config Vars in Heroku, comment out the __default database section__ and add the new database section the links to the __DATABASE_URL__ in Heroku
+- Save all files and in the terminal __make the migrations__
+
+4) __GET STATIC AND MEDIA FILES STORED IN CLOUDINARY__
+- Copy the __CLOUDINARY_URL__ from Cloudinary and add it to the env.py file
+- Add __CLOUDINARY_URL__ Config Var in Heroku 
+- Add __DISABLE_COLLECTSTATIC__ with value of __1__ to the Config Vars in Heroku
+- In __settings.py__ file, add Cloudinary Libraries to the __INSTALLED_APPS__
+- Tell Django to use Cloudinary to store media and static files
+- Link file to the __templates directory in Heroku__
+- Change the templates directory to __TEMPLATES_DIR__
+- Add Heroku Hostname to __ALLOWED_HOSTS__
+
+5) __CREATE FILES__
+- Create 3 new folders on the top level directory: __media, static, templates__
+- Create a __Procfile__ on the top level directory 
+- In the Procfile, add the code: __web: gunicorn PROJ_NAME.wsgi__
+- Save all files; add, commit and push to Github
+
+6) __DEPLOYMENT__
+- IMPORTANT: Set __Debug__ to __False__ in settings.py file
+- Add the setting __X-FRAME_OPTIONS = 'SAMEORIGIN'__ to settings.py file for Summernote
+- In Heroku, delete the Config Var __DISABLE_COLLECTSTATIC__
+- Go to the __Deploy Tab__ and, scrolling down, either __Enable Automatic Deploys__ or __Manually Deploy__ by selecting the chosen branch and clicking on __Deploy Branch__
+
+10) __VIEW LIVE SITE__
+The site is up and running and can be viewed by clicking on the __Open app__ button on the top right side of the project's window on Heroku.
+
+[Back to top ↑](README.md/#myktcn-cookbook)
 - - - 
 ### FORKING THE REPOSITORY
 
@@ -408,4 +452,6 @@ The recipes created by me have been sourced from different websites on the web, 
 ## 8. ACKNOWLEDGEMENTS
 
 This website was created for submission as the __Project Portfolio 4__ for the _Diploma in Full Stack Software Development_ with the [Code Institute](https://codeinstitute.net/). 
+
+[Back to top ↑](README.md/#myktcn-cookbook)
 
