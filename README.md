@@ -34,13 +34,13 @@
 - - -
 ## 1. INTRODUCTION
 
-myKTCN is a Django app created to provide users with a digital cookbook, accessible through an account registration, __to save their personal recipes, share them with the Community if wanted, and access other users' public recipes to get inspired__.
+myKTCN is a Django app created to provide users with a digital cookbook, accessible through an account registration, __to save their recipes, share them with the Community if wanted, and access other users' public recipes to get inspired__.
 
-The app allows users to filter the recipes by category or title/ingredient, rate and comment other users' recipes. 
+The app allows users to filter the recipes by category or title/ingredient, rate and comment on other users' recipes. 
 
-CRUD funtionality is fully implemented: recipes can be created, read, edited or deleted from the database.
+CRUD functionality is fully implemented: recipes can be created, read, edited or deleted from the database.
 
-This app has been created to showcase my Full Stack knowledge, along with my skills relating responsiveness, accessibility and UX Design.
+This app has been created to showcase my Full Stack knowledge, along with my skills relating to responsiveness, accessibility and UX Design.
 - - - 
 ## 2. USER EXPERIENCE DESIGN
 
@@ -54,11 +54,11 @@ This app has been created to showcase my Full Stack knowledge, along with my ski
 
 - As a **Site User**, I can **create an account** so that **I can add, edit and delete recipes in my cookbook, choose which ones to share with the Community and interact with other users' recipes**.
 
-- As a **Site User**, I can **login and logout from my account** so that **it stays secure**.
+- As a **Site User**, I can **log in and log out from my account** so that **it stays secure**.
 
 #### EPIC: APP NAVIGATION
 
-- As a **Site User**, I can **immediately understand the website purpose** so that **I can decide if it meets my needs**.
+- As a **Site User**, I can **immediately understand the website's purpose** so that **I can decide if it meets my needs**.
 
 - As a **Site User**, I can **easily and intuitively navigate the site** so that **I can find the desired content**.
 
@@ -74,7 +74,7 @@ This app has been created to showcase my Full Stack knowledge, along with my ski
 
 #### EPIC: RECIPE INTERACTION
 
-- As a **Site User**, I can **rate other users' recipes** so that **I can leave a feedback about them**.
+- As a **Site User**, I can **rate other users' recipes** so that **I can leave feedback about them**.
 
 - As a **Site User**, I can **comment on the recipes other users have made public** so that **I can express my feedback about them**.
 
@@ -89,7 +89,7 @@ This app has been created to showcase my Full Stack knowledge, along with my ski
 - - -
 ### PROJECT MANAGEMENT
 Agile practices have been followed throughout the development of myKTCN and the GitHub __Project Board__ has been particularly useful to do so. 
-Each User Stories was created as an Issue on the Github repository for this project, then added to the "To do" section of the Project Board, moved to the "In progress" while working on it, and ultimately moved on the "Done" section once the feature was fully implemented.
+Each User Stories was created as an Issue on the Github repository for this project, then added to the "To do" section of the Project Board, moved to the "In progress" while working on it, and ultimately moved to the "Done" section once the feature was fully implemented.
 
 ![myKTCN Project Board](docs/README-images/myKTCN-projectboard.png)
 
@@ -106,14 +106,14 @@ The database models and fields were planned and outlined using an ER Diagram in 
 
 The creation of the diagram was vital to understand how the models relate to each other:
 
-- User: Django allAuth was used for dealing with the registration, management and authentication of the user model.
+- __User__: Django allAuth was used for dealing with the registration, management and authentication of the user model.
 A specific user can be the creator of zero or many recipes, comments and ratings but one specific recipe, comment or rating can belong to one (and one only) user.
 
-- Recipe: a recipe can have zero or many comments, and zero or many ratings.
+- __Recipe__: a recipe can have zero or many comments, and zero or many ratings.
 
-- Comment: a specific comment can belong to one (and one only) recipe.
+- __Comment__: a specific comment can belong to one (and one only) recipe.
 
-- Rating: a certain rating is related to one (and one only) recipe.
+- __Rating__: a certain rating is related to one (and one only) recipe.
 - - - 
 ### WIREFRAMES
 
@@ -128,7 +128,7 @@ All wireframes were created with [Figma](https://www.figma.com/).
 - #### LOGO
 
 myKTCN logo was created by me using [Canva](https://www.canva.com/).
-I wanted to create an engaging logo that immediately conveys the app purpose, with simple colors and a "fun" feel.
+I wanted to create an engaging logo that immediately conveys the app's purpose, with simple colors and a "fun" feel.
 If clicked, it redirects to the homepage of the website.
 
 ![myKTCN Logo](docs/README-images/myKTCN-logo.png)
@@ -143,26 +143,26 @@ The palette was generated from the logo using [Coolors](https://coolors.co/).
 
 - __black__ has been kept as the main color for most of the generic text so that a good background contrast is always present.
 
-- __#ecebeb (greysh color)__ has been used as the background color for the cards and some page sections (to create some separation with the rest of the content).
+- __#ecebeb (greyish color)__ has been used as the background color for the cards and some page sections (to create some separation from the rest of the content).
 
 - - -
 
 - #### ICONS
-  Icons were needed for the social media links, recipe specifications and buttons. They've all have been taken from [FontAwesome](https://fontawesome.com/).
+  Icons were needed for the social media links, recipe specifications and buttons. They've all been taken from [FontAwesome](https://fontawesome.com/).
 
 - - - 
 - #### TYPOGRAPHY
 
 - For the headings, I wanted a font that was delicate but bold and that would attract attention without taking too much away from the rest of the text. So I choose __Playfair Display__ for these purposes.
 
-- The font chosen for the body is __Josefin Sans__, inspired by geometric sans serif designs from the 1920s. It's an easy to read font and it pairs very well with Playfair Display.
+- The font chosen for the body is __Josefin Sans__, inspired by geometric sans serif designs from the 1920s. It's an easy-to-read font and it pairs very well with Playfair Display.
 
-All fonts have been imported in the project from [Google Fonts](https://fonts.google.com/).
+All fonts have been imported into the project from [Google Fonts](https://fonts.google.com/).
 
 - - - 
 - #### IMAGES
 
-The hero images that introduce the homepage, the browse recipes page and the cookbook page, have been taken from [Unsplash](https://unsplash.com) and uploaded on [Cloudinary](https://cloudinary.com/) as persistent file store.
+The hero images that introduce the homepage, the browse recipes page and the cookbook page, have been taken from [Unsplash](https://unsplash.com) and uploaded on [Cloudinary](https://cloudinary.com/) as a persistent file store.
 
 - - - 
 - #### MOCKUPS
@@ -178,7 +178,7 @@ After ideating the website structure and the wireframes, and after having decide
 ### EXISTING FEATURES
 
 #### - __NAVBAR__
-myKTCN navbar is fully responsive and allows an intuitive site navigation.
+myKTCN navbar is fully responsive and allows intuitive site navigation.
 Depending on the user state, it displays different navigation links: 
 - __Logged out / Signed out user:__
 ![Navbar - logged out user](docs/README-images/nav-lg-loggedout.png)
@@ -189,26 +189,26 @@ If the user is not logged in or doesn't still have an account, the navbar is the
 ![Navbar - logged in user](docs/README-images/nav-lg-loggedin.png)
 
 When a user is logged in, the navbar displays the whole range of functionalities available to registered users:
-access to the personal Cookbook and to the recipes from the Community in the main navigation bar, and access to the user's drafts page, a quick link to create a new recipe and a logout button through the dropdown menu that opens under the user profile.
+access to the personal Cookbook and the recipes from the Community in the main navigation bar, and access to the user's drafts page, a quick link to create a new recipe and a logout button through the dropdown menu that opens under the user profile.
 
 - __Hamburger Menu for medium / small screen sizes:__
 ![Navbar - Hamburger Menu](docs/README-images/nav-hamburger.png)
 
-Being fully responsive, the navigation bar shrinks to an hamburger menu when the screen size is below 768px.
-As for larger screen sizes, the toggled hamburger menu shows different navigation links based on the user state.
+Being fully responsive, the navigation bar shrinks to a hamburger menu when the screen size is below 768px.
+As for larger screen sizes, the toggled hamburger menu shows different navigation links based on the user's state.
 - - - 
 #### - __HOMEPAGE__
-The homepage is showed for users that are not logged in or yet registered: it showcases the perks of using the app in a catchy and informative way.
+The homepage is shown for users that are not logged in or yet registered: it showcases the perks of using the app in a catchy and informative way.
 
 - __Hero content and features cards__
 ![Hero and feature cards](docs/README-images/home-perks-cards.png)
 
-The hero section contains a concise introduction of the app main purpose and an image that wants to convey the feel of homecooked meals. It's then followed by a section that, through cards, showcases the perks and functionalities of using the app: it's aimed to convey trustworthiness and inimitability, leaving the users with the feeling that they need to create an account and use the app.
+The hero section contains a concise introduction of the app's main purpose and an image that wants to convey the feel of homecooked meals. It's then followed by a section that, through cards, showcases the perks and functionalities of using the app: it's aimed to convey trustworthiness and inimitability, leaving the users with the feeling that they need to create an account and use the app.
 
 - __Browse recipes section__
 ![Browse recipes section](docs/README-images/home-browse-lg.png)
 
-The browse recipes section is a preview of the Browse recipes page and ends with a button that links to that page of the app. It shows the last four recipes that have been shared in the Community and, under 768px, mutates into a carousel with controls.
+The browse recipes section is a preview of the Browse Recipes page and ends with a button that links to that page of the app. It shows the last four recipes that have been shared in the Community and, under 768px, mutates into a carousel with controls.
 
 ![Carousel](docs/README-images/home-carousel.gif)
 
@@ -225,12 +225,12 @@ myKTCN footer contains links to the social accounts (that open on a new page) an
 #### - __RECIPE FILTERING__
 ![Filter recipes](docs/README-images/filter-recipes.png)
 
-Both in the Browse recipes page and user's personal Cookbook, recipes can be filtered by title or ingredient in a search bar, or by category selectable in a dropdown menu.
+Both in the Browse recipes page and the user's personal Cookbook, recipes can be filtered by title or ingredient in a search bar, or by category selectable in a dropdown menu.
 - - -
 #### - __RECIPES DISPLAY IN BROWSE RECIPES PAGE__
 ![Browse recipes display](docs/README-images/browse-page-recipes.png)
 
-In the browse recipes page, each recipe is displayed through a Bootstrap card that shows its image, average rating, title, a preview of the description, the total preparation time, its cost and level of difficulty. Each card is a link to the full recipe details page.
+On the browse recipes page, each recipe is displayed through a Bootstrap card that shows its image, average rating, title, a preview of the description, the total preparation time, cost and level of difficulty. Each card is a link to the full recipe details page.
 
 On large screen sizes, four recipes are displayed one after the other horizontally, to then become two on medium screens, and on smaller screen sizes each recipe occupies the full width.
 - - -
@@ -248,23 +248,23 @@ For consistency, the same layout used in the browse recipes page was used: four 
 #### - __USER'S DRAFTS__
 ![User's drafts](docs/README-images/drafts.png)
 
-Users can access the drafts page through the dropdown menu that opens on clicking on the user profile in the navbar.
-This page contains all of the recipes that have been started to be created, but saved as "draft" because incomplete. Each draft block shows the recipe image, its title, a button to edit the recipe (that links to the "create recipe" form prefilled with the recipe data already existing in the database), a delete button to eliminate the recipe completely, and the date the recipe was last worked on.
+Users can access the drafts page through the dropdown menu that opens by clicking on the user profile in the navbar.
+This page contains all of the recipes that have been started to be created but saved as "drafts" because incomplete. Each draft block shows the recipe image, its title, a button to edit the recipe (that links to the "create recipe" form prefilled with the recipe data already existing in the database), a delete button to eliminate the recipe completely, and the date the recipe was last worked on.
 - - -
 #### - __ADD RECIPE FORM__
 ![Add recipe form](docs/README-images/recipe-form.gif)
 
-The form to create a new recipe is intuitive and easy to fill in. Users are required to insert the title, description, ingredients and method (these last two fields allow users to automatically have their inputs transformed into a list if the button at the top of the textarea is selected), an image (if none is uploaded, a placeholder image is provided), preparation time and cooking time in minutes, number of servings. They are also requested to select the level of difficulty, recipe cost, category. In the end they're asked if they want their recipe to be saved in their cookbook or as a draft, and if they want to make it available to the Community in the browse recipes page.
+The form to create a new recipe is intuitive and easy to fill in. Users are required to insert the title, description, ingredients and method (these last two fields allow users to automatically have their inputs transformed into a list if the button at the top of the textarea is selected), an image (if none is uploaded, a placeholder image is provided), preparation time and cooking time in minutes, number of servings. They are also requested to select the level of difficulty, recipe cost and category. In the end, they're asked if they want their recipe to be saved in their cookbook or as a draft, and if they want to make it available to the Community in the browse recipes page.
 - - - 
 #### - __RECIPE DETAILS PAGE__
 ![Recipe details page](docs/README-images/recipe-details.gif)
-The recipe details page is displayed in a layout that wants to avoid crowded information and be as neat and organized as possible.-Recipe header: it contains the recipe specifics necessary for the user to understand if that recipe is what he/she was looking for. It displays the recipe image, it's title and category, date of creation, preparation and cooking times, number of servings, cost and difficulty.
+The recipe details page is displayed in a layout that wants to avoid crowded information and be as neat and organized as possible.-__Recipe header__: contains the recipe specifics necessary for the user to understand if that recipe is what he/she was looking for. It displays the recipe image, its title and category, date of creation, preparation and cooking times, number of servings, cost and difficulty.
 
--Recipe description: this section gives extra information about that recipe in the form of a description.
+-__Recipe description__: this section gives extra information about that recipe in the form of a description.
 
--Recipe in action: finally, the practical part of the recipe is shown. Ingredients and method blocks are displayed next to each other (or one after the other in the case of smaller screen sizes). Each ingredient and step is displayed in a list for easy readability and appearance.
+-__Recipe in action__: finally, the practical part of the recipe is shown. Ingredients and method blocks are displayed next to each other (or one after the other in the case of smaller screen sizes). Each ingredient and step is displayed in a list for easy readability and appearance.
 
--Recipe comments: the end of the page shows the list of comments that have been posted for that recipe by users (if there's any).
+-__Recipe comments__: the end of the page shows the list of comments that have been posted for that recipe by users (if there are any).
 - - -
 #### - __EDIT/DELETE RECIPE__
 ![Edit/Delete recipe](docs/README-images/edit-delete-recipe.png)
@@ -272,7 +272,7 @@ In the recipe details page for a specific recipe, if the user is logged in and t
 - - -
 #### - __RATE RECIPE__
 ![Rate recipe](docs/README-images/rate-recipe.gif)
-Under the recipe description in the recipe details page, when a user is logged in and not the author of that specific recipe, a rating system is available.
+Under the recipe description on the recipe details page, when a user is logged in and not the author of that specific recipe, a rating system is available.
 - - -
 #### - __RECIPE COMMENTING__
 ![Comment recipe](docs/README-images/recipe-commenting.png)
@@ -284,11 +284,11 @@ The comment needs to be approved by the admin before publication to maintain the
 ![User login](docs/README-images/login.png)
 ![User logout](docs/README-images/logout.png)
 
-[Django allAuth](https://django-allauth.readthedocs.io/en/latest/) was used for myKTCN to handle user accounts. The basic templates have been customized to fit the app and simplified so that upon registration, username, email and password are required to create an account, to login in only username and password are asked for, and to logout a confirmation of the action is required.
+[Django allAuth](https://django-allauth.readthedocs.io/en/latest/) was used for myKTCN to handle user accounts. The basic templates have been customized to fit the app and simplified so that upon registration, a username, email and password are required to create an account, to login in only username and password are asked for, and to log out a confirmation of the action is required.
 - - - 
 ### FEATURES TO IMPLEMENT IN THE FUTURE
-- A section in the recipe details page that shows the nutritional values for that specific recipes.
-- More recipes filtering options to aid navigation when the browse recipe page or the personal cookbook get populated with a large amount of recipes.
+- A section in the recipe details page that shows the nutritional values for that specific recipe.
+- More recipe filtering options to aid navigation when the browse recipe page or the personal cookbook gets populated with a large number of recipes.
 - Implementing the password retrieving with Django allAuth
 - Implementing Django allAuth registration/logging in using social network accounts
 
@@ -347,24 +347,24 @@ All of the information regarding the testing can be found [here](TESTING.md).
 
 ### Media
 
-The images used for the hero sections in the homepage, browse recipes page and the cookbook page, and the image used as placeholder image for the recipes, were sourced from [Unsplash](https://unsplash.com/).
+The images used for the hero sections on the homepage, browse recipes page and the cookbook page, and the image used as theplaceholder image for the recipes, were sourced from [Unsplash](https://unsplash.com/).
 
 - - - 
 ### Code
 
-- [Django docs] (https://docs.djangoproject.com/en/4.2/) was used for the development of the whole Django app
+- [Django docs](https://docs.djangoproject.com/en/4.2/) was used for the development of the whole Django app
 
 - [Bootstrap docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/) and particularly [this](https://getbootstrap.com/docs/4.0/components/carousel/) for the implementation of the carousel with controls for small screens in the homepage
 
-- [Medium website] (https://medium.com/) has been particularly useful for the implementation of various functionalities used in myKTCN app:
+- [Medium website](https://medium.com/) has been particularly useful for the implementation of various functionalities used in myKTCN app:
    - the __search bar__ used to filter recipes by title or ingredient was implemented thanks to the article at [this link](https://stackpython.medium.com/django-search-with-q-objects-tutorial-9c701db74e0e) 
    - the __category filter__ for filtering recipes by category was implemented following the instructions at [this link](https://medium.com/@balt1794/chapter-15-django-filters-6947da6df52a).
    - the __star rating__ system was successfully implemented thanks to [this tutorial](https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c)
-   - [this article](https://levelup.gitconnected.com/django-customize-404-error-page-72c6b6277317) has helped me writing the 404 custom page for the app
+   - [this article](https://levelup.gitconnected.com/django-customize-404-error-page-72c6b6277317) has helped me write the 404 custom page for the app
 
 - For creating the generic editing view, the [Django generic editing views docs](https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-editing/#django.views.generic.edit) and [CodingEntrepreneurs](https://www.youtube.com/@CodingEntrepreneurs) YouTube Channel at [this](https://www.youtube.com/watch?v=KB_wDXBwhUA) and [this](https://www.youtube.com/watch?v=a718ii0Lf6M) link were extremely helpful.
 
-- [StackOverflow](https://stackoverflow.com/) was particularly helpful in multiple occasions when I didn't know how to implement specific features/the official documentation wasn't clear enough/bugs were encountered.
+- [StackOverflow](https://stackoverflow.com/) was particularly helpful on multiple occasions when I didn't know how to implement specific features/the official documentation wasn't clear enough/bugs were encountered.
 While writing the DeleteView, for example, [this post](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown) has helped me fix the success message not showing due to the fact that SuccessMessageMixin can't be used with DeleteView.
 
 - [Code Institute](https://codeinstitute.net/) walkthrough project "I think, therefore I blog" for the pagination, displaying messages and setting up and deploying the whole app
@@ -380,7 +380,7 @@ The recipes created by me have been sourced from different websites on the web, 
 This program has been deployed to [Heroku](https://www.heroku.com/) following these steps:
 
 1) __CREATE THE HEROKU APP__
-- Log in to your personal account and, after clicking on the __New__ button in the top-right corner of the page, select the __Create new app__ option from the dropdown menu.
+- Log in to your Heroku account and, after clicking on the __New__ button in the top-right corner of the page, select the __Create new app__ option from the dropdown menu.
 - Insert an __app name__ and choose a __region__ (Europe or United States) and click on the __Create app__ button.
 - From the __Settings__, click __"Reveal Config Vars"__
 - Add a Config Var called __DATABASE_URL__ and give it the value of the ElephantSQL __database URL__ created.
@@ -434,7 +434,6 @@ The site is up and running and can be viewed by clicking on the __Open app__ but
 
  5) Click _Create fork_
 
-![Forking the repository](docs/README-images/how-to-fork.gif) 
 - - -
 ### CLONING THE REPOSITORY
 
