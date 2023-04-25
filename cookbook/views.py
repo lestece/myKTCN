@@ -287,7 +287,7 @@ class RecipeDeleteView(SuccessMessageMixin, DeleteView):
 
 """
 Custom 404 error view.
-Tutotial at https://levelup.gitconnected.com
+Tutorial at https://levelup.gitconnected.com
 /django-customize-404-error-page-72c6b6277317
 """
 

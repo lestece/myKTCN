@@ -347,14 +347,31 @@ All of the information regarding the testing can be found [here](TESTING.md).
 
 ### Media
 
+The images used for the hero sections in the homepage, browse recipes page and the cookbook page, and the image used as placeholder image for the recipes, were sourced from [Unsplash](https://unsplash.com/).
 
 - - - 
 ### Code
 
+- [Django docs] (https://docs.djangoproject.com/en/4.2/) was used for the development of the whole Django app
 
+- [Bootstrap docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/) and particularly [this](https://getbootstrap.com/docs/4.0/components/carousel/) for the implementation of the carousel with controls for small screens in the homepage
+
+- [Medium website] (https://medium.com/) has been particularly useful for the implementation of various functionalities used in myKTCN app:
+   - the __search bar__ used to filter recipes by title or ingredient was implemented thanks to the article at [this link](https://stackpython.medium.com/django-search-with-q-objects-tutorial-9c701db74e0e) 
+   - the __category filter__ for filtering recipes by category was implemented following the instructions at [this link](https://medium.com/@balt1794/chapter-15-django-filters-6947da6df52a).
+   - the __star rating__ system was successfully implemented thanks to [this tutorial](https://medium.com/geekculture/django-implementing-star-rating-e1deff03bb1c)
+   - [this article](https://levelup.gitconnected.com/django-customize-404-error-page-72c6b6277317) has helped me writing the 404 custom page for the app
+
+- For creating the generic editing view, the [Django generic editing views docs](https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-editing/#django.views.generic.edit) and [CodingEntrepreneurs](https://www.youtube.com/@CodingEntrepreneurs) YouTube Channel at [this](https://www.youtube.com/watch?v=KB_wDXBwhUA) and [this](https://www.youtube.com/watch?v=a718ii0Lf6M) link were extremely helpful.
+
+- [StackOverflow](https://stackoverflow.com/) was particularly helpful in multiple occasions when I didn't know how to implement specific features/the official documentation wasn't clear enough/bugs were encountered.
+While writing the DeleteView, for example, [this post](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown) has helped me fix the success message not showing due to the fact that SuccessMessageMixin can't be used with DeleteView.
+
+- [Code Institute](https://codeinstitute.net/) walkthrough project "I think, therefore I blog" for the pagination, displaying messages and setting up and deploying the whole app
 - - - 
 ### Content
 
+The recipes created by me have been sourced from different websites on the web, including [BBC Good Food](https://www.bbcgoodfood.com/recipes) and [Giallozafferano](https://www.giallozafferano.com/).
 
 [Back to top ↑](README.md/#myktcn-cookbook)
 - - - 
