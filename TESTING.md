@@ -3,24 +3,32 @@
 ## TABLE OF CONTENTS
 
 1) [Manual Testing](#1-manual-testing)
-    - []()
-    - []()
-    - []()
-    - []()
-    - []()
-    - []()
+    - [Navigation](TESTING.md/#navigation)
+    - [Homepage](TESTING.md/#homepage)
+    - [Browse recipes](TESTING.md/#browse-recipes)
+    - [Login page](TESTING.md/#login-page)
+    - [Sign up page](TESTING.md/#signup-page)
+    - [Logout page](TESTING.md/#logout-page)
+    - [Cookbook](TESTING.md/#cookbook)
+    - [Recipe details page](TESTING.md/#recipe-details)
+    - [Drafts page](TESTING.md/#drafts)
+    - [Add recipe page](TESTING.md/#add-recipe)
+    - [Edit recipe page](TESTING.md/#edit-recipe)
+    - [Delete recipe page](TESTING.md/#delete-recipe)
+    - [404 page](TESTING.md/#404-page)
+    - [Admin panel](TESTING.md/)
 2) [Code Validation](#2-code-validation)
-    - [W3C HTML Validation]()
-    - [W3C (Jigsaw) CSS Validation]()
-    - [JSHint JavaScript Validation]()
-    - [CI Python Linter Python Validation]()
+    - [W3C HTML Validation](TESTING.md/#w3c-html-validation)
+    - [W3C (Jigsaw) CSS Validation](TESTING.md/#jigsaw-css-validation)
+    - [JSHint JavaScript Validation](TESTING.md/#jshint-javascript-validation)
+    - [CI Python Linter Python Validation](TESTING.md/#ci-python-linter-python-validation)
 3) [Responsiveness testing](TESTING.md/#3-responsiveness-testing)
-    - [Homepage responsiveness](TESTING.md/#homepage-responsiveness)
-    - [Browse recipes responsiveness](TESTING.md/#homepage-modal-windows-responsiveness)
-    - [Cookbook responsiveness](TESTING.md/#quiz-responsiveness)
-    - [Recipe form responsiveness](TESTING.md/#signup-page-responsiveness)
-    - [Drafts page responsiveness](TESTING.md/#quiz-result-responsiveness)
-    - [User account responsiveness](TESTING.md/#dosha-modal-window-responsiveness)
+    - [Homepage responsiveness](TESTING.md/)
+    - [Browse recipes responsiveness](TESTING.md/)
+    - [Cookbook responsiveness](TESTING.md/eness)
+    - [Recipe form responsiveness](TESTING.md/)
+    - [Drafts page responsiveness](TESTING.md/)
+    - [User account responsiveness](TESTING.md/)
 4) [Browser compatibility](TESTING.md/#4-browser-compatibility)
 5) [Bugs and fixes](TESTING.md/#5-bugs-and-fixes)
 6) [Lighthouse reports](TESTING.md/#6-ligthouse-reports)
@@ -30,6 +38,8 @@
 
 - - -
 ## 1) MANUAL TESTING
+
+myKTCN has been thoroughly manually tested to make sure that the app works as intended. The tests are reported in the tables below and the related screen recordings [can be found here](docs/TESTING-images/manual-testing).
 
 ### NAVIGATION
 | Element     | Expectation        | Test Result  |
@@ -109,6 +119,53 @@
 | Recipe published | If user choses to save as 'published', the recipe is saved in the user's cookbook page | Pass |
 | Recipe shared  | If user checks the 'share with the Community' box, the recipe is made available to everybody in the browse recipes page  | Pass |
 | Create recipe btn  | Correctly saves the recipe and redirects to the recipe details page or draft page based on user choice | Pass |
+
+### EDIT RECIPE
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Form  | All fields are prefilled with the previous recipe details  | Pass |
+| Image field  | Correctly uploads the user selected image for the recipe | Pass |
+| Ingredients field  | Shows the Summernote widget to insert ingredients as a list | Pass |
+| Method field  | Shows the Summernote widget to insert the steps as a list | Pass |
+| Select fields  | Choices are selectable | Pass |
+| Recipe draft  | Is user choses to save as 'draft', the recipe is saved in the user's drafts page | Pass |
+| Recipe published | If user choses to save as 'published', the recipe is saved in the user's cookbook page | Pass |
+| Recipe shared  | If user checks the 'share with the Community' box, the recipe is made available to everybody in the browse recipes page  | Pass |
+| Edit recipe btn  | Correctly saves the recipe with the edited information and redirects to the recipe details page or draft page based on user choice | Pass |
+
+### DELETE RECIPE
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Confirm button  | On click, the recipe is successfully deleted from the database  | Pass |
+
+### 404 PAGE
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Back to home btn  | On click, it redirects to the homepage | Pass |
+
+- - - 
+### ADMIN PANEL
+
+- The Recipe, Comment and Rating models are successfully registered in the admin panel.
+
+![Admin panel](docs/TESTING-images/manual-testing/admin-panel.png)
+
+- Admins have full control over the recipes, being able to create/edit and/or delete them.
+
+![Admin recipe control](docs/TESTING-images/manual-testing/admin-recipe-control.png)
+
+- Admins also have full control over the comments so that the app content is kept safe and respectful at all times. For improved functionality, comments can also be approved or deleted from the general comments.
+
+![Admin comments control](docs/TESTING-images/manual-testing/admin-comments-control.png)
+
+- Each single rating is successfully recorded in the database. This has been particularly helpful to test that the average rating for each recipe was being calculated correctly.
+
+![Admin ratings](docs/TESTING-images/manual-testing/admin-ratings.png)
+
+- Django allauth works successfully and the admins can change users permissions.
+
+![Admin users](docs/TESTING-images/manual-testing/admin-users.png)
+
 - - -
 
 ## 2) CODE VALIDATION
