@@ -337,7 +337,7 @@ I improved the scores by optimizing, resizing and converting the images uploaded
 - - -
 ## 6) USER TESTING
 
-myKTCN has been sent to friends and family to be tested on their devices and gain user feedback. No bugs were reported and the app has been reported as perfectly functioning, appealing and user-friendly.
+myKTCN has been sent to friends and family to be tested on their devices and gain user feedback. No bugs were reported and the app has been judged as perfectly functioning, appealing and user-friendly.
 
 [Back to top ↑](TESTING.md/#myktcn-app-testing)
 

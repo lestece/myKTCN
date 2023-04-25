@@ -303,8 +303,37 @@ All of the information regarding the testing can be found [here](TESTING.md).
 ## 5. TECHNOLOGIES USED
 
 ### Main languages used
+- HTML
+- CSS
+- JavaScript
+- Python
 
 ### Frameworks, Libraries and Programs used
+- [Django](https://www.djangoproject.com/): used as main Python framework for this project
+- [Django-allauth](https://django-allauth.readthedocs.io/en/latest/): authentication library used for creating and managing user accounts
+- [Bootstrap5](https://getbootstrap.com/docs/5.0/getting-started/introduction/): CSS framework used in the templates to make the app responsive and to use a mobile-first approach
+- [Django-crispyforms](https://django-crispy-forms.readthedocs.io/en/latest/): used to manage the Django forms in the app
+- [Django-filter](https://django-filter.readthedocs.io/en/stable/): used to implement the filter by category functionality
+- [Django-Summernote](https://github.com/summernote/django-summernote): to implement the Summernote editor in the ingredients and method fields of the recipe forms
+- [Select2](https://select2.org/): JQuery replacement used for the category filter select boxes
+- [ElephantSQL](https://www.elephantsql.com/): PostgreSQL used as the database for myKTCN
+- [Cloudinary](https://cloudinary.com/): used to host all the images 
+- [Heroku](https://heroku.com/): Cloud platform used to host the app
+- [GitPod](https://gitpod.io): used for writing this website code, committing and pushing to GitHub.
+- [GitHub](https://github.com/): used for hosting, storing, deploying the project and for an agile development.
+- [Figma](https://www.figma.com/): used for designing the wireframes and mockups for the website in the first phase of the development process
+- [Coolors](https://coolors.co/): to generate the color palette from the logo created for this app
+- [Canva](https://www.canva.com/): for creating the website logo
+- [Google Fonts](https://fonts.google.com/): used for importing the fonts for this  website ("Josefin Sans" and "Playfair Display") into the project
+- [FontAwesome](https://fontawesome.com/): used for the social media icons
+- [Flaticon.com](https://www.flaticon.com/): used for the title bar icon
+- [Icoconverter.com](https://www.icoconverter.com/): used for converting the title bar icon into the .ico format
+- [GifCap (by João Moreno)](https://gifcap.dev/): used for creating the gifs from the screen recordings during the testing process (for the TESTING.md) and for this README file. 
+- [AmIResponsive](https://ui.dev/amiresponsive): used for capturing a screenshot of how the website look on different screen sizes (screenshot that introduces this README file)
+- [Unsplash](https://unsplash.com/): used for downloading the hero images 
+- [TinyPNG](https://tinypng.com/): used for compressing and optimizing the logo, hero images and the image placeholder for the recipes
+- [beFunky](https://www.befunky.com/features/resize-image/): used for resizing the hero images and the image placeholder for the recipes
+- [Convertio](https://convertio.co/it/jpg-webp/): used for converting the logo, hero images and the image placeholder for the recipes to the webp format
 
 [Back to top ↑](README.md/#myktcn-cookbook)
 - - - 
