@@ -31,6 +31,57 @@
 - - -
 ## 1) MANUAL TESTING
 
+### NAVIGATION
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Navbar links | Link to the correct pages | Pass | 
+| Footer  | Social links open in a new tab | Pass |           
+
+### HOMEPAGE 
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Page  | Not visible when user logs in/signs up  | Pass |
+| 'Browse all" button | Links to the browse recipes page| Pass | 
+| 'Sign up' button  | Links to the Sign Up page | Pass |
+| Carousel for small screens  | Shows the latest 4 added recipes, slides automatically and controls work | Pass |
+
+### BROWSE RECIPES
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Search bar  | Returns the recipes containing the inputted ingredient in the title or ingredients list. Empty result if there's no match.  | Pass |
+| Category filter | Returns the recipes that belong in the selected category| Pass | 
+| Recipe cards  | Shows average rating | Pass |
+| Recipe cards  | On click, they link to the related recipe details page | Pass |
+
+### LOGIN PAGE
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Form  | Invalid input data is handled  | Pass |
+| Form | Valid input data logs the user in| Pass | 
+| 'Remember me' checkbox  | When selected, the user is not logged out after inactivity | Pass |
+| 'Log me in' button  | Based on valid or invalid form data, on click it either logs the user in or asks for valid data insertion | Pass |
+
+### SIGNUP PAGE
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Form  | Invalid input data is handled  | Pass |
+| Form | Valid input data logs the user in| Pass | 
+| 'Remember me' checkbox  | When selected, the user is not logged out after inactivity | Pass |
+| 'Sign up' button  | Based on valid or invalid form data, on click it either registers the user or asks for valid data insertion | Pass |
+
+### LOGOUT PAGE
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Confirm logout button  | On click, the user is logged out and notifies user about it  | Pass |
+
+### COOKBOOK
+| Element     | Expectation        | Test Result  |
+| ------------- | ------------- |---------------|
+| Search bar  | Returns the recipes containing the inputted ingredient in the title or ingredients list. Empty result if there's no match.  | Pass |
+| Category filter | Returns the recipes that belong in the selected category| Pass |
+| Recipe cards  | On click, they link to the related recipe details page | Pass |
+
+
 - - -
 
 ## 2) CODE VALIDATION
@@ -100,7 +151,6 @@ I improved the scores by optimizing, resizing and converting the images uploaded
 | __browse_recipes__ - logged out user |  53-49  |   89-88  |  100-100   | 90-89   | <details><summary>click</summary> ![browse-logout-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-browserecipes-loggedout-desktop.png) </details>|<details><summary>click</summary> ![browse-logout-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-browserecipes-loggedout-mobile.png) </details> |
 | __browse_recipes__ - logged in user |  52-49  |   89-88  |  100-100   | 90-89   | <details><summary>click</summary> ![browse-login-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-browserecipes-loggein-desktop.png) </details>|<details><summary>click</summary> ![browse-login-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-browserecipes-loggein-mobile.png) </details> |
 | __cookbook__ |  75-65  |   89-88  |  100-100   | 90-89   | <details><summary>click</summary> ![cookbook-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-cookbook-desktop.png) </details>|<details><summary>click</summary> ![cookbook-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-cookbook-mobile.png) </details> |
-| __drafts__ |  71-64  |   95-94  |  92-92   | 90-92   | <details><summary>click</summary> ![drafts-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-drafts-desktop.png) </details>|<details><summary>click</summary> ![drafts-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-drafts-mobile.png) </details> |
 | __drafts__ |  71-64  |   95-94  |  92-92   | 90-92   | <details><summary>click</summary> ![drafts-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-drafts-desktop.png) </details>|<details><summary>click</summary> ![drafts-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-drafts-mobile.png) </details> |
 | __recipe_create__ |  98-73  |   94-92  |  100-100   | 90-92   | <details><summary>click</summary> ![addrecipe-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-addrecipe-desktop.png) </details>|<details><summary>click</summary> ![addrecipe-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-addrecipe-mobile.png) </details> |
 | __recipe_edit__ |  97-69  |   94-92  |  100-100   | 90-92   | <details><summary>click</summary> ![editrecipe-desktop](docs/TESTING-images/lighthouse-reports/lighthouse-editrecipe-desktop.png) </details>|<details><summary>click</summary> ![ editrecipe-mobile](docs/TESTING-images/lighthouse-reports/lighthouse-editrecipe-mobile.png) </details> |
